@@ -1,0 +1,73 @@
+.reminderContainer {
+    margin: 100px 20px 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .reminderMain {
+        margin: 0 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        background: linear-gradient(0.25turn, rgb(0, 4, 8), rgb(23, 2, 71), rgb(10, 0, 0));
+        border-radius: 20px;
+        border: solid 1px rgb(76, 0, 255);
+        box-shadow: 0 0 10px rgb(76, 0, 255);
+        .reminder {
+            padding: 20px 20px;
+            width: 80%;
+            .reminderTitle {
+                margin: 0;
+                font-size: 40px;
+            }
+            .reminderDescription {
+                margin: 20px 0;
+                width: 100%;
+                font-size: 26px;
+            }
+        }
+        .reminderMainIcon {
+            margin: 20px;
+            color: rgb(76, 0, 255);
+            filter: drop-shadow(0 0 10px rgb(76, 0, 255));
+            & path {
+                border: solid black 1px;
+            }
+        }
+    }
+    .reminderCards {
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        justify-content: center;
+        margin: 50px 20px 20px 20px;
+    }
+    .reminderCard {
+        background: black;
+        border-radius: 10px;
+        border: solid 1px aqua;
+        box-shadow: 0 0 10px aqua;
+        margin: 10px;
+        padding: 20px;
+    }
+    .reminderTitle {
+        font-size: 26px;
+    }
+    @media (max-width: 636px) {
+        .reminderMain {
+            flex-direction: column-reverse;
+            margin: 0 20px;
+        }
+        .reminderMainIcon {
+            margin-top: 10px;
+            height: 200px;
+        }
+        .reminder {
+            text-align: center;
+        }
+        .reminderCards {
+            display: flex;
+            flex-direction: column;
+            margin: 20px 10px;
+        }
+    }
+}

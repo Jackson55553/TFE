@@ -1,0 +1,87 @@
+@import '_variables';
+.layout {
+    padding: 20px 0 0 0;
+    user-select: none;
+}
+.tokensPage {
+    padding: 20px;
+    min-height: 100vh;
+    margin: 0 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px aqua;
+    background: black;
+}
+.walletButton {
+    margin: 20px;
+    display: flex;
+    justify-content: end;
+    & button {
+        background: black;
+        box-shadow: 0 0 10px aqua;
+        border: solid 1px aqua;
+        color: aqua;
+        transition: 0.3s ease-in-out;
+        &:hover {
+            box-shadow: 0 0 20px aqua;
+            background: black;
+        }
+    }
+    & ul {
+        background: black;
+        border: solid 1px aqua;
+        box-shadow: 0 0 5px aqua;
+        & li {
+            color: aqua;
+        }
+    }
+}
+.tokensHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+}
+
+.tokensHeaderLink {
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: clamp(18px, 3vw, 30px);
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+}
+.disabledLink {
+    color: grey;
+    text-shadow: 0 0 2px grey;
+    cursor: no-drop;
+    overflow: hidden;
+}
+.activeLink {
+    padding: 10px;
+    @extend%primary-color-text;
+
+    &:hover,
+    &:focus {
+        // transition: 0.3s ease-in-out;
+        color: rgb(210, 252, 252);
+        text-shadow: 0 0 15px rgb(7, 243, 243);
+    }
+}
+
+.onFocusLink {
+    padding: 10px;
+    color: rgb(210, 252, 252);
+    text-shadow: 0 0 15px rgb(7, 243, 243);
+    background: black;
+    border: solid 1px aqua;
+    border-bottom-width: 0;
+}
+
+@media (max-width: 551px) {
+    .tokensHeader {
+        display: none;
+    }
+    .walletButton {
+        justify-content: center;
+    }
+}

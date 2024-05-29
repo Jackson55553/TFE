@@ -1,0 +1,17 @@
+.defaultBtn {
+    font-family: 'IcebergRegular';
+    font-size: 24px;
+    color: aqua;
+    background: black;
+    border-radius: 10px;
+    border-color: aqua;
+    box-shadow: 0 0 5px aqua;
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+        color: white;
+        border-color: white;
+        box-shadow: 0 0 10px white;
+    }
+}

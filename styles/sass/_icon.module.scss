@@ -1,0 +1,53 @@
+.mainIcon {
+    height: 100px;
+    width: 170px;
+
+    .mainIconBg {
+        animation: 2s pulse infinite ease-in-out;
+    }
+
+    .miniEllipsOne {
+        filter: drop-shadow(0 0 2px aqua);
+        animation: 2s flying ease-in-out infinite;
+    }
+    .miniEllipsTwo {
+        filter: drop-shadow(0 0 2px aqua);
+        animation: 2.2s flying ease-in-out infinite;
+    }
+    .miniEllipsThree {
+        filter: drop-shadow(0 0 2px aqua);
+        animation: 2.4s flying ease-in-out infinite;
+    }
+}
+
+@keyframes flying {
+    0% {
+        transform: translate(-10px, 10px);
+        fill: rgba(0, 0, 0, 0);
+    }
+
+    30% {
+        fill: aqua;
+    }
+
+    90% {
+        fill: rgba(0, 255, 255, 0);
+    }
+
+    100% {
+        transform: translate(30px, -20px);
+        fill: rgba(0, 255, 255, 0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        filter: drop-shadow(0 0 4px aqua);
+    }
+    50% {
+        filter: drop-shadow(0 0 10px aqua);
+    }
+    100% {
+        filter: drop-shadow(0 0 4px aqua);
+    }
+}

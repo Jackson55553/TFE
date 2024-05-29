@@ -1,0 +1,90 @@
+@import '_variables';
+
+.burgerMenuIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 20px 0 10px;
+    display: none;
+    .icon {
+        color: $primary-color;
+        filter: drop-shadow(0 0 2px aqua);
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+
+        &:hover,
+        &:focus {
+            color: rgb(210, 252, 252);
+            filter: drop-shadow(0 0 8px rgb(7, 243, 243));
+        }
+    }
+
+    @media (max-width: 551px) {
+        & {
+            display: block;
+        }
+    }
+}
+
+.burgerMenuWrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.527);
+    z-index: 290;
+}
+.visibleMenuWrapper {
+    width: 100%;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+.hiddenMenuWrapper {
+    width: 0;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+.burgerMenu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background: black;
+    border-radius: 10px 0 0 10px;
+    box-shadow: -10px 0px 20px 12px $primary-color;
+    z-index: 300;
+    // overflow: auto;
+    // &::-webkit-scrollbar {
+    //     display: none;
+    // }
+}
+
+.visibleMenu {
+    width: 80%;
+    opacity: 1;
+    transition: 0.5s ease-in-out;
+}
+.hiddenMenu {
+    opacity: 0;
+    width: 0;
+    transition: 0.5s ease-in-out;
+}
+.burgerCloseBtn {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 30px;
+    right: 30px;
+    height: 40px;
+    width: 40px;
+}
+.burgerIcon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    & svg {
+        height: 100px;
+        width: 120px;
+    }
+}

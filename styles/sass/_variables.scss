@@ -1,0 +1,23 @@
+$primary-font: IcebergRegular;
+$primary-color: aqua;
+%primary-color-text {
+    color: aqua;
+    text-shadow: 0 0 10px aqua;
+}
+
+%full-hw {
+    width: 100%;
+    height: 100%;
+}
+%flex-col-centr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+%flex-row-centr {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

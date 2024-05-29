@@ -1,0 +1,23 @@
+@import '_variables';
+.html {
+    // @extend%full-hw; //page size only
+    min-height: 100%;
+    font-family: $primary-font;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(#000203, #0d467b, #00f0ff);
+    background-repeat: no-repeat;
+}
+
+@font-face {
+    font-family: 'IcebergRegular';
+    src: url('../../fonts/Iceland-Regular.ttf');
+}

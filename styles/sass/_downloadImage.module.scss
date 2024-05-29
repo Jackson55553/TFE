@@ -1,0 +1,94 @@
+@import '_variables';
+.imgContainer {
+    font-family: $primary-font;
+    margin: 20px 0;
+    & svg {
+        color: aqua;
+        height: 10%;
+        width: 10%;
+    }
+}
+.buttonDownload {
+    font-family: $primary-font;
+    padding: 10px;
+    color: aqua;
+    background: black;
+    border-radius: 10px;
+    border-color: aqua;
+    box-shadow: 0 0 5px aqua;
+    width: 40%;
+    font-size: clamp(20px, 2vw, 22px);
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+    &:hover {
+        color: white;
+        border-color: white;
+        box-shadow: 0 0 10px white;
+    }
+}
+.drugImg {
+    position: relative;
+    padding: 20px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed aqua;
+    border-radius: 10px;
+    color: aqua;
+    margin: 15px 0;
+    font-size: clamp(12px, 3vw, 22px);
+}
+.clearButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: aqua;
+    background: black;
+    border-radius: 10px;
+    border-color: aqua;
+    box-shadow: 0 0 5px aqua;
+    cursor: pointer;
+    transition: 0.2s;
+    &:hover {
+        color: white;
+        border-color: white;
+        box-shadow: 0 0 10px white;
+        & svg {
+            color: white;
+        }
+    }
+    & svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+.noneBlock {
+    display: none;
+}
+.fileInput {
+    opacity: 0;
+    height: 0;
+    width: 0;
+    line-height: 0;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+@media (max-width: 768px) {
+    .drugImg {
+        border: none;
+        & p {
+            display: none;
+        }
+    }
+    .clearButton {
+        display: none;
+    }
+    .imgContainer button {
+        width: 100%;
+        margin-top: 10px;
+    }
+}

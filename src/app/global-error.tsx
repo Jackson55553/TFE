@@ -1,12 +1,7 @@
-"use client";
+'use server';
+import React from 'react';
 
-export default function GlobalError({
-    error,
-    reset,
-}: {
-    error: Error & { digest?: string };
-    reset: () => void;
-}) {
+export default async function GlobalError({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
     return (
         <html>
             <body>

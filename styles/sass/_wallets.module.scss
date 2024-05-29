@@ -1,0 +1,9 @@
+@use '_variables';
+.layout {
+    @extend%full-hw;
+    display: flex;
+    flex-direction: column;
+}
+.walletsPage {
+    @extend%full-hw;
+}

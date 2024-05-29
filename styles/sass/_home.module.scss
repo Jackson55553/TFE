@@ -1,0 +1,36 @@
+@import '_variables';
+
+.homePage {
+    @extend %full-hw;
+    @extend %primary-color-text;
+    flex: 1 0 auto;
+    padding: 30px 0 0 0;
+    // font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    user-select: none;
+
+    .welcomeHeader {
+        font-size: 50px;
+        margin: 80px 20px 10px 20px;
+        text-align: center;
+    }
+    .welcomeDescription {
+        margin: 0 20px;
+        font-size: 30px;
+        text-align: center;
+    }
+}
+.disclaimer {
+    width: 90%;
+    margin: 40px 20px 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.432);
+    border-radius: 10px;
+    // border: solid 1px aqua;
+    // box-shadow: 0 0 10px aqua;
+}

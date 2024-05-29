@@ -1,0 +1,39 @@
+.toggleBtn {
+    margin: 0 20px;
+    background-color: rgb(29, 29, 29);
+    border: solid 1px aqua;
+    border-radius: 99px;
+    width: 50px;
+    height: 29px;
+    transition:
+        background-color 0.1s ease,
+        border-color 0.2s ease;
+    cursor: pointer;
+    box-shadow: 0 0 5px aqua;
+    position: relative;
+    & .thumb {
+        height: 20px;
+        width: 20px;
+        background-color: aqua;
+        border-radius: 99px;
+        transform: translateX(0);
+        transition: left 0.15s ease;
+        position: absolute;
+        left: 3px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+.toggled {
+    background-color: aqua;
+    border: solid 1px black;
+    & .thumb {
+        left: calc(50px - 25px);
+        background-color: black;
+    }
+}
+@media (max-width: 344px) {
+    .toggleBtn {
+        margin: 0 10px;
+    }
+}

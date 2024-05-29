@@ -1,0 +1,1817 @@
+.activeLink, .container a, .container, .navCotainer .navLink, .homePage, .header .headerContainer h1 {
+  color: aqua;
+  text-shadow: 0 0 10px aqua;
+}
+
+.walletsPage, .container, .liquidityPage, .homePage, .aboutPage, .layout {
+  width: 100%;
+  height: 100%;
+}
+
+.disclaimerPage, .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.navCotainer, .header .headerContainer .navContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.aboutPage {
+  user-select: none;
+  min-height: 100%;
+  padding-top: 20px;
+}
+
+.aboutText {
+  white-space: pre-line;
+  margin: 50px 20px;
+  font-size: clamp(26px, 3vw, 40px);
+}
+
+.activeLink, .container a, .container, .navCotainer .navLink, .homePage, .header .headerContainer h1 {
+  color: aqua;
+  text-shadow: 0 0 10px aqua;
+}
+
+.walletsPage, .container, .liquidityPage, .homePage, .layout, .aboutPage {
+  width: 100%;
+  height: 100%;
+}
+
+.disclaimerPage, .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.navCotainer, .header .headerContainer .navContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.burgerMenuIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 20px 0 10px;
+  display: none;
+}
+.burgerMenuIcon .icon {
+  color: aqua;
+  filter: drop-shadow(0 0 2px aqua);
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.burgerMenuIcon .icon:hover, .burgerMenuIcon .icon:focus {
+  color: rgb(210, 252, 252);
+  filter: drop-shadow(0 0 8px rgb(7, 243, 243));
+}
+@media (max-width: 551px) {
+  .burgerMenuIcon {
+    display: block;
+  }
+}
+
+.burgerMenuWrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.527);
+  z-index: 290;
+}
+
+.visibleMenuWrapper {
+  width: 100%;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.hiddenMenuWrapper {
+  width: 0;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
+
+.burgerMenu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  background: black;
+  border-radius: 10px 0 0 10px;
+  box-shadow: -10px 0px 20px 12px aqua;
+  z-index: 300;
+}
+
+.visibleMenu {
+  width: 80%;
+  opacity: 1;
+  transition: 0.5s ease-in-out;
+}
+
+.hiddenMenu {
+  opacity: 0;
+  width: 0;
+  transition: 0.5s ease-in-out;
+}
+
+.burgerCloseBtn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 30px;
+  right: 30px;
+  height: 40px;
+  width: 40px;
+}
+
+.burgerIcon {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+.burgerIcon svg {
+  height: 100px;
+  width: 120px;
+}
+
+.defaultBtn {
+  font-family: "IcebergRegular";
+  font-size: 24px;
+  color: aqua;
+  background: black;
+  border-radius: 10px;
+  border-color: aqua;
+  box-shadow: 0 0 5px aqua;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.defaultBtn:hover {
+  color: white;
+  border-color: white;
+  box-shadow: 0 0 10px white;
+}
+
+.footerContainer {
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+  margin-top: auto;
+}
+.footerContainer .footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footerContainer .footer .linkCategory {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 20px 0;
+}
+.footerContainer .footer .linkCategory a {
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  color: black;
+  font-size: clamp(26px, 2vw, 35px);
+  transition: 0.2s ease-in-out;
+  width: fit-content;
+}
+.footerContainer .footer .linkCategory a:hover {
+  color: white;
+  text-shadow: 0 0 5px black;
+}
+.footerContainer .footer .linkCategory p {
+  margin: 0 20px;
+}
+@media (max-width: 551px) {
+  .footerContainer .footer .linkCategory {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.activeLink, .container a, .container, .navCotainer .navLink, .homePage, .header .headerContainer h1 {
+  color: aqua;
+  text-shadow: 0 0 10px aqua;
+}
+
+.walletsPage, .container, .liquidityPage, .homePage, .layout, .aboutPage {
+  width: 100%;
+  height: 100%;
+}
+
+.disclaimerPage, .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.navCotainer, .header .headerContainer .navContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.html {
+  min-height: 100%;
+  font-family: IcebergRegular;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  background: linear-gradient(#000203, #0d467b, #00f0ff);
+  background-repeat: no-repeat;
+}
+
+@font-face {
+  font-family: "IcebergRegular";
+  src: url("../../fonts/Iceland-Regular.ttf");
+}
+.activeLink, .container a, .container, .navCotainer .navLink, .homePage, .header .headerContainer h1 {
+  color: aqua;
+  text-shadow: 0 0 10px aqua;
+}
+
+.walletsPage, .container, .liquidityPage, .homePage, .layout, .aboutPage {
+  width: 100%;
+  height: 100%;
+}
+
+.disclaimerPage, .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.navCotainer, .header .headerContainer .navContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  width: 100%;
+}
+.header .headerContainer {
+  padding-top: 30px;
+  display: flex;
+  background: none;
+  align-items: center;
+  justify-content: start;
+  flex-wrap: nowrap;
+  user-select: none;
+}
+.header .headerContainer h1 {
+  width: 100%;
+  margin: 0 30px;
+  font-size: clamp(52px, 6vw, 104px);
+  text-align: center;
+  cursor: default;
+}
+.header .headerContainer .abbreviature {
+  animation: 2s ease-in-out pulse infinite;
+}
+.header .headerContainer .navContainer {
+  height: 100%;
+  width: 100%;
+  margin-top: 15px;
+}
+@media (max-width: 1124px) {
+  .header .headerContainer {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 768px) {
+  .header .headerContainer {
+    justify-content: center;
+    text-align: center;
+  }
+  .header .headerContainer h1 {
+    margin: 20px 30px;
+  }
+}
+@media (max-width: 551px) {
+  .header .headerContainer {
+    height: 134px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
+  .header .headerContainer .mainIcon {
+    display: none;
+  }
+  .header .headerContainer .navContainer {
+    display: none;
+  }
+}
+@media (max-width: 443px) {
+  .header .headerContainer h1 {
+    font-size: 40px;
+    margin: 20px 0px;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    filter: drop-shadow(0 0 4px aqua);
+  }
+  50% {
+    filter: drop-shadow(0 0 10px aqua);
+  }
+  100% {
+    filter: drop-shadow(0 0 4px aqua);
+  }
+}
+.activeLink, .container a, .container, .navCotainer .navLink, .homePage, .header .headerContainer h1 {
+  color: aqua;
+  text-shadow: 0 0 10px aqua;
+}
+
+.walletsPage, .container, .liquidityPage, .homePage, .layout, .aboutPage {
+  width: 100%;
+  height: 100%;
+}
+
+.disclaimerPage, .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.navCotainer, .header .headerContainer .navContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.homePage {
+  flex: 1 0 auto;
+  padding: 30px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  user-select: none;
+}
+.homePage .welcomeHeader {
+  font-size: 50px;
+  margin: 80px 20px 10px 20px;
+  text-align: center;
+}
+.homePage .welcomeDescription {
+  margin: 0 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.disclaimer {
+  width: 90%;
+  margin: 40px 20px 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.432);
+  border-radius: 10px;
+}
+
+.mainIcon {
+  height: 100px;
+  width: 170px;
+}
+.mainIcon .mainIconBg {
+  animation: 2s pulse infinite ease-in-out;
+}
+.mainIcon .miniEllipsOne {
+  filter: drop-shadow(0 0 2px aqua);
+  animation: 2s flying ease-in-out infinite;
+}
+.mainIcon .miniEllipsTwo {
+  filter: drop-shadow(0 0 2px aqua);
+  animation: 2.2s flying ease-in-out infinite;
+}
+.mainIcon .miniEllipsThree {
+  filter: drop-shadow(0 0 2px aqua);
+  animation: 2.4s flying ease-in-out infinite;
+}
+
+@keyframes flying {
+  0% {
+    transform: translate(-10px, 10px);
+    fill: rgba(0, 0, 0, 0);
+  }
+  30% {
+    fill: aqua;
+  }
+  90% {
+    fill: rgba(0, 255, 255, 0);
+  }
+  100% {
+    transform: translate(30px, -20px);
+    fill: rgba(0, 255, 255, 0);
+  }
+}
+@keyframes pulse {
+  0% {
+    filter: drop-shadow(0 0 4px aqua);
+  }
+  50% {
+    filter: drop-shadow(0 0 10px aqua);
+  }
+  100% {
+    filter: drop-shadow(0 0 4px aqua);
+  }
+}
+.activeLink, .container a, .container, .navCotainer .navLink, .header .headerContainer h1, .homePage {
+  color: aqua;
+  text-shadow: 0 0 10px aqua;
+}
+
+.walletsPage, .container, .liquidityPage, .layout, .aboutPage, .homePage {
+  width: 100%;
+  height: 100%;
+}
+
+.disclaimerPage, .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.navCotainer, .header .headerContainer .navContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.loadingContainer {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.541);
+}
+
+.activeLink, .container a, .container, .navCotainer .navLink, .header .headerContainer h1, .homePage {
+  color: aqua;
+  text-shadow: 0 0 10px aqua;
+}
+
+.walletsPage, .container, .layout, .aboutPage, .homePage, .liquidityPage {
+  width: 100%;
+  height: 100%;
+}
+
+.disclaimerPage, .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.navCotainer, .header .headerContainer .navContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.navCotainer {
+  height: 100%;
+}
+.navCotainer .navLink {
+  text-decoration: none;
+  margin: 0 20px;
+  font-size: clamp(24px, 3vw, 30px);
+}
+.navCotainer .disabledLink {
+  color: grey;
+  text-shadow: 0 0 2px grey;
+  cursor: no-drop;
+  overflow: hidden;
+}
+.navCotainer .activeLink {
+  transition: 0.3s ease-in-out;
+}
+.navCotainer .activeLink:hover, .navCotainer .activeLink:focus {
+  color: rgb(210, 252, 252);
+  text-shadow: 0 0 15px rgb(7, 243, 243);
+}
+.navCotainer .onFocusLink {
+  color: rgb(210, 252, 252);
+  text-shadow: 0 0 15px rgb(7, 243, 243);
+}
+
+.activeLink, .container a, .container, .header .headerContainer h1, .homePage, .navCotainer .navLink {
+  color: aqua;
+  text-shadow: 0 0 10px aqua;
+}
+
+.walletsPage, .container, .layout, .aboutPage, .homePage, .liquidityPage {
+  width: 100%;
+  height: 100%;
+}
+
+.disclaimerPage, .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header .headerContainer .navContainer, .navCotainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  position: absolute;
+  background: black;
+  box-shadow: inset 0 0 20px;
+  text-align: center;
+}
+.container h1 {
+  font-size: clamp(40px, 5vw, 70px);
+}
+.container h2 {
+  color: red;
+  text-shadow: 0 0 10px red;
+}
+.container a {
+  text-decoration: underline;
+}
+.container a:hover,
+.container a :focus {
+  color: white;
+}
+
+.activeLink, .header .headerContainer h1, .homePage, .navCotainer .navLink, .container, .container a {
+  color: aqua;
+  text-shadow: 0 0 10px aqua;
+}
+
+.walletsPage, .layout, .aboutPage, .homePage, .liquidityPage, .container {
+  width: 100%;
+  height: 100%;
+}
+
+.disclaimerPage, .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header .headerContainer .navContainer, .navCotainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.layout {
+  padding: 20px 0 0 0;
+  user-select: none;
+}
+
+.tokensPage {
+  padding: 20px;
+  min-height: 100vh;
+  margin: 0 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px aqua;
+  background: black;
+}
+
+.walletButton {
+  margin: 20px;
+  display: flex;
+  justify-content: end;
+}
+.walletButton button {
+  background: black;
+  box-shadow: 0 0 10px aqua;
+  border: solid 1px aqua;
+  color: aqua;
+  transition: 0.3s ease-in-out;
+}
+.walletButton button:hover {
+  box-shadow: 0 0 20px aqua;
+  background: black;
+}
+.walletButton ul {
+  background: black;
+  border: solid 1px aqua;
+  box-shadow: 0 0 5px aqua;
+}
+.walletButton ul li {
+  color: aqua;
+}
+
+.tokensHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+}
+
+.tokensHeaderLink {
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: clamp(18px, 3vw, 30px);
+  text-align: center;
+  border-radius: 10px 10px 0 0;
+}
+
+.disabledLink {
+  color: grey;
+  text-shadow: 0 0 2px grey;
+  cursor: no-drop;
+  overflow: hidden;
+}
+
+.activeLink {
+  padding: 10px;
+}
+.activeLink:hover, .activeLink:focus {
+  color: rgb(210, 252, 252);
+  text-shadow: 0 0 15px rgb(7, 243, 243);
+}
+
+.onFocusLink {
+  padding: 10px;
+  color: rgb(210, 252, 252);
+  text-shadow: 0 0 15px rgb(7, 243, 243);
+  background: black;
+  border: solid 1px aqua;
+  border-bottom-width: 0;
+}
+
+@media (max-width: 551px) {
+  .tokensHeader {
+    display: none;
+  }
+  .walletButton {
+    justify-content: center;
+  }
+}
+.header .headerContainer h1, .homePage, .navCotainer .navLink, .container, .container a, .activeLink {
+  color: aqua;
+  text-shadow: 0 0 10px aqua;
+}
+
+.layout, .aboutPage, .homePage, .liquidityPage, .container, .walletsPage {
+  width: 100%;
+  height: 100%;
+}
+
+.disclaimerPage, .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header .headerContainer .navContainer, .navCotainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+}
+
+.header .headerContainer h1, .homePage, .navCotainer .navLink, .container, .container a, .activeLink {
+  color: aqua;
+  text-shadow: 0 0 10px aqua;
+}
+
+.layout, .aboutPage, .homePage, .liquidityPage, .container, .walletsPage {
+  width: 100%;
+  height: 100%;
+}
+
+.disclaimerPage, .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header .headerContainer .navContainer, .navCotainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainCardsHeader {
+  margin: 100px 0 20px 0;
+  font-size: 40px;
+}
+
+.mainCards {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+  justify-items: center;
+  margin: 20px 0;
+}
+.mainCards .mainCardContainer {
+  width: 80%;
+  margin: 10px;
+  background: black;
+  border-radius: 10px;
+  padding: 20px;
+  border: solid aqua 1px;
+  box-shadow: 0 0 10px aqua;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: 0.5s;
+}
+.mainCards .mainCardContainer .mainCardTitle {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  font-size: 40px;
+  width: 100%;
+  height: max-content;
+}
+.mainCards .mainCardContainer .mainCardDescription {
+  margin: 0;
+  padding: 20px 0;
+  font-size: 26px;
+  text-align: start;
+}
+.mainCards .mainCardContainer .cardIcon {
+  height: 30px;
+  width: 30px;
+  margin: 0 20px;
+  align-self: center;
+  filter: drop-shadow(0 0 3px aqua);
+}
+.mainCards .mainCardContainer:hover, .mainCards .mainCardContainer:focus {
+  scale: 1.05;
+}
+@media (max-width: 636px) {
+  .mainCards .mainCardContainer {
+    width: 80%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 636px) {
+  .mainCards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.reminderContainer {
+  margin: 100px 20px 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.reminderContainer .reminderMain {
+  margin: 0 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(0.25turn, rgb(0, 4, 8), rgb(23, 2, 71), rgb(10, 0, 0));
+  border-radius: 20px;
+  border: solid 1px rgb(76, 0, 255);
+  box-shadow: 0 0 10px rgb(76, 0, 255);
+}
+.reminderContainer .reminderMain .reminder {
+  padding: 20px 20px;
+  width: 80%;
+}
+.reminderContainer .reminderMain .reminder .reminderTitle {
+  margin: 0;
+  font-size: 40px;
+}
+.reminderContainer .reminderMain .reminder .reminderDescription {
+  margin: 20px 0;
+  width: 100%;
+  font-size: 26px;
+}
+.reminderContainer .reminderMain .reminderMainIcon {
+  margin: 20px;
+  color: rgb(76, 0, 255);
+  filter: drop-shadow(0 0 10px rgb(76, 0, 255));
+}
+.reminderContainer .reminderMain .reminderMainIcon path {
+  border: solid black 1px;
+}
+.reminderContainer .reminderCards {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  justify-content: center;
+  margin: 50px 20px 20px 20px;
+}
+.reminderContainer .reminderCard {
+  background: black;
+  border-radius: 10px;
+  border: solid 1px aqua;
+  box-shadow: 0 0 10px aqua;
+  margin: 10px;
+  padding: 20px;
+}
+.reminderContainer .reminderTitle {
+  font-size: 26px;
+}
+@media (max-width: 636px) {
+  .reminderContainer .reminderMain {
+    flex-direction: column-reverse;
+    margin: 0 20px;
+  }
+  .reminderContainer .reminderMainIcon {
+    margin-top: 10px;
+    height: 200px;
+  }
+  .reminderContainer .reminder {
+    text-align: center;
+  }
+  .reminderContainer .reminderCards {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 10px;
+  }
+}
+
+.roadmapCardContainer {
+  min-width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  margin: 30px;
+  border: 2px solid aqua;
+  border-radius: 20px;
+  font-size: 24px;
+  white-space: pre-wrap;
+  padding-bottom: 30px;
+  box-shadow: 0 0 10px aqua;
+}
+.roadmapCardContainer p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: aqua;
+  text-shadow: 0 0 10px rgb(56, 255, 255);
+  font-family: "IcebergRegular";
+  margin: 20px;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.visible {
+  animation: 0.7s ease-in cardIn 1;
+}
+
+.stageIcon {
+  margin: 0 20px;
+  height: 40px;
+  width: 40px;
+  filter: drop-shadow(0 0 5px aqua);
+}
+
+@keyframes cardIn {
+  0% {
+    translate: 0 -50px;
+    opacity: 0;
+  }
+  100% {
+    translate: 0;
+    opacity: 1;
+  }
+}
+.roadmapContainer {
+  display: grid;
+  grid-template-columns: auto;
+}
+
+.roadmapTitle {
+  text-align: center;
+  color: rgb(0, 1, 3);
+  text-shadow: 0 0 10px rgb(0, 81, 255);
+  font-size: 46px;
+  margin: 90px 0 50px 0;
+}
+
+.roadmapArrowContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.roadmapArrow {
+  height: 50px;
+  width: 100px;
+  color: aqua;
+  filter: drop-shadow(0 0 10px aqua);
+}
+
+.arrowVisible {
+  animation: 0.7s ease-in arrowIn 1;
+  opacity: 1;
+}
+
+.arrowHidden {
+  opacity: 0;
+}
+
+@keyframes arrowIn {
+  0% {
+    translate: 0 -50px;
+    opacity: 0;
+  }
+  100% {
+    translate: 0;
+    opacity: 1;
+  }
+}
+.tokenomicContainer {
+  display: grid;
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 50% 50%;
+  margin-top: 20px;
+}
+
+.tokenomicElement {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  background: black;
+  margin: 10px;
+  border: 4px solid aqua;
+  animation: 2s ease-in-out rgbElement infinite;
+}
+.tokenomicElement p {
+  margin: 0;
+  color: aqua;
+  text-shadow: 0 0 10px aqua;
+  font-family: "IcebergRegular";
+  font-size: clamp(24px, 4vw, 34px);
+  animation: 2s ease-in-out rgbParagraph infinite;
+}
+
+.tokenomicTitle {
+  text-align: center;
+  color: rgb(0, 1, 3);
+  text-shadow: 0 0 10px rgb(0, 81, 255);
+  font-size: 46px;
+  margin: 90px 0 50px 0;
+}
+
+@media (max-width: 636px) {
+  .tokenomicContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .tokenomicElement {
+    width: 80%;
+    margin: 10px;
+  }
+}
+@keyframes rgbElement {
+  0% {
+    border-color: aqua;
+    box-shadow: 0 0 10px aqua;
+  }
+  25% {
+    border-color: rgb(66, 79, 250);
+    box-shadow: 0 0 10px rgb(66, 79, 250);
+  }
+  50% {
+    border-color: rgb(96, 28, 255);
+    box-shadow: 0 0 10px rgb(96, 28, 255);
+  }
+  75% {
+    border-color: rgb(7, 236, 179);
+    box-shadow: 0 0 10px rgb(7, 236, 179);
+  }
+  100% {
+    border-color: aqua;
+    box-shadow: 0 0 10px rgb(56, 255, 255);
+  }
+}
+@keyframes rgbParagraph {
+  0% {
+    color: aqua;
+    text-shadow: 0 0 10px aqua;
+  }
+  25% {
+    color: rgb(66, 79, 250);
+    text-shadow: 0 0 10px rgb(66, 79, 250);
+  }
+  50% {
+    color: rgb(96, 28, 255);
+    text-shadow: 0 0 10px rgb(96, 28, 255);
+  }
+  75% {
+    color: rgb(7, 236, 179);
+    text-shadow: 0 0 10px rgb(7, 236, 179);
+  }
+  100% {
+    color: aqua;
+    text-shadow: 0 0 10px aqua;
+  }
+}
+.header .headerContainer h1, .homePage, .navCotainer .navLink, .container, .container a, .activeLink {
+  color: aqua;
+  text-shadow: 0 0 10px aqua;
+}
+
+.layout, .aboutPage, .homePage, .liquidityPage, .container, .walletsPage {
+  width: 100%;
+  height: 100%;
+}
+
+.disclaimerPage, .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header .headerContainer .navContainer, .navCotainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.disclaimerPage {
+  user-select: none;
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  background: black;
+  z-index: 400;
+}
+.disclaimerPage h1 {
+  color: red;
+  text-shadow: 0 0 5px red;
+  font-size: clamp(40px, 5vw, 64px);
+}
+.disclaimerPage p {
+  color: aqua;
+  width: 80%;
+  text-shadow: 0 0 5px aqua;
+  font-size: clamp(26px, 2vw, 36px);
+}
+
+.linkHome {
+  text-decoration: none;
+  color: rgb(0, 255, 191);
+  text-shadow: 0 0 10px aqua;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.linkHome:hover {
+  color: rgb(111, 0, 255);
+  text-shadow: 0 0 10px rgb(111, 0, 255);
+}
+.linkHome p {
+  margin: 10px;
+}
+
+.linkDisclaimer {
+  font-size: clamp(26px, 3vw, 40px);
+  margin: 40px 20px;
+}
+.linkDisclaimer a {
+  text-decoration: none;
+  color: rgb(0, 255, 191);
+  text-shadow: 0 0 10px aqua;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.linkDisclaimer a:hover {
+  color: rgb(111, 0, 255);
+  text-shadow: 0 0 5px rgb(111, 0, 255);
+}
+
+.formContainer form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.formContainer label {
+  text-shadow: 0 0 5px aqua;
+  color: aqua;
+  font-size: clamp(22px, 3vw, 34px);
+  width: fit-content;
+}
+.formContainer label::after {
+  content: attr(data-title);
+  padding: 2px;
+  display: block;
+  position: relative;
+  top: 0;
+  right: 0;
+  text-align: start;
+  font-size: clamp(14px, 2vw, 24px);
+  color: rgb(2, 131, 131);
+  text-shadow: none;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -ms-border-radius: 2px;
+  border-radius: 20px;
+}
+.formContainer textarea {
+  margin: 5px 0 20px 0;
+  max-width: 100%;
+  max-height: 300px;
+  min-height: 52px;
+  background: black;
+  border-color: aqua;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 5px aqua;
+  color: aqua;
+  resize: vertical;
+}
+
+.urlImageInput[focused=true] {
+  border-color: red;
+  box-shadow: 0 0 5px red;
+}
+.urlImageInput[focused=true] ~ .errorMessage {
+  opacity: 1;
+  height: max-content;
+  overflow: visible;
+}
+.urlImageInput[focused=false] ~ .errorMessage {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.mainTokenInput {
+  margin: 10px 20px 10px 0;
+  border-radius: 10px;
+  border-color: aqua;
+  background: black;
+  box-shadow: 0 0 5px aqua;
+  padding: 5px 10px;
+  color: aqua;
+  overflow: hidden;
+  appearance: none;
+}
+.mainTokenInput::-webkit-outer-spin-button, .mainTokenInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.mainTokenInput:invalid[focused=true] {
+  border-color: red;
+  box-shadow: 0 0 5px red;
+}
+.mainTokenInput:invalid[focused=true] ~ .errorMessage {
+  opacity: 1;
+  height: max-content;
+  overflow: visible;
+}
+.mainTokenInput:invalid[focused=false] ~ .errorMessage {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+.mainTokenInput::placeholder {
+  color: rgb(2, 131, 131);
+}
+.mainTokenInput:focus {
+  border-color: aqua;
+  box-shadow: 0 0 10px aqua;
+  outline: 0;
+}
+
+.requiredInfo {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+  margin: 20px 0;
+}
+
+.requiredElement {
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.errorMessage {
+  font-size: 18px;
+  margin: 0 0 10px 0;
+  color: red;
+  padding: 0;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: 0.2s ease-in-out;
+}
+
+.extensionsLabelContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.extensionsContainer {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+  margin: 20px 0;
+}
+.extensionsContainer label {
+  width: fit-content;
+}
+
+.extensionsInput {
+  margin: 10px 20px 10px 0;
+  border-radius: 10px;
+  border-color: aqua;
+  background: black;
+  box-shadow: 0 0 5px aqua;
+  padding: 5px 10px;
+  color: aqua;
+  transition: 0.2s ease-in-out;
+}
+.extensionsInput:invalid {
+  border-color: red;
+  box-shadow: 0 0 5px red;
+}
+.extensionsInput::placeholder {
+  color: rgb(2, 131, 131);
+}
+.extensionsInput:focus {
+  color: aqua;
+  border-color: aqua;
+  box-shadow: 0 0 10px aqua;
+  outline: 0;
+  padding: 6px 10px;
+}
+
+.createButtonContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.createButtonContainer button {
+  width: 150px;
+  height: 80px;
+}
+.createButtonContainer p {
+  color: red;
+  margin: 15px 0;
+  font-size: 22px;
+  text-shadow: 0 0 5px red;
+  text-align: center;
+}
+
+.focusTransition {
+  transition: 0.2s ease-in-out;
+}
+
+@media (max-width: 551px) {
+  .requiredInfo {
+    display: flex;
+    flex-direction: column;
+  }
+  .extensionsContainer {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.displayModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 999;
+  overflow: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  animation: opacityModalOpen 0.2s ease-in-out 1;
+}
+.displayModal::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+.modalWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100%;
+}
+
+.modalContent {
+  position: relative;
+  margin: 20px;
+  width: 100%;
+  max-width: 800px;
+  padding: 40px 20px 90px 20px;
+  background: black;
+  border-radius: 20px;
+  border: 1px solid aqua;
+  box-shadow: 0 0 10px aqua;
+  text-shadow: 0 0 3px aqua;
+  z-index: 999;
+}
+.modalContent h2 {
+  text-align: start;
+  font-size: clamp(34px, 3vw, 60px);
+  margin-bottom: 10px;
+}
+.modalContent p {
+  font-size: 22px;
+  text-align: start;
+  margin-bottom: 15px;
+}
+.modalContent ul {
+  font-size: 20px;
+  text-align: start;
+  padding: 0 40px;
+  margin-bottom: 15px;
+}
+.modalContent button {
+  position: absolute;
+  bottom: 16px;
+  right: calc(50% - 50px);
+  width: 100px;
+  height: 60px;
+  font-family: "IcebergRegular";
+  font-size: 24px;
+  color: aqua;
+  background: black;
+  border-radius: 10px;
+  border-color: aqua;
+  box-shadow: 0 0 5px aqua;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.modalContent button:hover {
+  color: white;
+  border-color: white;
+  box-shadow: 0 0 10px white;
+}
+
+.hiddenModal {
+  display: none;
+}
+.hiddenModal::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+@keyframes opacityModalOpen {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.mainTitleContainer {
+  margin: 0 0 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: aqua;
+  text-align: center;
+  text-shadow: 0 0 8px aqua;
+  font-size: clamp(36px, 6vw, 74px);
+}
+.mainTitleContainer svg {
+  margin-top: 10px;
+  margin-left: 10px;
+  max-width: 40px;
+  max-height: 40px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.mainTitleContainer svg:hover {
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .mainTitleContainer {
+    flex-direction: column-reverse;
+  }
+  .mainTitleContainer svg {
+    width: 60px;
+    height: 60px;
+    margin: 0;
+  }
+}
+.formContainer form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.formContainer label {
+  text-shadow: 0 0 5px aqua;
+  color: aqua;
+  font-size: clamp(22px, 3vw, 34px);
+  width: fit-content;
+}
+.formContainer label::after {
+  content: attr(data-title);
+  padding: 2px;
+  display: block;
+  position: relative;
+  top: 0;
+  right: 0;
+  text-align: start;
+  font-size: clamp(14px, 2vw, 24px);
+  color: rgb(2, 131, 131);
+  text-shadow: none;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -ms-border-radius: 2px;
+  border-radius: 20px;
+}
+.formContainer textarea {
+  margin: 5px 0 20px 0;
+  max-width: 100%;
+  max-height: 300px;
+  min-height: 52px;
+  background: black;
+  border-color: aqua;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 5px aqua;
+  color: aqua;
+  resize: vertical;
+}
+
+.urlImageInput[focused=true] {
+  border-color: red;
+  box-shadow: 0 0 5px red;
+}
+.urlImageInput[focused=true] ~ .errorMessage {
+  opacity: 1;
+  height: max-content;
+  overflow: visible;
+}
+.urlImageInput[focused=false] ~ .errorMessage {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.mainTokenInput {
+  margin: 10px 20px 10px 0;
+  border-radius: 10px;
+  border-color: aqua;
+  background: black;
+  box-shadow: 0 0 5px aqua;
+  padding: 5px 10px;
+  color: aqua;
+  overflow: hidden;
+  appearance: none;
+}
+.mainTokenInput::-webkit-outer-spin-button, .mainTokenInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.mainTokenInput:invalid[focused=true] {
+  border-color: red;
+  box-shadow: 0 0 5px red;
+}
+.mainTokenInput:invalid[focused=true] ~ .errorMessage {
+  opacity: 1;
+  height: max-content;
+  overflow: visible;
+}
+.mainTokenInput:invalid[focused=false] ~ .errorMessage {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+.mainTokenInput::placeholder {
+  color: rgb(2, 131, 131);
+}
+.mainTokenInput:focus {
+  border-color: aqua;
+  box-shadow: 0 0 10px aqua;
+  outline: 0;
+}
+
+.requiredInfo {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+  margin: 20px 0;
+}
+
+.requiredElement {
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.errorMessage {
+  font-size: 18px;
+  margin: 0 0 10px 0;
+  color: red;
+  padding: 0;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: 0.2s ease-in-out;
+}
+
+.extensionsLabelContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.extensionsContainer {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+  margin: 20px 0;
+}
+.extensionsContainer label {
+  width: fit-content;
+}
+
+.extensionsInput {
+  margin: 10px 20px 10px 0;
+  border-radius: 10px;
+  border-color: aqua;
+  background: black;
+  box-shadow: 0 0 5px aqua;
+  padding: 5px 10px;
+  color: aqua;
+  transition: 0.2s ease-in-out;
+}
+.extensionsInput:invalid {
+  border-color: red;
+  box-shadow: 0 0 5px red;
+}
+.extensionsInput::placeholder {
+  color: rgb(2, 131, 131);
+}
+.extensionsInput:focus {
+  color: aqua;
+  border-color: aqua;
+  box-shadow: 0 0 10px aqua;
+  outline: 0;
+  padding: 6px 10px;
+}
+
+.createButtonContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.createButtonContainer button {
+  width: 150px;
+  height: 80px;
+}
+.createButtonContainer p {
+  color: red;
+  margin: 15px 0;
+  font-size: 22px;
+  text-shadow: 0 0 5px red;
+  text-align: center;
+}
+
+.focusTransition {
+  transition: 0.2s ease-in-out;
+}
+
+@media (max-width: 551px) {
+  .requiredInfo {
+    display: flex;
+    flex-direction: column;
+  }
+  .extensionsContainer {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.toggleBtn {
+  margin: 0 20px;
+  background-color: rgb(29, 29, 29);
+  border: solid 1px aqua;
+  border-radius: 99px;
+  width: 50px;
+  height: 29px;
+  transition: background-color 0.1s ease, border-color 0.2s ease;
+  cursor: pointer;
+  box-shadow: 0 0 5px aqua;
+  position: relative;
+}
+.toggleBtn .thumb {
+  height: 20px;
+  width: 20px;
+  background-color: aqua;
+  border-radius: 99px;
+  transform: translateX(0);
+  transition: left 0.15s ease;
+  position: absolute;
+  left: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.toggled {
+  background-color: aqua;
+  border: solid 1px black;
+}
+.toggled .thumb {
+  left: 25px;
+  background-color: black;
+}
+
+@media (max-width: 344px) {
+  .toggleBtn {
+    margin: 0 10px;
+  }
+}
+.header .headerContainer h1, .homePage, .navCotainer .navLink, .container, .container a, .activeLink {
+  color: aqua;
+  text-shadow: 0 0 10px aqua;
+}
+
+.layout, .aboutPage, .homePage, .liquidityPage, .container, .walletsPage {
+  width: 100%;
+  height: 100%;
+}
+
+.container, .disclaimerPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header .headerContainer .navContainer, .navCotainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.imgContainer {
+  font-family: IcebergRegular;
+  margin: 20px 0;
+}
+.imgContainer svg {
+  color: aqua;
+  height: 10%;
+  width: 10%;
+}
+
+.buttonDownload {
+  font-family: IcebergRegular;
+  padding: 10px;
+  color: aqua;
+  background: black;
+  border-radius: 10px;
+  border-color: aqua;
+  box-shadow: 0 0 5px aqua;
+  width: 40%;
+  font-size: clamp(20px, 2vw, 22px);
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.buttonDownload:hover {
+  color: white;
+  border-color: white;
+  box-shadow: 0 0 10px white;
+}
+
+.drugImg {
+  position: relative;
+  padding: 20px;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed aqua;
+  border-radius: 10px;
+  color: aqua;
+  margin: 15px 0;
+  font-size: clamp(12px, 3vw, 22px);
+}
+
+.clearButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: aqua;
+  background: black;
+  border-radius: 10px;
+  border-color: aqua;
+  box-shadow: 0 0 5px aqua;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.clearButton:hover {
+  color: white;
+  border-color: white;
+  box-shadow: 0 0 10px white;
+}
+.clearButton:hover svg {
+  color: white;
+}
+.clearButton svg {
+  width: 20px;
+  height: 20px;
+}
+
+.noneBlock {
+  display: none;
+}
+
+.fileInput {
+  opacity: 0;
+  height: 0;
+  width: 0;
+  line-height: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .drugImg {
+    border: none;
+  }
+  .drugImg p {
+    display: none;
+  }
+  .clearButton {
+    display: none;
+  }
+  .imgContainer button {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */

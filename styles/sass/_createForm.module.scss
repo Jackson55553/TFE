@@ -1,0 +1,207 @@
+.formContainer {
+    & form {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    & label {
+        text-shadow: 0 0 5px aqua;
+        color: aqua;
+        font-size: clamp(22px, 3vw, 34px);
+        width: fit-content;
+
+        &::after {
+            content: attr(data-title);
+            padding: 2px;
+            display: block;
+            position: relative;
+            top: 0;
+            right: 0;
+            text-align: start;
+            font-size: clamp(14px, 2vw, 24px);
+            color: rgb(2, 131, 131);
+            text-shadow: none;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            -ms-border-radius: 2px;
+            border-radius: 20px;
+        }
+    }
+
+    & textarea {
+        margin: 5px 0 20px 0;
+        max-width: 100%;
+        max-height: 300px;
+        min-height: 52px;
+        background: black;
+        border-color: aqua;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0 0 5px aqua;
+        color: aqua;
+        resize: vertical;
+    }
+}
+
+.urlImageInput {
+    &[focused='true'] {
+        border-color: red;
+        box-shadow: 0 0 5px red;
+    }
+    &[focused='true'] ~ .errorMessage {
+        opacity: 1;
+        height: max-content;
+        overflow: visible;
+    }
+    &[focused='false'] ~ .errorMessage {
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+    }
+}
+
+.mainTokenInput {
+    margin: 10px 20px 10px 0;
+    border-radius: 10px;
+    border-color: aqua;
+    background: black;
+    box-shadow: 0 0 5px aqua;
+    padding: 5px 10px;
+    color: aqua;
+    overflow: hidden;
+    appearance: none;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+
+    &:invalid {
+        &[focused='true'] {
+            border-color: red;
+            box-shadow: 0 0 5px red;
+        }
+        &[focused='true'] ~ .errorMessage {
+            opacity: 1;
+            height: max-content;
+            overflow: visible;
+        }
+        &[focused='false'] ~ .errorMessage {
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+        }
+    }
+
+    &::placeholder {
+        color: rgb(2, 131, 131);
+    }
+
+    &:focus {
+        border-color: aqua;
+        box-shadow: 0 0 10px aqua;
+        outline: 0;
+    }
+}
+.requiredInfo {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    margin: 20px 0;
+}
+.requiredElement {
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.errorMessage {
+    font-size: 18px;
+    margin: 0 0 10px 0;
+    color: red;
+    padding: 0;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: 0.2s ease-in-out;
+}
+
+.extensionsLabelContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.extensionsContainer {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    margin: 20px 0;
+    & label {
+        width: fit-content;
+    }
+}
+.extensionsInput {
+    margin: 10px 20px 10px 0;
+    border-radius: 10px;
+    border-color: aqua;
+    background: black;
+    box-shadow: 0 0 5px aqua;
+    padding: 5px 10px;
+    color: aqua;
+    transition: 0.2s ease-in-out;
+
+    &:invalid {
+        border-color: red;
+        box-shadow: 0 0 5px red;
+    }
+
+    &::placeholder {
+        color: rgb(2, 131, 131);
+    }
+
+    &:focus {
+        color: aqua;
+        border-color: aqua;
+        box-shadow: 0 0 10px aqua;
+        outline: 0;
+        padding: 6px 10px;
+    }
+}
+
+.createButtonContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    & button {
+        width: 150px;
+        height: 80px;
+    }
+
+    & p {
+        color: red;
+        margin: 15px 0;
+        font-size: 22px;
+        text-shadow: 0 0 5px red;
+        text-align: center;
+    }
+}
+
+.focusTransition {
+    transition: 0.2s ease-in-out;
+}
+
+@media (max-width: 551px) {
+    .requiredInfo {
+        display: flex;
+        flex-direction: column;
+    }
+    .extensionsContainer {
+        display: flex;
+        flex-direction: column;
+    }
+}

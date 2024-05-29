@@ -1,0 +1,92 @@
+.displayModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 999;
+    overflow: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    animation: opacityModalOpen 0.2s ease-in-out 1;
+    &::-webkit-scrollbar {
+        width: 0;
+        background: transparent;
+    }
+}
+.modalWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100%;
+}
+.modalContent {
+    position: relative;
+    margin: 20px;
+    width: 100%;
+    max-width: 800px;
+    padding: 40px 20px 90px 20px;
+    background: black;
+    border-radius: 20px;
+    border: 1px solid aqua;
+    box-shadow: 0 0 10px aqua;
+    text-shadow: 0 0 3px aqua;
+    z-index: 999;
+    & h2 {
+        text-align: start;
+        font-size: clamp(34px, 3vw, 60px);
+        margin-bottom: 10px;
+    }
+    & p {
+        font-size: 22px;
+        text-align: start;
+        margin-bottom: 15px;
+    }
+    & ul {
+        font-size: 20px;
+        text-align: start;
+        padding: 0 40px;
+        margin-bottom: 15px;
+    }
+    & button {
+        position: absolute;
+        bottom: 16px;
+        right: calc(50% - 50px);
+        width: 100px;
+        height: 60px;
+        font-family: 'IcebergRegular';
+        font-size: 24px;
+        color: aqua;
+        background: black;
+        border-radius: 10px;
+        border-color: aqua;
+        box-shadow: 0 0 5px aqua;
+        cursor: pointer;
+        transition: 0.2s;
+        &:hover {
+            color: white;
+            border-color: white;
+            box-shadow: 0 0 10px white;
+        }
+    }
+}
+.hiddenModal {
+    display: none;
+    &::-webkit-scrollbar {
+        width: 0;
+        background: transparent;
+    }
+}
+@keyframes opacityModalOpen {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

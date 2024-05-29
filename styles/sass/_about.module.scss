@@ -1,0 +1,15 @@
+@import '_variables';
+.layout {
+    @extend%full-hw;
+}
+.aboutPage {
+    user-select: none;
+    @extend%full-hw;
+    min-height: 100%;
+    padding-top: 20px;
+}
+.aboutText {
+    white-space: pre-line;
+    margin: 50px 20px;
+    font-size: clamp(26px, 3vw, 40px);
+}

@@ -1,0 +1,30 @@
+@import '_variables';
+.navCotainer {
+    @extend%flex-row-centr;
+    height: 100%;
+    .navLink {
+        text-decoration: none;
+        margin: 0 20px;
+        @extend%primary-color-text;
+        font-size: clamp(24px, 3vw, 30px);
+    }
+    .disabledLink {
+        color: grey;
+        text-shadow: 0 0 2px grey;
+        cursor: no-drop;
+        overflow: hidden;
+    }
+    .activeLink {
+        transition: 0.3s ease-in-out;
+
+        &:hover,
+        &:focus {
+            color: rgb(210, 252, 252);
+            text-shadow: 0 0 15px rgb(7, 243, 243);
+        }
+    }
+    .onFocusLink {
+        color: rgb(210, 252, 252);
+        text-shadow: 0 0 15px rgb(7, 243, 243);
+    }
+}

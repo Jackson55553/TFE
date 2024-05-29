@@ -1,0 +1,53 @@
+@import 'variables';
+.disclaimerPage {
+    user-select: none;
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    @extend%flex-col-centr;
+    background: black;
+    z-index: 400;
+    & h1 {
+        color: red;
+        text-shadow: 0 0 5px red;
+        font-size: clamp(40px, 5vw, 64px);
+    }
+    & p {
+        color: aqua;
+        width: 80%;
+        text-shadow: 0 0 5px aqua;
+        font-size: clamp(26px, 2vw, 36px);
+    }
+}
+.linkHome {
+    text-decoration: none;
+    color: rgb(0, 255, 191);
+    text-shadow: 0 0 10px aqua;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+        color: rgb(111, 0, 255);
+        text-shadow: 0 0 10px rgb(111, 0, 255);
+    }
+    & p {
+        margin: 10px;
+    }
+}
+.linkDisclaimer {
+    font-size: clamp(26px, 3vw, 40px);
+    margin: 40px 20px;
+
+    & a {
+        text-decoration: none;
+        color: rgb(0, 255, 191);
+        text-shadow: 0 0 10px aqua;
+        cursor: pointer;
+        transition: 0.3s;
+
+        &:hover {
+            color: rgb(111, 0, 255);
+            text-shadow: 0 0 5px rgb(111, 0, 255);
+        }
+    }
+}
