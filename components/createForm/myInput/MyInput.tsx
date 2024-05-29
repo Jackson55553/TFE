@@ -5,7 +5,9 @@ import { MyInputType } from '../../../types/MyInputType';
 const MyInput = ({ input, value, onChange }: { input: MyInputType; value: string; onChange: (e: any) => void }) => {
     const [focused, setFocused] = useState(false);
     const handleFocused = (e) => {
-        setFocused(true);
+        if (!e.target.value) {
+            setFocused(true);
+        }
     };
     return (
         <div className={styles.requiredElement}>

@@ -4,17 +4,22 @@ import styles from '../../../../styles/sass/_downloadImage.module.scss';
 import { allowsFile, getFilePreview } from '../../../../scripts/ts/getFilePreview';
 import defaultPreview from '../../../../svg/preview.svg';
 import { IoClose } from 'react-icons/io5';
+import { ImageForUri } from '../../../../types/ImageForUri';
 
 const DrugAndDrop = ({
     setImageFile,
     imagePreview,
     setImagePreview,
     setUsedImageFile,
+    setImageForUri,
+    usedImageUrl,
 }: {
     setImageFile: React.Dispatch<React.SetStateAction<File>>;
     setImagePreview: React.Dispatch<any>;
     imagePreview: any;
     setUsedImageFile: React.Dispatch<React.SetStateAction<boolean>>;
+    setImageForUri: React.Dispatch<React.SetStateAction<ImageForUri>>;
+    usedImageUrl: boolean;
 }) => {
     const [drag, setDrag] = useState(false);
 
@@ -34,10 +39,12 @@ const DrugAndDrop = ({
         if (file && allowsFile.includes(file.type)) {
             getFilePreview(file, setImagePreview);
             setImageFile(file);
+            setImageForUri({ file: file, isUrl: false });
             setUsedImageFile(true);
         } else {
             setImagePreview(defaultPreview);
             setUsedImageFile(false);
+            setImageForUri({ file: '', isUrl: false });
         }
     };
 
@@ -46,6 +53,7 @@ const DrugAndDrop = ({
         setUsedImageFile(false);
         setImagePreview(defaultPreview);
         setImageFile({} as File);
+        setImageForUri({ file: '', isUrl: false });
     };
 
     return (
@@ -81,7 +89,7 @@ const DrugAndDrop = ({
             ) : (
                 <p className={imagePreview !== defaultPreview ? styles.noneBlock : ''}>DROP FOR DOWNLOAD</p>
             )}
-            {imagePreview !== defaultPreview ? (
+            {imagePreview !== defaultPreview && !usedImageUrl ? (
                 <button className={styles.clearButton} onClick={clearClick}>
                     <IoClose />
                 </button>

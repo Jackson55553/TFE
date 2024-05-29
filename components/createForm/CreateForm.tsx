@@ -1,12 +1,14 @@
 'use client';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styles from '../../styles/sass/_createForm.module.scss';
-
-import { inputsCreator, inputsExtension, inputsRequired } from './inputs/inputs';
-import MyInput from './myInput/MyInput';
-import SwitchBtn from '../UI/switchBtn/SwitchBtn';
-import { MyInputType } from '../../types/MyInputType';
 import DownloadImage from './downloadImage/DownloadImage';
+import RequiredInputs from './requiredInputs/RequiredInputs';
+import DescriprionTextArea from './descriptionTextArea/DescriprionTextArea';
+import ExtensionsInputs from './extensionsInputs/ExtensionsInputs';
+import CreatorInputs from './creatorInputs/CreatorInputs';
+import { ImageForUri } from '../../types/ImageForUri';
+import { ExtensionsValues } from '../../types/ExtensionsValues';
+import { RequiredValues } from '../../types/RequiredValues';
 
 const CreateForm = () => {
     const [valuesRequired, setValuesRequired] = useState({
@@ -14,105 +16,44 @@ const CreateForm = () => {
         symbol: '',
         supply: '',
         decimals: '',
-    });
+    } as RequiredValues);
+
     const [valuesExtensions, setValuesExtensions] = useState({
         website: '',
         twitter: '',
         telegram: '',
         discord: '',
-    });
+    } as ExtensionsValues);
 
     const [valuesCreator, setValuesCreator] = useState({
         name: 'Token For Ever',
         site: 'https://tokenforever.io',
     });
 
-    const [toggledExtensions, setToggledExtensions] = useState(false);
-    const [toggledCreator, setToggledCreator] = useState(false);
+    const [description, setDescription] = useState('');
 
-    useEffect(() => {
-        clearExtensions();
-    }, [toggledExtensions]);
-
-    useEffect(() => {
-        defaultCreator();
-    }, [toggledCreator]);
-
-    const clearExtensions = () => {
-        if (!toggledExtensions) {
-            setValuesExtensions({ ...valuesExtensions, website: '', telegram: '', twitter: '', discord: '' });
-        }
-    };
-    const defaultCreator = () => {
-        if (!toggledCreator) {
-            setValuesCreator({ ...valuesCreator, name: 'Token For Ever', site: 'https://tokenforever.io' });
-        }
-    };
-
-    const onChange = (e, values, setValues) => {
-        setValues({ ...values, [e.target.name]: e.target.value });
-    };
+    const [imageForUri, setImageForUri] = useState({
+        file: '',
+        isUrl: false,
+    } as ImageForUri);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(valuesRequired);
         console.log(valuesExtensions);
         console.log(valuesCreator);
+        console.log(description);
+        console.log(imageForUri);
     };
+
     return (
         <div className={styles.formContainer}>
             <form noValidate onSubmit={handleSubmit}>
-                <div className={styles.requiredInfo}>
-                    {inputsRequired.map((input: MyInputType) => (
-                        <MyInput
-                            key={input.id}
-                            input={input}
-                            value={valuesRequired[input.name]}
-                            onChange={(e) => {
-                                onChange(e, valuesRequired, setValuesRequired);
-                            }}
-                        />
-                    ))}
-                </div>
-                <label data-title="Example: Best token in the world">(Optional) Description</label>
-                <textarea id="description" placeholder="Enter description" className={`${styles.mainTokenInput}`} />
-                <div className={styles.extensionsLabelContainer}>
-                    <label data-title="Example: https://example.com">(Optional) Extensions</label>
-                    <SwitchBtn toggled={toggledExtensions} setToggled={setToggledExtensions} />
-                </div>
-                {toggledExtensions ? (
-                    <div className={styles.extensionsContainer}>
-                        {inputsExtension.map((input: MyInputType) => (
-                            <MyInput
-                                key={input.id}
-                                input={input}
-                                value={valuesCreator[input.name]}
-                                onChange={(e) => onChange(e, valuesExtensions, setValuesExtensions)}
-                            />
-                        ))}
-                    </div>
-                ) : (
-                    ''
-                )}
-                <div className={styles.extensionsLabelContainer}>
-                    <label data-title="Additional fees: 0.4 SOL">(Optional) Creator Info</label>
-                    <SwitchBtn toggled={toggledCreator} setToggled={setToggledCreator} />
-                </div>
-                {toggledCreator ? (
-                    <div className={styles.extensionsContainer}>
-                        {inputsCreator.map((input: MyInputType) => (
-                            <MyInput
-                                key={input.id}
-                                input={input}
-                                value={valuesCreator[input.name]}
-                                onChange={(e) => onChange(e, valuesCreator, setValuesCreator)}
-                            />
-                        ))}
-                    </div>
-                ) : (
-                    ''
-                )}
-                <DownloadImage />
+                <RequiredInputs valuesRequired={valuesRequired} setValuesRequired={setValuesRequired} />
+                <DescriprionTextArea description={description} setDescription={setDescription} />
+                <ExtensionsInputs valuesExtensions={valuesExtensions} setValuesExtensions={setValuesExtensions} />
+                <CreatorInputs valuesCreator={valuesCreator} setValuesCreator={setValuesCreator} />
+                <DownloadImage setImageForUri={setImageForUri} />
                 <button type="submit" style={{ height: '50px' }}></button>
             </form>
         </div>
