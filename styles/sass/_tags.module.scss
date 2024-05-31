@@ -1,0 +1,43 @@
+@import '_variables';
+.tagsContainer {
+    display: flex;
+    flex-direction: column;
+    font-family: $primary-font;
+}
+.tagsLabel {
+    margin: 10px 0;
+}
+.tagButton {
+    font-size: 20px;
+    font-family: $primary-font;
+    margin: 10px 10px 0 0;
+    background-color: black;
+    border: solid 1px aqua;
+    color: aqua;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    &:hover {
+        color: rgb(222, 238, 238);
+        border: solid 1px rgb(222, 238, 238);
+    }
+}
+.clickedTagButton {
+    font-family: $primary-font;
+    font-size: 20px;
+    margin: 10px 10px 0 0;
+    background-color: aqua;
+    border: solid 1px black;
+    box-shadow: 0 0 5px aqua;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    &:hover {
+        color: red;
+        border: solid 1px red;
+        box-shadow: 0 0 5px red;
+    }
+}

@@ -6,8 +6,62 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    &:root {
+        --toastify-toast-background: black;
+        --toastify-color-dark: black;
+        --toastify-color-progress-dark: aqua;
+        --toastify-color-error: red;
+        --toastify-text-color-error: black;
+        --toastify-text-color-success: black;
+        --toastify-color-info: aqua;
+        --toastify-color-success: rgb(7, 255, 152);
+        --toastify-font-family: $primary-font;
+    }
 }
-
+.errorToast {
+    border: solid 1px rgb(255, 0, 0);
+    box-shadow: 0 0 10px rgb(255, 0, 0);
+    & svg {
+        color: red;
+    }
+}
+.successToast {
+    border: solid 1px rgb(7, 255, 152);
+    box-shadow: 0 0 10px rgb(7, 255, 152);
+    & svg {
+        color: rgb(7, 255, 152);
+    }
+}
+.infoToast {
+    border: solid 1px rgb(0, 255, 255);
+    box-shadow: 0 0 10px rgb(0, 255, 255);
+    & svg {
+        color: rgb(0, 255, 255);
+    }
+}
+.warningToast {
+    border: solid 1px #f1c40f;
+    box-shadow: 0 0 10px #f1c40f;
+    & svg {
+        color: #f1c40f;
+    }
+}
+.bodyErrorToast {
+    color: rgb(255, 0, 0);
+    font-size: 20px;
+}
+.bodySuccessToast {
+    color: rgb(7, 255, 152);
+    font-size: 20px;
+}
+.bodyInfoToast {
+    color: rgb(0, 255, 255);
+    font-size: 20px;
+}
+.bodyWarningToast {
+    color: #f1c40f;
+    font-size: 20px;
+}
 .root {
     display: flex;
     flex-direction: column;

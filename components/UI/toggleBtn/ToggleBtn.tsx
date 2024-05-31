@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from '../../../styles/sass/_switchBtn.module.scss';
+import styles from '../../../styles/sass/_toggleBtn.module.scss';
 
-const SwitchBtn = ({
+const ToggleBtn = ({
     toggled,
     setToggled,
 }: {
@@ -21,4 +21,4 @@ const SwitchBtn = ({
     );
 };
 
-export default SwitchBtn;
+export default ToggleBtn;

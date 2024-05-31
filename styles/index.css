@@ -234,6 +234,69 @@
   padding: 0;
   box-sizing: border-box;
 }
+.html:root {
+  --toastify-toast-background: black;
+  --toastify-color-dark: black;
+  --toastify-color-progress-dark: aqua;
+  --toastify-color-error: red;
+  --toastify-text-color-error: black;
+  --toastify-text-color-success: black;
+  --toastify-color-info: aqua;
+  --toastify-color-success: rgb(7, 255, 152);
+  --toastify-font-family: $primary-font;
+}
+
+.errorToast {
+  border: solid 1px rgb(255, 0, 0);
+  box-shadow: 0 0 10px rgb(255, 0, 0);
+}
+.errorToast svg {
+  color: red;
+}
+
+.successToast {
+  border: solid 1px rgb(7, 255, 152);
+  box-shadow: 0 0 10px rgb(7, 255, 152);
+}
+.successToast svg {
+  color: rgb(7, 255, 152);
+}
+
+.infoToast {
+  border: solid 1px rgb(0, 255, 255);
+  box-shadow: 0 0 10px rgb(0, 255, 255);
+}
+.infoToast svg {
+  color: rgb(0, 255, 255);
+}
+
+.warningToast {
+  border: solid 1px #f1c40f;
+  box-shadow: 0 0 10px #f1c40f;
+}
+.warningToast svg {
+  color: #f1c40f;
+}
+
+.bodyErrorToast {
+  color: rgb(255, 0, 0);
+  font-size: 20px;
+}
+
+.bodySuccessToast {
+  color: rgb(7, 255, 152);
+  font-size: 20px;
+}
+
+.bodyInfoToast {
+  color: rgb(0, 255, 255);
+  font-size: 20px;
+}
+
+.bodyWarningToast {
+  color: #f1c40f;
+  font-size: 20px;
+}
 
 .root {
   display: flex;
@@ -1139,6 +1202,30 @@
   text-shadow: 0 0 5px rgb(111, 0, 255);
 }
 
+.header .headerContainer h1, .homePage, .navCotainer .navLink, .container, .container a, .activeLink {
+  color: aqua;
+  text-shadow: 0 0 10px aqua;
+}
+
+.layout, .aboutPage, .homePage, .liquidityPage, .container, .walletsPage {
+  width: 100%;
+  height: 100%;
+}
+
+.container, .disclaimerPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header .headerContainer .navContainer, .navCotainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
 .formContainer form {
   display: flex;
   flex-direction: column;
@@ -1300,20 +1387,48 @@
 }
 
 .createButtonContainer {
+  margin: 20px 0 0 0;
+  font-family: IcebergRegular;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 .createButtonContainer button {
+  font-family: IcebergRegular;
+  font-size: clamp(20px, 3vw, 30px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 150px;
   height: 80px;
+  background-color: black;
+  border: solid 1px aqua;
+  border-radius: 10px;
+  color: aqua;
+  box-shadow: 0 0 10px aqua;
+  transition: 0.2s ease-in-out;
 }
-.createButtonContainer p {
+.createButtonContainer button:hover {
+  border: solid 1px rgb(0, 255, 200);
+  color: rgb(0, 255, 200);
+  box-shadow: 0 0 15px rgb(0, 255, 200);
+  text-shadow: 0 0 10px rgb(0, 255, 200);
+}
+
+.noWalletP {
   color: red;
   margin: 15px 0;
   font-size: 22px;
   text-shadow: 0 0 5px red;
+  text-align: center;
+}
+
+.walletP {
+  color: rgb(0, 255, 200);
+  margin: 15px 0;
+  font-size: 22px;
+  text-shadow: 0 0 5px rgb(0, 255, 200);
   text-align: center;
 }
 
@@ -1361,6 +1476,7 @@
 }
 
 .modalContent {
+  white-space: pre-line;
   position: relative;
   margin: 20px;
   width: 100%;
@@ -1459,6 +1575,30 @@
     margin: 0;
   }
 }
+.header .headerContainer h1, .homePage, .navCotainer .navLink, .container, .container a, .activeLink {
+  color: aqua;
+  text-shadow: 0 0 10px aqua;
+}
+
+.layout, .aboutPage, .homePage, .liquidityPage, .container, .walletsPage {
+  width: 100%;
+  height: 100%;
+}
+
+.container, .disclaimerPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header .headerContainer .navContainer, .navCotainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
 .formContainer form {
   display: flex;
   flex-direction: column;
@@ -1620,20 +1760,48 @@
 }
 
 .createButtonContainer {
+  margin: 20px 0 0 0;
+  font-family: IcebergRegular;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 .createButtonContainer button {
+  font-family: IcebergRegular;
+  font-size: clamp(20px, 3vw, 30px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 150px;
   height: 80px;
+  background-color: black;
+  border: solid 1px aqua;
+  border-radius: 10px;
+  color: aqua;
+  box-shadow: 0 0 10px aqua;
+  transition: 0.2s ease-in-out;
 }
-.createButtonContainer p {
+.createButtonContainer button:hover {
+  border: solid 1px rgb(0, 255, 200);
+  color: rgb(0, 255, 200);
+  box-shadow: 0 0 15px rgb(0, 255, 200);
+  text-shadow: 0 0 10px rgb(0, 255, 200);
+}
+
+.noWalletP {
   color: red;
   margin: 15px 0;
   font-size: 22px;
   text-shadow: 0 0 5px red;
+  text-align: center;
+}
+
+.walletP {
+  color: rgb(0, 255, 200);
+  margin: 15px 0;
+  font-size: 22px;
+  text-shadow: 0 0 5px rgb(0, 255, 200);
   text-align: center;
 }
 
@@ -1656,7 +1824,7 @@
   background-color: rgb(29, 29, 29);
   border: solid 1px aqua;
   border-radius: 99px;
-  width: 50px;
+  min-width: 50px;
   height: 29px;
   transition: background-color 0.1s ease, border-color 0.2s ease;
   cursor: pointer;
@@ -1811,6 +1979,132 @@
   .imgContainer button {
     width: 100%;
     margin-top: 10px;
+  }
+}
+.permissionsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px 20px;
+  color: aqua;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.permissionsCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  border: solid 1px aqua;
+  border-radius: 10px;
+  box-shadow: 0 0 10px aqua;
+  padding: 10px;
+  height: 100%;
+}
+
+.permissionsTitleContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 10px 0 0 0;
+}
+
+@media (max-width: 751px) {
+  .permissionsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.header .headerContainer h1, .homePage, .navCotainer .navLink, .container, .container a, .activeLink {
+  color: aqua;
+  text-shadow: 0 0 10px aqua;
+}
+
+.layout, .aboutPage, .homePage, .liquidityPage, .container, .walletsPage {
+  width: 100%;
+  height: 100%;
+}
+
+.container, .disclaimerPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header .headerContainer .navContainer, .navCotainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.tagsContainer {
+  display: flex;
+  flex-direction: column;
+  font-family: IcebergRegular;
+}
+
+.tagsLabel {
+  margin: 10px 0;
+}
+
+.tagButton {
+  font-size: 20px;
+  font-family: IcebergRegular;
+  margin: 10px 10px 0 0;
+  background-color: black;
+  border: solid 1px aqua;
+  color: aqua;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.tagButton:hover {
+  color: rgb(222, 238, 238);
+  border: solid 1px rgb(222, 238, 238);
+}
+
+.clickedTagButton {
+  font-family: IcebergRegular;
+  font-size: 20px;
+  margin: 10px 10px 0 0;
+  background-color: aqua;
+  border: solid 1px black;
+  box-shadow: 0 0 5px aqua;
+  color: black;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.clickedTagButton:hover {
+  color: red;
+  border: solid 1px red;
+  box-shadow: 0 0 5px red;
+}
+
+.loader {
+  height: 50%;
+  width: 50%;
+  animation: rotate infinite linear 3s;
+}
+@keyframes rotate {
+  0% {
+    rotate: z 0deg;
+    scale: 1;
+    filter: drop-shadow(0 0 0 aqua);
+  }
+  50% {
+    scale: 1.2;
+    filter: drop-shadow(0 0 5px aqua);
+  }
+  100% {
+    rotate: z 360deg;
+    scale: 1;
+    filter: drop-shadow(0 0 0 aqua);
   }
 }
 

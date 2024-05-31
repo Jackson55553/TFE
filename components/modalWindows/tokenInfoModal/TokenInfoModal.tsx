@@ -23,8 +23,13 @@ const TokenInfoModal = ({ closeModal, modalIsOpen }: { closeModal: () => void; m
                         <li>Write the description you want for your SPL Token. (Optional)</li>
                         <li>Provide links to external resources. (Optional)</li>
                         <li>
-                            Upload the image for your token (Supported image formats: PNG/GIF/JPG and JPEG Recommended
-                            size: 1000×1000 pixels).
+                            {` You can specify your creator information (default: Token For Ever)\n`}
+                            {`Additional fees (0.4 SOL). (Optional)`}
+                        </li>
+                        <li>Select tags for your token. (Optional)</li>
+                        <li>
+                            {`Upload the image for your token.\n (Supported image formats: PNG/GIF/JPG and JPEG Recommended
+                            size: 1000×1000 pixels).`}
                         </li>
                         <li>Click on create, accept the transaction and wait until your token is ready.</li>
                     </ul>

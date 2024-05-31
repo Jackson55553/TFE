@@ -3,7 +3,7 @@
     background-color: rgb(29, 29, 29);
     border: solid 1px aqua;
     border-radius: 99px;
-    width: 50px;
+    min-width: 50px;
     height: 29px;
     transition:
         background-color 0.1s ease,

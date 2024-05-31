@@ -1,0 +1,34 @@
+.permissionsContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px 20px;
+    color: aqua;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.permissionsCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    border: solid 1px aqua;
+    border-radius: 10px;
+    box-shadow: 0 0 10px aqua;
+    padding: 10px;
+    height: 100%;
+}
+.permissionsTitleContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px 0 0 0;
+}
+.permissionsDescription {
+}
+@media (max-width: 751px) {
+    .permissionsContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}

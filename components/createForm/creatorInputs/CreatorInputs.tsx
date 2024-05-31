@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from '../../../styles/sass/_createForm.module.scss';
 import { CreatorValues } from '../../../types/CreatorValues';
-import SwitchBtn from '../../UI/switchBtn/SwitchBtn';
+import ToggleBtn from '../../UI/toggleBtn/ToggleBtn';
 import { inputsCreator } from '../inputs/inputs';
 import { MyInputType } from '../../../types/MyInputType';
 import MyInput from '../myInput/MyInput';
@@ -32,7 +32,7 @@ const CreatorInputs = ({
         <>
             <div className={styles.extensionsLabelContainer}>
                 <label data-title="Additional fees: 0.4 SOL">(Optional) Creator Info</label>
-                <SwitchBtn toggled={toggledCreator} setToggled={setToggledCreator} />
+                <ToggleBtn toggled={toggledCreator} setToggled={setToggledCreator} />
             </div>
             {toggledCreator ? (
                 <div className={styles.extensionsContainer}>

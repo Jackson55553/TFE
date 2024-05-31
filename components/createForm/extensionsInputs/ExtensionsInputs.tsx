@@ -4,7 +4,7 @@ import { MyInputType } from '../../../types/MyInputType';
 import { inputsExtension } from '../inputs/inputs';
 import MyInput from '../myInput/MyInput';
 import { ExtensionsValues } from '../../../types/ExtensionsValues';
-import SwitchBtn from '../../UI/switchBtn/SwitchBtn';
+import ToggleBtn from '../../UI/toggleBtn/ToggleBtn';
 
 const ExtensionsInputs = ({
     valuesExtensions,
@@ -33,7 +33,7 @@ const ExtensionsInputs = ({
         <>
             <div className={styles.extensionsLabelContainer}>
                 <label data-title="Example: https://example.com">(Optional) Extensions</label>
-                <SwitchBtn toggled={toggledExtensions} setToggled={setToggledExtensions} />
+                <ToggleBtn toggled={toggledExtensions} setToggled={setToggledExtensions} />
             </div>
             {toggledExtensions ? (
                 <div className={styles.extensionsContainer}>

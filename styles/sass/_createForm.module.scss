@@ -1,3 +1,4 @@
+@import '_variables';
 .formContainer {
     & form {
         display: flex;
@@ -170,27 +171,52 @@
         padding: 6px 10px;
     }
 }
-
 .createButtonContainer {
+    margin: 20px 0 0 0;
+    font-family: $primary-font;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
     & button {
+        font-family: $primary-font;
+        font-size: clamp(20px, 3vw, 30px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 150px;
         height: 80px;
-    }
+        background-color: black;
+        border: solid 1px aqua;
+        border-radius: 10px;
+        color: aqua;
+        box-shadow: 0 0 10px aqua;
+        transition: 0.2s ease-in-out;
 
-    & p {
-        color: red;
-        margin: 15px 0;
-        font-size: 22px;
-        text-shadow: 0 0 5px red;
-        text-align: center;
+        &:hover {
+            border: solid 1px rgb(0, 255, 200);
+            color: rgb(0, 255, 200);
+            box-shadow: 0 0 15px rgb(0, 255, 200);
+            text-shadow: 0 0 10px rgb(0, 255, 200);
+        }
     }
 }
 
+.noWalletP {
+    color: red;
+    margin: 15px 0;
+    font-size: 22px;
+    text-shadow: 0 0 5px red;
+    text-align: center;
+}
+.walletP {
+    color: rgb(0, 255, 200);
+    margin: 15px 0;
+    font-size: 22px;
+    text-shadow: 0 0 5px rgb(0, 255, 200);
+    text-align: center;
+}
 .focusTransition {
     transition: 0.2s ease-in-out;
 }

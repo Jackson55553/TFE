@@ -1,0 +1,22 @@
+.loader {
+    height: 50%;
+    width: 50%;
+    animation: rotate infinite linear 3s;
+
+    @keyframes rotate {
+        0% {
+            rotate: z 0deg;
+            scale: 1;
+            filter: drop-shadow(0 0 0 aqua);
+        }
+        50% {
+            scale: 1.2;
+            filter: drop-shadow(0 0 5px aqua);
+        }
+        100% {
+            rotate: z 360deg;
+            scale: 1;
+            filter: drop-shadow(0 0 0 aqua);
+        }
+    }
+}

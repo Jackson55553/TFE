@@ -11,6 +11,7 @@ const DownloadImage = ({ setImageForUri }: { setImageForUri: React.Dispatch<Reac
     const [usedImageFile, setUsedImageFile] = useState(false);
     const [imageFile, setImageFile] = useState({} as File);
     const [imagePreview, setImagePreview] = useState(defaultPreview);
+    const [loadingImg, setLoadingImg] = useState(false);
 
     return (
         <div className={styles.imgContainer}>

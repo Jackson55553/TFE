@@ -5,6 +5,7 @@ import axios from 'axios';
 import { allowsFile } from '../../../../scripts/ts/getFilePreview';
 import defaultPreview from '../../../../svg/preview.svg';
 import { ImageForUri } from '../../../../types/ImageForUri';
+import LoadingCircle from '../../../UI/loadingCircle/LoadingCircle';
 
 const InputImageUrl = ({
     setImagePreview,
@@ -15,6 +16,7 @@ const InputImageUrl = ({
     setUsedImageUrl: React.Dispatch<React.SetStateAction<boolean>>;
     setImageForUri: React.Dispatch<React.SetStateAction<ImageForUri>>;
 }) => {
+    const [loading, setLoading] = useState(false);
     const [imageUrl, setImageUrl] = useState('');
     const [inputTimeout, setInputTimeout] = useState<NodeJS.Timeout>();
 
@@ -24,11 +26,12 @@ const InputImageUrl = ({
         }
         e.preventDefault();
         setImageUrl(e.target.value);
-        const timeoutID = setTimeout(() => isImageUrl(e.target.value, e), 200);
+        const timeoutID = setTimeout(() => isImageUrl(e.target.value, e), 500);
         setInputTimeout(timeoutID);
     };
 
     const isImageUrl = async (imageUrl: string, e) => {
+        setLoading(true);
         try {
             const res = await axios.get(imageUrl);
             if (res && allowsFile.includes(res.headers.getContentType())) {
@@ -42,11 +45,13 @@ const InputImageUrl = ({
                 setUsedImageUrl(false);
                 setImageForUri({ file: '', isUrl: false });
             }
+            setLoading(false);
         } catch (error) {
             e.target.attributes.focused.value = 'true';
             setImagePreview(defaultPreview);
             setUsedImageUrl(false);
             setImageForUri({ file: '', isUrl: false });
+            setLoading(false);
         }
     };
 
@@ -54,6 +59,7 @@ const InputImageUrl = ({
         <>
             <div>
                 <MyInput input={imageInput} value={imageUrl} onChange={onChange} />;
+                {loading ? <LoadingCircle style={{ height: '20px', width: '20px' }} /> : ''}
             </div>
         </>
     );
