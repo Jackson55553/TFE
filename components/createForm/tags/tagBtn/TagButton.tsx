@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../../../../styles/sass/_tags.module.scss';
 
 const TagButton = ({
@@ -11,6 +11,12 @@ const TagButton = ({
     setTags: React.Dispatch<React.SetStateAction<string[]>>;
 }) => {
     const [clicked, setClicked] = useState(false);
+
+    useEffect(() => {
+        if (!tags.length) {
+            setClicked(false);
+        }
+    }, [tags]);
 
     const addRemoveTag = (e) => {
         !clicked ? addTag(e) : removeTag(e);

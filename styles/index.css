@@ -250,6 +250,13 @@
   border: solid 1px rgb(255, 0, 0);
   box-shadow: 0 0 10px rgb(255, 0, 0);
 }
+.errorToast a {
+  color: rgb(255, 0, 0);
+  transition: 0.2s ease-in-out;
+}
+.errorToast a:hover {
+  text-shadow: 0 0 5px rgb(255, 0, 0);
+}
 .errorToast svg {
   color: red;
 }
@@ -257,6 +264,13 @@
 .successToast {
   border: solid 1px rgb(7, 255, 152);
   box-shadow: 0 0 10px rgb(7, 255, 152);
+}
+.successToast a {
+  color: rgb(7, 255, 152);
+  transition: 0.2s ease-in-out;
+}
+.successToast a:hover {
+  text-shadow: 0 0 5px rgb(7, 255, 152);
 }
 .successToast svg {
   color: rgb(7, 255, 152);
@@ -266,6 +280,13 @@
   border: solid 1px rgb(0, 255, 255);
   box-shadow: 0 0 10px rgb(0, 255, 255);
 }
+.infoToast a {
+  color: rgb(0, 255, 255);
+  transition: 0.2s ease-in-out;
+}
+.infoToast a:hover {
+  text-shadow: 0 0 5px rgb(0, 255, 255);
+}
 .infoToast svg {
   color: rgb(0, 255, 255);
 }
@@ -273,6 +294,13 @@
 .warningToast {
   border: solid 1px #f1c40f;
   box-shadow: 0 0 10px #f1c40f;
+}
+.warningToast a {
+  color: #f1c40f;
+  transition: 0.2s ease-in-out;
+}
+.warningToast a:hover {
+  text-shadow: 0 0 5px #f1c40f;
 }
 .warningToast svg {
   color: #f1c40f;
@@ -2087,8 +2115,8 @@
 }
 
 .loader {
-  height: 50%;
-  width: 50%;
+  max-height: 50%;
+  max-width: 50%;
   animation: rotate infinite linear 3s;
 }
 @keyframes rotate {

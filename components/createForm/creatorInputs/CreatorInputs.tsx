@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from '../../../styles/sass/_createForm.module.scss';
-import { CreatorValues } from '../../../types/CreatorValues';
+import { Creator } from '../../../types/Creator';
 import ToggleBtn from '../../UI/toggleBtn/ToggleBtn';
 import { inputsCreator } from '../inputs/inputs';
 import { MyInputType } from '../../../types/MyInputType';
@@ -10,8 +10,8 @@ const CreatorInputs = ({
     valuesCreator,
     setValuesCreator,
 }: {
-    valuesCreator: CreatorValues;
-    setValuesCreator: React.Dispatch<React.SetStateAction<CreatorValues>>;
+    valuesCreator: Creator;
+    setValuesCreator: React.Dispatch<React.SetStateAction<Creator>>;
 }) => {
     const [toggledCreator, setToggledCreator] = useState(false);
 

@@ -14,3 +14,4 @@ export const infoToast = (message: ToastContent<unknown>) =>
     toast.info(message, { className: `${styles.infoToast}`, bodyClassName: `${styles.bodyInfoToast}` });
 export const warningToast = (message: ToastContent<unknown>) =>
     toast.warn(message, { className: `${styles.warningToast}`, bodyClassName: `${styles.bodyWarningToast}` });
+

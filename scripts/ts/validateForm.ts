@@ -10,7 +10,6 @@ export function validateForm(valuesRequired: RequiredValues, imageForUri: ImageF
         result.message = 'Succes';
         return result;
     } else {
-        result.isValid = false;
         return result;
     }
 }
@@ -21,20 +20,22 @@ function validateInputs(valuesRequired: RequiredValues, result: { isValid: boole
             return;
         }
         if (value === 'decimals' && (+valuesRequired[value] > 9 || +valuesRequired[value] <= 0)) {
-            result.message = 'bad decimals';
-            console.log('bad decimals');
+            result.message = 'Incorrect decimals';
             result.isValid = false;
             return;
         }
         if (value === 'supply' && (+valuesRequired[value] > 18446744073709551615 || +valuesRequired[value] <= 0)) {
-            result.message = 'bad supply';
-            console.log('bad supply');
+            result.message = 'Incorrect supply';
             result.isValid = false;
             return;
         }
-        if (!valuesRequired[value].length) {
-            result.message = 'bad input length';
-            console.log('bad input length');
+        if (value === 'name' && !valuesRequired[value].length) {
+            result.message = 'Incorrect name length';
+            result.isValid = false;
+            return;
+        }
+        if (value === 'symbol' && !valuesRequired[value].length) {
+            result.message = 'Incorrect symbol length';
             result.isValid = false;
             return;
         }
@@ -51,15 +52,13 @@ function validateImage(imageForUri: ImageForUri, result: { isValid: boolean; mes
         }
         if (value === 'file' && typeof imageForUri[value] === 'string') {
             if (!imageForUri[value].length) {
-                result.message = 'badUrl';
-                console.log('badUrl');
+                result.message = 'Add image URL or image file';
                 result.isValid = false;
                 return;
             }
         } else if (value === 'file' && typeof imageForUri[value] === 'object') {
             if (Object.keys(value).length === 0) {
-                result.message = 'bad file';
-                console.log('bad file');
+                result.message = 'Add image URL or image file';
                 result.isValid = false;
                 return;
             }

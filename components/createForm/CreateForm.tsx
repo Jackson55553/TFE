@@ -1,67 +1,121 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import styles from '../../styles/sass/_createForm.module.scss';
 import DownloadImage from './downloadImage/DownloadImage';
 import RequiredInputs from './requiredInputs/RequiredInputs';
 import DescriprionTextArea from './descriptionTextArea/DescriprionTextArea';
 import ExtensionsInputs from './extensionsInputs/ExtensionsInputs';
 import CreatorInputs from './creatorInputs/CreatorInputs';
-import { ImageForUri } from '../../types/ImageForUri';
-import { ExtensionsValues } from '../../types/ExtensionsValues';
-import { RequiredValues } from '../../types/RequiredValues';
 import PermissionsMain from './permissionsMain/PermissionsMain';
-import { Authorities } from '../../types/Authorities';
 import Tags from './tags/Tags';
 import { validateForm } from '../../scripts/ts/validateForm';
 import ButtonCreate from './buttonCreate/ButtonCreate';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import 'react-toastify/dist/ReactToastify.css';
-import { errorToast, successToast, successToastNoAuto } from '../../scripts/ts/myToasts';
+import { errorToast, successToastNoAuto, warningToast } from '../../scripts/ts/myToasts';
 import { createMetadataWithFile, createMetadataWithUrl } from '../../scripts/ts/createMetadata';
 import { postMetaToServer } from '../../scripts/API/fileServer/postToJsonServer';
 import { createToken } from '../../scripts/solanaAPI/createToken';
-import Link from 'next/link';
 import * as web3 from '@solana/web3.js';
+import ToastLink from '../Links/ToastLink';
+import { setDefault } from '../../scripts/ts/clearInputs';
+import {
+    defaultRequiredValues,
+    defaultExtensionsValues,
+    defaultCreatorValues,
+    defaultDescription,
+    defaultAuthoritiesValues,
+    defaultTags,
+    defaultImageForUri,
+} from './defaultValues/defaultValues';
+import { deleteFromServer } from '../../scripts/API/fileServer/deleteFromJsonServer';
+import { writeToken, writeUser } from '../../scripts/API/DB/postToDataBase';
+import { MyMetadata } from '../../types/MyMetadata';
+import { validateDefaultCreator } from '../../scripts/ts/validationDefaultCreator';
 
 const CreateForm = () => {
-    const connection = useConnection();
+    const { connection } = useConnection();
     const { publicKey, sendTransaction } = useWallet();
 
     const [loadingBtn, setLoadingBtn] = useState(false);
 
-    const [valuesRequired, setValuesRequired] = useState({
-        name: '1',
-        symbol: '2',
-        supply: '3',
-        decimals: '4',
-    } as RequiredValues);
+    const [valuesRequired, setValuesRequired] = useState(defaultRequiredValues);
+    const [description, setDescription] = useState(defaultDescription);
+    const [valuesExtensions, setValuesExtensions] = useState(defaultExtensionsValues);
+    const [valuesCreator, setValuesCreator] = useState(defaultCreatorValues);
+    const [authorities, setAuthorities] = useState(defaultAuthoritiesValues);
+    const [tags, setTags] = useState(defaultTags);
+    const [imageForUri, setImageForUri] = useState(defaultImageForUri);
 
-    const [valuesExtensions, setValuesExtensions] = useState({
-        website: '',
-        twitter: '',
-        telegram: '',
-        discord: '',
-    } as ExtensionsValues);
-
-    const [valuesCreator, setValuesCreator] = useState({
-        name: 'Token For Ever',
-        site: 'https://tokenforever.io',
-    });
-
-    const [description, setDescription] = useState('');
-    const [authorities, setAuthorities] = useState({
-        update: false,
-        freeze: false,
-        mint: false,
-    } as Authorities);
-    const [tags, setTags] = useState<string[]>([]);
-
-    const [imageForUri, setImageForUri] = useState({
-        file: '',
-        isUrl: false,
-    } as ImageForUri);
-
-    const send = async () => {};
+    const sendTx = useCallback(
+        async (publicKey: web3.PublicKey, uriMetadata: string, metadata: MyMetadata, isdefaultCreator: boolean) => {
+            const transaction = await createToken(
+                publicKey,
+                connection,
+                valuesRequired,
+                uriMetadata,
+                isdefaultCreator,
+                authorities,
+            );
+            const timeout = setTimeout(() => {
+                warningToast('Too much time has passed. The transaction may fail.');
+            }, 60000);
+            const signature = await sendTransaction(transaction.transaction, connection, {
+                minContextSlot: transaction.minContextSlot,
+            })
+                .then((data) => {
+                    clearTimeout(timeout);
+                    return data;
+                })
+                .catch((e) => {
+                    clearTimeout(timeout);
+                    if (e.message === 'User rejected the request.') {
+                        errorToast('User rejected the request.');
+                        deleteFromServer(uriMetadata);
+                    } else {
+                        errorToast('Transaction failed');
+                        deleteFromServer(uriMetadata);
+                    }
+                });
+            connection
+                .confirmTransaction(
+                    {
+                        blockhash: transaction.blockhash,
+                        lastValidBlockHeight: transaction.lastValidBlockHeight,
+                        signature: signature,
+                    },
+                    'finalized',
+                )
+                .then(() => {
+                    successToastNoAuto(<ToastLink signature={signature} />);
+                    setLoadingBtn(false);
+                    setDefault(
+                        setValuesRequired,
+                        setValuesExtensions,
+                        setValuesCreator,
+                        setDescription,
+                        setAuthorities,
+                        setTags,
+                        setImageForUri,
+                    );
+                    writeToken(
+                        transaction.mintKeypair.publicKey.toBase58(),
+                        metadata.image,
+                        uriMetadata,
+                        publicKey.toBase58(),
+                        metadata.name,
+                        metadata.symbol,
+                        metadata.description,
+                    );
+                    writeUser(publicKey.toBase58());
+                })
+                .catch((e) => {
+                    setLoadingBtn(false);
+                    deleteFromServer(uriMetadata);
+                });
+        },
+        [connection, publicKey, sendTransaction, valuesRequired, authorities],
+    );
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -83,17 +137,9 @@ const CreateForm = () => {
                     tags,
                     valuesCreator,
                 );
-                const uriMetadata = postMetaToServer(metadata);
-
-                uriMetadata
-                    .then((data) => {
-                        console.log(data);
-                        setLoadingBtn(false);
-                    })
-                    .catch((mes) => {
-                        errorToast(mes);
-                        setLoadingBtn(false);
-                    });
+                const uriMetadata = await postMetaToServer(metadata);
+                const isdefaultCreator = validateDefaultCreator(valuesCreator);
+                sendTx(publicKey, uriMetadata, metadata, isdefaultCreator);
             }
             if (!imageForUri.isUrl) {
                 const metadata = await createMetadataWithFile(
@@ -105,28 +151,11 @@ const CreateForm = () => {
                     tags,
                     valuesCreator,
                 );
-                const uriMetadata = await postMetaToServer(metadata);
-
-                const transaction = await createToken(publicKey, connection.connection, valuesRequired, uriMetadata);
-
-                console.log(transaction.transaction);
-                const signature = await sendTransaction(transaction.transaction, connection.connection, {
-                    minContextSlot: transaction.minContextSlot,
-                }).catch((e) => console.log(e));
-                await connection.connection
-                    .confirmTransaction({
-                        blockhash: transaction.blockhash,
-                        lastValidBlockHeight: transaction.lastValidBlockHeight,
-                        signature,
-                    })
-                    .then((sign) => {
-                        successToastNoAuto(`${sign}`);
-                        setLoadingBtn(false);
-                    })
-                    .catch((e) => {
-                        errorToast(e.message);
-                        setLoadingBtn(false);
-                    });
+                if (Object.keys(metadata).length !== 0) {
+                    const uriMetadata = await postMetaToServer(metadata);
+                    const isdefaultCreator = validateDefaultCreator(valuesCreator);
+                    sendTx(publicKey, uriMetadata, metadata, isdefaultCreator);
+                }
             }
         } else {
             errorToast(isValidForm.message);
@@ -142,7 +171,7 @@ const CreateForm = () => {
                 <ExtensionsInputs valuesExtensions={valuesExtensions} setValuesExtensions={setValuesExtensions} />
                 <CreatorInputs valuesCreator={valuesCreator} setValuesCreator={setValuesCreator} />
                 <Tags tags={tags} setTags={setTags} />
-                <DownloadImage setImageForUri={setImageForUri} />
+                <DownloadImage imageForUri={imageForUri} setImageForUri={setImageForUri} />
                 <PermissionsMain setAuthorities={setAuthorities} authorities={authorities} />
                 <ButtonCreate loading={loadingBtn} />
             </form>

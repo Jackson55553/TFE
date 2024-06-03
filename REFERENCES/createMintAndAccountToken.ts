@@ -8,11 +8,11 @@ import {
 export const createMintAndAccountTokenTransaction = async (publicKey: web3.PublicKey, connection: web3.Connection) => {
     const TOKEN_METADATA_PROGRAM_ID = new web3.PublicKey('metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s');
 
-    const mintKeypair = await web3.Keypair.generate();
+    const mintKeypair = web3.Keypair.generate();
     console.log('mint keypair created');
     console.log(mintKeypair.publicKey.toBase58());
 
-    const accountKeypair = await web3.Keypair.generate();
+    const accountKeypair = web3.Keypair.generate();
     console.log('accountKeypair created');
     console.log(accountKeypair.publicKey.toBase58());
 

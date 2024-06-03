@@ -13,8 +13,8 @@
 }
 .walletButton {
     margin: 20px;
-    display: flex;
     justify-content: end;
+    display: none;
     & button {
         background: black;
         box-shadow: 0 0 10px aqua;
@@ -82,6 +82,7 @@
         display: none;
     }
     .walletButton {
+        display: flex;
         justify-content: center;
     }
 }

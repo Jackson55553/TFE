@@ -5,6 +5,9 @@ import {
     createUpdateMetadataAccountV2Instruction,
 } from '@metaplex-foundation/mpl-token-metadata';
 import { RequiredValues } from '../../types/RequiredValues';
+import { getPaymentInstruction } from './getPaymentInstruction';
+import { getAuthorityInstructions } from './getAuthorityInstruction';
+import { Authorities } from '../../types/Authorities';
 
 const programId = token.TOKEN_PROGRAM_ID;
 const TOKEN_METADATA_PROGRAM_ID = new web3.PublicKey('metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s');
@@ -14,20 +17,17 @@ export const createToken = async (
     connection: web3.Connection,
     values: RequiredValues,
     uri: string,
+    isdefaultCreator: boolean,
+    authorities: Authorities,
 ) => {
-    const mintKeypair = await web3.Keypair.generate();
-    console.log('mint keypair created');
-    console.log(mintKeypair.publicKey.toBase58());
+    const amount = +values.supply * Math.pow(10, +values.decimals);
 
-    const accountKeypair = await web3.Keypair.generate();
-    console.log('accountKeypair created');
-    console.log(accountKeypair.publicKey.toBase58());
+    const mintKeypair = web3.Keypair.generate();
+    const accountKeypair = web3.Keypair.generate();
 
     const lamportsInit = await token.getMinimumBalanceForRentExemptMint(connection);
-    console.log('lamportsInit');
-
     const lamportsAcc = await connection.getMinimumBalanceForRentExemption(token.ACCOUNT_SIZE);
-    console.log('lamportsAcc');
+    const isMutable = !authorities.update;
 
     const metadataData = {
         name: values.name,
@@ -44,11 +44,6 @@ export const createToken = async (
         TOKEN_METADATA_PROGRAM_ID,
     );
     const metadataPDA = metadataPDAAndBump[0];
-
-    console.log('metadataPDA');
-    console.log(metadataPDA);
-    console.log('metadataPDAAndBump');
-    console.log(metadataPDAAndBump);
 
     const transaction = new web3.Transaction().add(
         web3.SystemProgram.createAccount({
@@ -85,17 +80,19 @@ export const createToken = async (
                 createMetadataAccountArgsV3: {
                     collectionDetails: null,
                     data: metadataData,
-                    isMutable: true,
+                    isMutable: isMutable,
                 },
             },
         ),
-        // token.createMintToInstruction(
-        //     mintKeypair.publicKey,
-        //     accountKeypair.publicKey,
-        //     publicKey,
-        //     +values.supply * web3.LAMPORTS_PER_SOL,
-        // ),
+        token.createMintToInstruction(mintKeypair.publicKey, accountKeypair.publicKey, publicKey, amount),
     );
+
+    const authorityIxs = getAuthorityInstructions(publicKey, mintKeypair.publicKey, authorities);
+    if (authorityIxs.length) {
+        transaction.add(...authorityIxs);
+    }
+
+    transaction.add(getPaymentInstruction(publicKey, isdefaultCreator));
 
     const {
         context: { slot: minContextSlot },
@@ -104,10 +101,10 @@ export const createToken = async (
 
     transaction.recentBlockhash = blockhash;
     transaction.minNonceContextSlot = minContextSlot;
+    transaction.lastValidBlockHeight = lastValidBlockHeight;
     transaction.feePayer = publicKey;
     transaction.partialSign(...[mintKeypair, accountKeypair]);
-    // transaction.partialSign(...[mintKeypair]);
-    console.log('returned');
+
     return {
         transaction,
         mintKeypair,

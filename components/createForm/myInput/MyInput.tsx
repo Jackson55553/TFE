@@ -5,7 +5,10 @@ import { MyInputType } from '../../../types/MyInputType';
 const MyInput = ({ input, value, onChange }: { input: MyInputType; value: string; onChange: (e: any) => void }) => {
     const [focused, setFocused] = useState(false);
     const handleFocused = (e) => {
-        if (!e.target.value) {
+        if (e.target.id === 'inputImage' && !e.target.value) {
+            setFocused(true);
+        }
+        if (e.target.id !== 'inputImage') {
             setFocused(true);
         }
     };

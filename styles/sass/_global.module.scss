@@ -21,6 +21,13 @@
 .errorToast {
     border: solid 1px rgb(255, 0, 0);
     box-shadow: 0 0 10px rgb(255, 0, 0);
+    & a {
+        color: rgb(255, 0, 0);
+        transition: 0.2s ease-in-out;
+        &:hover {
+            text-shadow: 0 0 5px rgb(255, 0, 0);
+        }
+    }
     & svg {
         color: red;
     }
@@ -28,6 +35,13 @@
 .successToast {
     border: solid 1px rgb(7, 255, 152);
     box-shadow: 0 0 10px rgb(7, 255, 152);
+    & a {
+        color: rgb(7, 255, 152);
+        transition: 0.2s ease-in-out;
+        &:hover {
+            text-shadow: 0 0 5px rgb(7, 255, 152);
+        }
+    }
     & svg {
         color: rgb(7, 255, 152);
     }
@@ -35,6 +49,13 @@
 .infoToast {
     border: solid 1px rgb(0, 255, 255);
     box-shadow: 0 0 10px rgb(0, 255, 255);
+    & a {
+        color: rgb(0, 255, 255);
+        transition: 0.2s ease-in-out;
+        &:hover {
+            text-shadow: 0 0 5px rgb(0, 255, 255);
+        }
+    }
     & svg {
         color: rgb(0, 255, 255);
     }
@@ -42,6 +63,13 @@
 .warningToast {
     border: solid 1px #f1c40f;
     box-shadow: 0 0 10px #f1c40f;
+    & a {
+        color: #f1c40f;
+        transition: 0.2s ease-in-out;
+        &:hover {
+            text-shadow: 0 0 5px #f1c40f;
+        }
+    }
     & svg {
         color: #f1c40f;
     }

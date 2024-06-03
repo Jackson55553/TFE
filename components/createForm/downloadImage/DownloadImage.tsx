@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../../../styles/sass/_downloadImage.module.scss';
 import defaultPreview from '../../../svg/preview.svg';
 import InputImageUrl from './inputImageUrl/InputImageUrl';
@@ -6,12 +6,25 @@ import DrugAndDrop from './drugAndDrop/DrugAndDrop';
 import ButtonDownload from './buttonDownload/ButtonDownload';
 import { ImageForUri } from '../../../types/ImageForUri';
 
-const DownloadImage = ({ setImageForUri }: { setImageForUri: React.Dispatch<React.SetStateAction<ImageForUri>> }) => {
+const DownloadImage = ({
+    imageForUri,
+    setImageForUri,
+}: {
+    imageForUri: ImageForUri;
+    setImageForUri: React.Dispatch<React.SetStateAction<ImageForUri>>;
+}) => {
     const [usedImageUrl, setUsedImageUrl] = useState(false);
     const [usedImageFile, setUsedImageFile] = useState(false);
     const [imageFile, setImageFile] = useState({} as File);
     const [imagePreview, setImagePreview] = useState(defaultPreview);
-    const [loadingImg, setLoadingImg] = useState(false);
+
+    useEffect(() => {
+        if (imageForUri.file === '' && imageForUri.isUrl === false) {
+            setImagePreview(defaultPreview);
+            setUsedImageFile(false);
+            setUsedImageUrl(false);
+        }
+    }, [imageForUri]);
 
     return (
         <div className={styles.imgContainer}>
@@ -33,7 +46,7 @@ const DownloadImage = ({ setImageForUri }: { setImageForUri: React.Dispatch<Reac
                 imagePreview={imagePreview}
                 usedImageUrl={usedImageUrl}
             />
-            {/* add Loadfor button */}
+
             <ButtonDownload
                 usedImageUrl={usedImageUrl}
                 setImagePreview={setImagePreview}

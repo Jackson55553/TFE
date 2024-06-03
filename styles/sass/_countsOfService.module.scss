@@ -1,0 +1,33 @@
+.countsContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 70px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.555);
+    border: solid 1px aqua;
+    border-right: 0;
+    border-left: 0;
+    box-shadow: 0 0 10px aqua;
+}
+.countsOfValueContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 30px;
+}
+.countsOfToken {
+    display: block;
+    font-size: clamp(20px, 3vw, 40px);
+    white-space: pre-line;
+    text-align: center;
+    margin: 0;
+}
+.counts {
+    font-size: clamp(30px, 3vw, 50px);
+    text-align: center;
+    margin: 0;
+    margin-bottom: 10px;
+}

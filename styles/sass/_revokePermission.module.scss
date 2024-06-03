@@ -1,0 +1,111 @@
+@import '_variables';
+.revokePermissionsPage {
+    padding: 20px;
+    min-height: 100vh;
+    margin: 0 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px aqua;
+    background: black;
+}
+.revokeContainer {
+    & label {
+        text-shadow: 0 0 5px aqua;
+        color: aqua;
+        font-size: clamp(22px, 3vw, 34px);
+        width: fit-content;
+
+        &::after {
+            content: attr(data-title);
+            padding: 2px;
+            display: block;
+            position: relative;
+            top: 0;
+            right: 0;
+            text-align: start;
+            font-size: clamp(14px, 2vw, 24px);
+            color: rgb(2, 131, 131);
+            text-shadow: none;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            -ms-border-radius: 2px;
+            border-radius: 20px;
+        }
+    }
+}
+.revokeFormContainer {
+    margin-top: 50px;
+}
+.revokeForm {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 0.1fr;
+}
+.buttonFindToken {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 10px 10px 0;
+    border: 0;
+    background: aqua;
+    color: aqua;
+    transition: 0.2s ease-in-out;
+    color: black;
+    &:hover {
+        box-shadow: 0 0 10px aqua;
+    }
+}
+.findTokenInput {
+    border-radius: 10px 0 0 10px;
+    border-color: aqua;
+    border-right: 0;
+    background: black;
+    padding: 5px 10px;
+    color: aqua;
+    overflow: hidden;
+    appearance: none;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+
+    &:invalid {
+        &[focused='true'] {
+            border-color: red;
+            box-shadow: 0 0 5px red;
+        }
+        &[focused='true'] ~ .errorMessage {
+            opacity: 1;
+            height: max-content;
+            overflow: visible;
+        }
+        &[focused='false'] ~ .errorMessage {
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+        }
+    }
+
+    &::placeholder {
+        color: rgb(2, 131, 131);
+    }
+
+    &:focus {
+        border-color: aqua;
+        box-shadow: 0 0 10px aqua;
+        outline: 0;
+    }
+}
+.focusTransition {
+    transition: 0.2s ease-in-out;
+}
+.errorMessage {
+    font-size: 18px;
+    margin: 10px 0 10px 0;
+    color: red;
+    padding: 0;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: 0.2s ease-in-out;
+}

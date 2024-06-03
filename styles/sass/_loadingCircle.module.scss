@@ -1,6 +1,6 @@
 .loader {
-    height: 50%;
-    width: 50%;
+    max-height: 50%;
+    max-width: 50%;
     animation: rotate infinite linear 3s;
 
     @keyframes rotate {

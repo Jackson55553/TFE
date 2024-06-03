@@ -11,7 +11,7 @@ export default function TokenCreationPage() {
             <div className={styles.walletButton}>
                 <WalletMultiButton />
             </div>
-            <SimpleMainTitle title={'Token Create'} />
+            <SimpleMainTitle title={'Token Create'} isModal={true} />
             <CreateForm />
         </div>
     );

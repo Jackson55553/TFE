@@ -23,9 +23,7 @@ const ButtonDownload = ({
 
     const fileInputHandler = async (e) => {
         e.preventDefault();
-        console.log(e.target.files);
         const file = e.target.files[0];
-        console.log(e.target.value.length);
         if (file) {
             setImageFile(file);
             getFilePreview(file, setImagePreview);

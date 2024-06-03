@@ -4,11 +4,13 @@ import MainCards from '../../components/mainCards/MainCards';
 import WelcomeHome from '../../components/welcomeHome/WelcomeHome';
 import Reminder from '../../components/reminder/Reminder';
 import DisclaimerLink from '../../components/disclaimerLink/DisclaimerLink';
+import CountsOfService from '../../components/countsOfService/CountsOfService';
 
 export default function HomePage() {
     return (
         <div className={styles.homePage}>
             <WelcomeHome />
+            <CountsOfService />
             <MainCards />
             <Reminder />
             <div className={styles.disclaimer}>
@@ -17,25 +19,3 @@ export default function HomePage() {
         </div>
     );
 }
-
-/* {isClient ? <WalletMultiButton style={{ marginTop: '20px' }} /> : ''}
-<h1>Hello App</h1>
-<FormContainer setLoaded={setLoaded} setSign={setSign} />
-{loaded ? (
-    <div className={styles.signatureContainer}>
-        <p>
-            Signature:
-            <Link href={`https://explorer.solana.com/tx/${sign}?cluster=devnet`} target="_blank">
-                {`https://explorer.solana.com/tx/${sign}?cluster=devnet`}
-            </Link>
-        </p>
-        <button
-            style={{ position: 'absolute', top: '0', right: '0' }}
-            onClick={() => {
-                setLoaded(false);
-            }}
-        >
-            <IoMdClose />
-        </button>
-    </div>
-) : null} */

@@ -25,6 +25,14 @@ const PermissionsMain = ({
         setAuthorities({ ...authorities, update: toggleUpdate, freeze: toggleFreeze, mint: toggleMint });
     }, [toggleUpdate, toggleFreeze, toggleMint]);
 
+    useEffect(() => {
+        if (authorities.freeze === false && authorities.mint === false && authorities.update === false) {
+            setToggleUpdate(false);
+            setToggleFreeze(false);
+            setToggleMint(false);
+        }
+    }, [authorities]);
+
     permissions.forEach((permission) => {
         permission.toggled = toggles[permission.id].toggled;
         permission.setToggled = toggles[permission.id].setToggled;

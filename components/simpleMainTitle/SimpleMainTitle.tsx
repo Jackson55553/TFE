@@ -4,7 +4,7 @@ import styles from '../../styles/sass/_simpleMainTitle.module.scss';
 import { IoInformationCircle } from 'react-icons/io5';
 import TokenInfoModal from '../modalWindows/tokenInfoModal/TokenInfoModal';
 
-const SimpleMainTitle = ({ title }: { title: string }) => {
+const SimpleMainTitle = ({ title, isModal }: { title: string; isModal?: boolean }) => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
     const openModal = () => {
@@ -18,8 +18,8 @@ const SimpleMainTitle = ({ title }: { title: string }) => {
     return (
         <h2 className={styles.mainTitleContainer}>
             {title}
-            <IoInformationCircle onClick={openModal} />
-            <TokenInfoModal closeModal={closeModal} modalIsOpen={modalIsOpen} />
+            {isModal && <IoInformationCircle onClick={openModal} />}
+            {isModal && <TokenInfoModal closeModal={closeModal} modalIsOpen={modalIsOpen} />}
         </h2>
     );
 };

@@ -74,3 +74,32 @@
 //             e.message;
 //         });
 // }, [publicKey, sendTransaction, connection]);
+//getting token metadata
+// const address = new web3.PublicKey('A1Lirq6gU3AgjDowg9m9LavBU9o7h3xzVYCdnqkHJ3nQ');
+// const connection = new web3.Connection('https://api.devnet.solana.com');
+// const metaplex = Metaplex.make(connection);
+// const metadataPda = metaplex.nfts().pdas().metadata({ mint: address });
+// console.log(metadataPda);
+// Metadata.fromAccountAddress(connection, metadataPda)
+//     .then((data) => console.log(data.data.name))
+//     .catch((e) => console.log(e));
+
+//?????????????????????????
+// const programId = new web3.PublicKey('metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s');
+// if (typeof mint === 'string') {
+//     mint = new web3.PublicKey(mint);
+// }
+// const metadataPDAAndBump = web3.PublicKey.findProgramAddressSync(
+//     [Buffer.from('metadata'), programId.toBuffer(), mint.toBuffer()],
+//     programId,
+// );
+// const metadataPDA = metadataPDAAndBump[0];
+
+// const Ix = token.createUpdateAuthorityInstruction({
+//     programId,
+//     metadata: metadataPDA,
+//     oldAuthority: publicKey,
+//     newAuthority: null,
+// });
+// console.log(Ix);
+// return Ix;

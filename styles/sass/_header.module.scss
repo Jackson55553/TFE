@@ -1,80 +1,103 @@
 @import '_variables';
 .header {
     width: 100%;
+}
 
+.headerContainer {
+    padding-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px 20px;
+    background: none;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+
+    & h1 {
+        width: max-content;
+        margin: 0;
+        @extend%primary-color-text;
+        font-size: clamp(52px, 6vw, 104px);
+        text-align: center;
+    }
+}
+.abbreviature {
+    animation: 2s ease-in-out pulse infinite;
+}
+.navContainer {
+    height: 100%;
+    margin: 30px 0;
+    @extend%flex-row-centr;
+}
+.walletButtonContainer {
+    margin: 20px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    & button {
+        background: black;
+        box-shadow: 0 0 10px aqua;
+        border: solid 1px aqua;
+        color: aqua;
+        transition: 0.3s ease-in-out;
+        width: max-content;
+        &:hover {
+            box-shadow: 0 0 20px aqua;
+            background: black;
+        }
+    }
+    & ul {
+        background: black;
+        border: solid 1px aqua;
+        box-shadow: 0 0 5px aqua;
+        & li {
+            color: aqua;
+        }
+    }
+}
+@media (max-width: 1280px) {
+}
+
+@media (max-width: 1124px) {
     .headerContainer {
-        padding-top: 30px;
-        display: flex;
-        background: none;
-        align-items: center;
-        justify-content: start;
-        flex-wrap: nowrap;
-        user-select: none;
+    }
+}
 
+@media (max-width: 768px) {
+    .headerContainer {
         h1 {
-            width: 100%;
-            margin: 0 30px;
-            @extend%primary-color-text;
-            font-size: clamp(52px, 6vw, 104px);
-            text-align: center;
-            cursor: default;
-        }
-
-        .abbreviature {
-            animation: 2s ease-in-out pulse infinite;
-        }
-        .navContainer {
-            height: 100%;
-            width: 100%;
-            margin-top: 15px;
-            @extend%flex-row-centr;
+            margin: 20px 10px;
         }
     }
+}
 
-    @media (max-width: 1280px) {
-    }
-
-    @media (max-width: 1124px) {
-        .headerContainer {
-            justify-content: center;
-            flex-wrap: wrap;
+@media (max-width: 551px) {
+    .headerContainer {
+        height: 134px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        & h1 {
+            margin: 0 20px;
+        }
+        .mainIcon {
+            display: none;
         }
     }
-
-    @media (max-width: 768px) {
-        .headerContainer {
-            justify-content: center;
-            text-align: center;
-
-            h1 {
-                margin: 20px 30px;
-            }
-        }
+    .walletButtonContainer {
+        display: none;
     }
-
-    @media (max-width: 551px) {
-        .headerContainer {
-            height: 134px;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            justify-content: center;
-
-            .mainIcon {
-                display: none;
-            }
-            .navContainer {
-                display: none;
-            }
-        }
+    .navContainer {
+        display: none;
     }
+}
 
-    @media (max-width: 443px) {
-        .headerContainer {
-            h1 {
-                font-size: 40px;
-                margin: 20px 0px;
-            }
+@media (max-width: 443px) {
+    .headerContainer {
+        h1 {
+            font-size: 40px;
+            margin: 20px 20px;
         }
     }
 }

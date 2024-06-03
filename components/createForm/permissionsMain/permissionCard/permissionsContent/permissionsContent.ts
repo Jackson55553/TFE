@@ -11,7 +11,7 @@ export const permissions: IPermission[] = [
         id: 'freeze',
         title: 'Revoke Freeze',
         description:
-            'Revoking Freeze Authority removes control over specific account actions. SlerfTools supports markets for tokens with this authority retained.',
+            'Revoking Freeze Authority removes control over specific account actions. Token For Ever supports markets for tokens with this authority retained.',
     },
     {
         id: 'mint',

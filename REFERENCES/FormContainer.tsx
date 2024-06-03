@@ -1,7 +1,6 @@
 import React, { FC, useCallback, useState } from 'react';
-import CreateTokenButton from './CreateTokenButton';
 import styles from '../styles/formContainer.module.css';
-import { createMintAndAccountTokenTransaction } from '../scripts/createMintAndAccountToken';
+import { createMintAndAccountTokenTransaction } from './createMintAndAccountToken';
 import { WalletNotConnectedError } from '@solana/wallet-adapter-base';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { SignProps } from '../types/SignProps';
@@ -103,7 +102,6 @@ const FormContainer = ({ setLoaded, setSign }: SignProps) => {
                     }}
                 />
             </div>
-            <CreateTokenButton />
         </form>
     );
 };
