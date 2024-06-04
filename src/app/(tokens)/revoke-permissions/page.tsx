@@ -12,15 +12,6 @@ export default function RevokePermissionsPage() {
     const [choosenAuthorities, setChoosenAuthorities] = useState({} as Authorities);
     const [tokenAddress, setTokenAddress] = useState('');
 
-    // useEffect(() => {
-    //     console.log('authorities');
-    //     console.log(authorities);
-    //     console.log('choosenAuthorities');
-    //     console.log(choosenAuthorities);
-    //     console.log('tokenAddress');
-    //     console.log(tokenAddress);
-    // }, [authorities, choosenAuthorities, tokenAddress]);
-
     const setDefaultValues = () => {
         setAuthorities({} as Authorities);
         setChoosenAuthorities({} as Authorities);

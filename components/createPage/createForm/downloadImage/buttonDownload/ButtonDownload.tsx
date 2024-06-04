@@ -42,6 +42,7 @@ const ButtonDownload = ({
         setLoading(false);
         window.removeEventListener('focus', refocusedPage);
     };
+
     return (
         <>
             <button
@@ -54,7 +55,7 @@ const ButtonDownload = ({
                 }}
                 disabled={loading}
             >
-                {!loading ? 'DOWNLOAD PICTURE' : <LoadingCircle />}
+                {!loading ? 'DOWNLOAD PICTURE' : <LoadingCircle style={{ width: '25px', height: '25px' }} />}
             </button>
             <input
                 ref={inputRef}

@@ -21,6 +21,7 @@ export const setDefault = (
     setAuthorities: React.Dispatch<React.SetStateAction<Authorities>>,
     setTags: React.Dispatch<React.SetStateAction<string[]>>,
     setImageForUri: React.Dispatch<React.SetStateAction<ImageForUri>>,
+    setImageUrl: React.Dispatch<React.SetStateAction<string>>,
 ) => {
     setValuesRequired(defaultRequiredValues);
     setValuesExtensions(defaultExtensionsValues);
@@ -29,4 +30,5 @@ export const setDefault = (
     setAuthorities(defaultAuthoritiesValues);
     setTags(defaultTags);
     setImageForUri(defaultImageForUri);
+    setImageUrl('');
 };

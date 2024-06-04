@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 const TokensHeader = () => {
     const pathname = usePathname();
-    console.log(pathname);
     return (
         <div className={styles.tokensHeader}>
             {navLinks[0].sublinks.map((link) => (

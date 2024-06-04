@@ -11,13 +11,16 @@ const InputImageUrl = ({
     setImagePreview,
     setUsedImageUrl,
     setImageForUri,
+    setImageUrl,
+    imageUrl,
 }: {
     setImagePreview: React.Dispatch<any>;
     setUsedImageUrl: React.Dispatch<React.SetStateAction<boolean>>;
     setImageForUri: React.Dispatch<React.SetStateAction<ImageForUri>>;
+    setImageUrl: React.Dispatch<React.SetStateAction<string>>;
+    imageUrl: string;
 }) => {
     const [loading, setLoading] = useState(false);
-    const [imageUrl, setImageUrl] = useState('');
     const [inputTimeout, setInputTimeout] = useState<NodeJS.Timeout>();
 
     const onChange = (e) => {

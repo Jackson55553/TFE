@@ -9,9 +9,13 @@ import { ImageForUri } from '../../../../types/ImageForUri';
 const DownloadImage = ({
     imageForUri,
     setImageForUri,
+    setImageUrl,
+    imageUrl,
 }: {
     imageForUri: ImageForUri;
     setImageForUri: React.Dispatch<React.SetStateAction<ImageForUri>>;
+    setImageUrl: React.Dispatch<React.SetStateAction<string>>;
+    imageUrl: string;
 }) => {
     const [usedImageUrl, setUsedImageUrl] = useState(false);
     const [usedImageFile, setUsedImageFile] = useState(false);
@@ -30,6 +34,8 @@ const DownloadImage = ({
         <div className={styles.imgContainer}>
             {!usedImageFile ? (
                 <InputImageUrl
+                    setImageUrl={setImageUrl}
+                    imageUrl={imageUrl}
                     setUsedImageUrl={setUsedImageUrl}
                     setImagePreview={setImagePreview}
                     setImageForUri={setImageForUri}

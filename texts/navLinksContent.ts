@@ -6,8 +6,8 @@ export const navLinks: INavLink[] = [
         sublinks: [
             { name: 'CREATE TOKEN', href: '/token-creation', isActive: true },
             { name: 'REVOKE PERMISSIONS', href: '/revoke-permissions', isActive: true },
-            { name: 'BURN TOKEN', href: '/token-burn', isActive: false },
-            { name: 'MINT TOKEN', href: '/token-mint', isActive: false },
+            { name: 'BURN TOKEN', href: '/token-burn', isActive: true },
+            { name: 'MINT TOKEN', href: '/token-mint', isActive: true },
             { name: 'VANITY TOKEN', href: '/vanity-token-creation', isActive: false },
         ],
         href: '/token-creation',

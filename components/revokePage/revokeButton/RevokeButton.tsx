@@ -23,6 +23,11 @@ const RevokeButton = ({
     const [loading, setLoading] = useState(false);
 
     const sendTx = useCallback(async () => {
+        if (!publicKey) {
+            errorToast('Connect wallet');
+            setLoading(false);
+            return;
+        }
         const transaction = await getRevokeTransaction(tokenAddress, publicKey, connection, choosenAuthorities);
         const signature = await sendTransaction(transaction.transaction, connection, {
             minContextSlot: transaction.minContextSlot,
@@ -50,7 +55,7 @@ const RevokeButton = ({
                 setLoading(false);
             })
             .catch((e) => {
-                errorToast(e.message);
+                // errorToast(e.message);
                 setLoading(false);
             });
     }, [connection, publicKey, sendTransaction, choosenAuthorities, tokenAddress]);
@@ -76,12 +81,7 @@ const RevokeButton = ({
             </button>
             {!authorities.freeze && !authorities.mint && !authorities.update ? (
                 <span className={styles.errorSpan}>{'Find token'}</span>
-            ) : !choosenAuthorities.freeze &&
-              !choosenAuthorities.mint &&
-              !choosenAuthorities.update &&
-              authorities.freeze &&
-              authorities.mint &&
-              authorities.update ? (
+            ) : !choosenAuthorities.freeze && !choosenAuthorities.mint && !choosenAuthorities.update ? (
                 <span className={styles.errorSpan}>{'Choose something'}</span>
             ) : (
                 <span className={styles.successSpan}>{'Cost is free'}</span>

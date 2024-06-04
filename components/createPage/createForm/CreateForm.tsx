@@ -46,6 +46,7 @@ const CreateForm = () => {
     const [authorities, setAuthorities] = useState(defaultAuthoritiesValues);
     const [tags, setTags] = useState(defaultTags);
     const [imageForUri, setImageForUri] = useState(defaultImageForUri);
+    const [imageUrl, setImageUrl] = useState('');
 
     const sendTx = useCallback(
         async (publicKey: web3.PublicKey, uriMetadata: string, metadata: MyMetadata, isdefaultCreator: boolean) => {
@@ -97,6 +98,7 @@ const CreateForm = () => {
                         setAuthorities,
                         setTags,
                         setImageForUri,
+                        setImageUrl,
                     );
                     writeToken(
                         transaction.mintKeypair.publicKey.toBase58(),
@@ -171,7 +173,12 @@ const CreateForm = () => {
                 <ExtensionsInputs valuesExtensions={valuesExtensions} setValuesExtensions={setValuesExtensions} />
                 <CreatorInputs valuesCreator={valuesCreator} setValuesCreator={setValuesCreator} />
                 <Tags tags={tags} setTags={setTags} />
-                <DownloadImage imageForUri={imageForUri} setImageForUri={setImageForUri} />
+                <DownloadImage
+                    imageForUri={imageForUri}
+                    setImageForUri={setImageForUri}
+                    setImageUrl={setImageUrl}
+                    imageUrl={imageUrl}
+                />
                 <PermissionsMain setAuthorities={setAuthorities} authorities={authorities} />
                 <ButtonCreate loading={loadingBtn} />
             </form>
