@@ -28,7 +28,51 @@
             -moz-border-radius: 2px;
             -webkit-border-radius: 2px;
             -ms-border-radius: 2px;
-            border-radius: 20px;
+            border-radius: 0;
+            overflow: hidden;
+        }
+    }
+}
+.revokeButtonContainer {
+    margin: 40px 0 20px 0;
+    font-family: $primary-font;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    & button {
+        font-family: $primary-font;
+        font-size: clamp(20px, 3vw, 30px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 150px;
+        height: 80px;
+        background-color: black;
+        border: solid 1px aqua;
+        border-radius: 10px;
+        color: aqua;
+        box-shadow: 0 0 10px aqua;
+        transition: 0.2s ease-in-out;
+
+        &:disabled {
+            border: solid 1px red;
+            color: red;
+            box-shadow: 0 0 10px red;
+            &:hover {
+                border: solid 1px grey;
+                color: grey;
+                box-shadow: 0 0 15px grey;
+                text-shadow: 0 0 10px grey;
+            }
+        }
+
+        &:hover {
+            border: solid 1px rgb(0, 255, 200);
+            color: rgb(0, 255, 200);
+            box-shadow: 0 0 15px rgb(0, 255, 200);
+            text-shadow: 0 0 10px rgb(0, 255, 200);
         }
     }
 }
@@ -53,7 +97,11 @@
     &:hover {
         box-shadow: 0 0 10px aqua;
     }
+    & svg {
+        color: black;
+    }
 }
+
 .findTokenInput {
     border-radius: 10px 0 0 10px;
     border-color: aqua;
@@ -85,6 +133,20 @@
             overflow: hidden;
         }
     }
+    &[focused='true'] {
+        border-color: red;
+        box-shadow: 0 0 5px red;
+    }
+    &[focused='true'] ~ .errorMessage {
+        opacity: 1;
+        height: max-content;
+        overflow: visible;
+    }
+    &[focused='false'] ~ .errorMessage {
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+    }
 
     &::placeholder {
         color: rgb(2, 131, 131);
@@ -108,4 +170,20 @@
     height: 0;
     overflow: hidden;
     transition: 0.2s ease-in-out;
+}
+.errorSpan {
+    margin: 15px 0 0 0;
+    font-size: 20px;
+    text-shadow: 0 0 5px red;
+    color: red;
+    width: fit-content;
+    border-radius: 10px;
+}
+.successSpan {
+    margin: 15px 0 0 0;
+    font-size: 20px;
+    text-shadow: 0 0 5px aqua;
+    color: aqua;
+    width: fit-content;
+    border-radius: 10px;
 }

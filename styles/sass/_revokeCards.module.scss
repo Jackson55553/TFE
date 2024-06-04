@@ -1,0 +1,43 @@
+.permissionsContainer {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 50px 20px;
+    color: aqua;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.revokeCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    border: solid 1px aqua;
+    border-radius: 10px;
+    box-shadow: 0 0 10px aqua;
+    padding: 10px 20px;
+    height: 100%;
+}
+.revokeTitleContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px 0 0 0;
+}
+.revokeDescription {
+}
+.revokedSpan {
+    padding: 5px;
+    color: red;
+    border: 1px solid red;
+    width: fit-content;
+    box-shadow: 0 0 5px red;
+    border-radius: 10px;
+}
+@media (max-width: 751px) {
+    .permissionsContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}

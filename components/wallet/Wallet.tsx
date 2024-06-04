@@ -12,8 +12,9 @@ export const Wallet = ({ children }: { children: React.ReactNode }) => {
     const [network, setNetwork] = useState(WalletAdapterNetwork.Mainnet);
 
     // You can also provide a custom RPC endpoint.
+    const endpoint = 'https://solana-devnet.g.alchemy.com/v2/2SxgvOfByFJ_tmfESBQeRG9X08sFjLCl';
     // const endpoint = 'https://solana-mainnet.g.alchemy.com/v2/h9dexARnvf2uItS55M85d2REUBsTaWZN';
-    const endpoint = useMemo(() => clusterApiUrl(network), [network]);
+    // const endpoint = useMemo(() => clusterApiUrl(network), [network]);
     const wallets = useMemo(
         () => [new SolflareWalletAdapter(), new LedgerWalletAdapter(), new Coin98WalletAdapter()],
         [network],

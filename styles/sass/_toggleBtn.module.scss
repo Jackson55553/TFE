@@ -32,6 +32,15 @@
         background-color: black;
     }
 }
+.disabled {
+    background-color: rgb(31, 30, 30);
+    border: solid 1px red;
+    box-shadow: 0 0 5px red;
+    cursor: not-allowed;
+    & .thumb {
+        background-color: red;
+    }
+}
 @media (max-width: 344px) {
     .toggleBtn {
         margin: 0 10px;

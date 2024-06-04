@@ -1,4 +1,4 @@
-.activeLink, .container a, .container, .navCotainer .navLink, .homePage, .header .headerContainer h1 {
+.activeLink, .container a, .container, .navCotainer .navLink, .homePage, .headerContainer h1 {
   color: aqua;
   text-shadow: 0 0 10px aqua;
 }
@@ -15,7 +15,7 @@
   justify-content: center;
 }
 
-.navCotainer, .header .headerContainer .navContainer {
+.navContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -34,7 +34,7 @@
   font-size: clamp(26px, 3vw, 40px);
 }
 
-.activeLink, .container a, .container, .navCotainer .navLink, .homePage, .header .headerContainer h1 {
+.activeLink, .container a, .container, .navCotainer .navLink, .homePage, .headerContainer h1 {
   color: aqua;
   text-shadow: 0 0 10px aqua;
 }
@@ -51,7 +51,7 @@
   justify-content: center;
 }
 
-.navCotainer, .header .headerContainer .navContainer {
+.navContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -99,6 +99,7 @@
 .hiddenMenuWrapper {
   width: 0;
   opacity: 0;
+  overflow: hidden;
   transition: opacity 2s ease-in-out;
 }
 
@@ -122,6 +123,7 @@
 .hiddenMenu {
   opacity: 0;
   width: 0;
+  overflow: hidden;
   transition: 0.5s ease-in-out;
 }
 
@@ -203,7 +205,7 @@
   }
 }
 
-.activeLink, .container a, .container, .navCotainer .navLink, .homePage, .header .headerContainer h1 {
+.activeLink, .container a, .container, .navCotainer .navLink, .homePage, .headerContainer h1 {
   color: aqua;
   text-shadow: 0 0 10px aqua;
 }
@@ -220,7 +222,7 @@
   justify-content: center;
 }
 
-.navCotainer, .header .headerContainer .navContainer {
+.navContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -339,7 +341,7 @@
   font-family: "IcebergRegular";
   src: url("../../fonts/Iceland-Regular.ttf");
 }
-.activeLink, .container a, .container, .navCotainer .navLink, .homePage, .header .headerContainer h1 {
+.activeLink, .container a, .container, .navCotainer .navLink, .homePage, .headerContainer h1 {
   color: aqua;
   text-shadow: 0 0 10px aqua;
 }
@@ -356,7 +358,7 @@
   justify-content: center;
 }
 
-.navCotainer, .header .headerContainer .navContainer {
+.navContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -366,67 +368,92 @@
 .header {
   width: 100%;
 }
-.header .headerContainer {
+
+.headerContainer {
   padding-top: 30px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px 20px;
   background: none;
   align-items: center;
-  justify-content: start;
-  flex-wrap: nowrap;
+  justify-content: space-between;
   user-select: none;
 }
-.header .headerContainer h1 {
-  width: 100%;
-  margin: 0 30px;
+.headerContainer h1 {
+  width: max-content;
+  margin: 0;
   font-size: clamp(52px, 6vw, 104px);
   text-align: center;
-  cursor: default;
 }
-.header .headerContainer .abbreviature {
+
+.abbreviature {
   animation: 2s ease-in-out pulse infinite;
 }
-.header .headerContainer .navContainer {
+
+.navContainer {
   height: 100%;
-  width: 100%;
-  margin-top: 15px;
+  margin: 30px 0;
 }
-@media (max-width: 1124px) {
-  .header .headerContainer {
-    justify-content: center;
-    flex-wrap: wrap;
-  }
+
+.walletButtonContainer {
+  margin: 20px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
 }
+.walletButtonContainer button {
+  background: black;
+  box-shadow: 0 0 10px aqua;
+  border: solid 1px aqua;
+  color: aqua;
+  transition: 0.3s ease-in-out;
+  width: max-content;
+}
+.walletButtonContainer button:hover {
+  box-shadow: 0 0 20px aqua;
+  background: black;
+}
+.walletButtonContainer ul {
+  background: black;
+  border: solid 1px aqua;
+  box-shadow: 0 0 5px aqua;
+}
+.walletButtonContainer ul li {
+  color: aqua;
+}
+
 @media (max-width: 768px) {
-  .header .headerContainer {
-    justify-content: center;
-    text-align: center;
-  }
-  .header .headerContainer h1 {
-    margin: 20px 30px;
+  .headerContainer h1 {
+    margin: 20px 10px;
   }
 }
 @media (max-width: 551px) {
-  .header .headerContainer {
+  .headerContainer {
     height: 134px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
   }
-  .header .headerContainer .mainIcon {
+  .headerContainer h1 {
+    margin: 0 20px;
+  }
+  .headerContainer .mainIcon {
     display: none;
   }
-  .header .headerContainer .navContainer {
+  .walletButtonContainer {
+    display: none;
+  }
+  .navContainer {
     display: none;
   }
 }
 @media (max-width: 443px) {
-  .header .headerContainer h1 {
+  .headerContainer h1 {
     font-size: 40px;
-    margin: 20px 0px;
+    margin: 20px 20px;
   }
 }
-
 @keyframes pulse {
   0% {
     filter: drop-shadow(0 0 4px aqua);
@@ -438,7 +465,7 @@
     filter: drop-shadow(0 0 4px aqua);
   }
 }
-.activeLink, .container a, .container, .navCotainer .navLink, .homePage, .header .headerContainer h1 {
+.activeLink, .container a, .container, .navCotainer .navLink, .homePage, .headerContainer h1 {
   color: aqua;
   text-shadow: 0 0 10px aqua;
 }
@@ -455,7 +482,7 @@
   justify-content: center;
 }
 
-.navCotainer, .header .headerContainer .navContainer {
+.navContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -473,7 +500,7 @@
 }
 .homePage .welcomeHeader {
   font-size: 50px;
-  margin: 80px 20px 10px 20px;
+  margin: 20px 20px 10px 20px;
   text-align: center;
 }
 .homePage .welcomeDescription {
@@ -483,8 +510,6 @@
 }
 
 .disclaimer {
-  width: 90%;
-  margin: 40px 20px 0 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -539,7 +564,7 @@
     filter: drop-shadow(0 0 4px aqua);
   }
 }
-.activeLink, .container a, .container, .navCotainer .navLink, .header .headerContainer h1, .homePage {
+.activeLink, .container a, .container, .navCotainer .navLink, .headerContainer h1, .homePage {
   color: aqua;
   text-shadow: 0 0 10px aqua;
 }
@@ -556,7 +581,7 @@
   justify-content: center;
 }
 
-.navCotainer, .header .headerContainer .navContainer {
+.navContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -573,7 +598,7 @@
   background: rgba(0, 0, 0, 0.541);
 }
 
-.activeLink, .container a, .container, .navCotainer .navLink, .header .headerContainer h1, .homePage {
+.activeLink, .container a, .container, .navCotainer .navLink, .headerContainer h1, .homePage {
   color: aqua;
   text-shadow: 0 0 10px aqua;
 }
@@ -590,7 +615,7 @@
   justify-content: center;
 }
 
-.navCotainer, .header .headerContainer .navContainer {
+.navContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -598,11 +623,14 @@
 }
 
 .navCotainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
   height: 100%;
 }
 .navCotainer .navLink {
   text-decoration: none;
-  margin: 0 20px;
+  text-align: center;
   font-size: clamp(24px, 3vw, 30px);
 }
 .navCotainer .disabledLink {
@@ -623,7 +651,7 @@
   text-shadow: 0 0 15px rgb(7, 243, 243);
 }
 
-.activeLink, .container a, .container, .header .headerContainer h1, .homePage, .navCotainer .navLink {
+.activeLink, .container a, .container, .headerContainer h1, .homePage, .navCotainer .navLink {
   color: aqua;
   text-shadow: 0 0 10px aqua;
 }
@@ -640,7 +668,7 @@
   justify-content: center;
 }
 
-.header .headerContainer .navContainer, .navCotainer {
+.navContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -668,7 +696,7 @@
   color: white;
 }
 
-.activeLink, .header .headerContainer h1, .homePage, .navCotainer .navLink, .container, .container a {
+.activeLink, .headerContainer h1, .homePage, .navCotainer .navLink, .container, .container a {
   color: aqua;
   text-shadow: 0 0 10px aqua;
 }
@@ -685,7 +713,7 @@
   justify-content: center;
 }
 
-.header .headerContainer .navContainer, .navCotainer {
+.navContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -708,8 +736,8 @@
 
 .walletButton {
   margin: 20px;
-  display: flex;
   justify-content: end;
+  display: none;
 }
 .walletButton button {
   background: black;
@@ -776,10 +804,11 @@
     display: none;
   }
   .walletButton {
+    display: flex;
     justify-content: center;
   }
 }
-.header .headerContainer h1, .homePage, .navCotainer .navLink, .container, .container a, .activeLink {
+.headerContainer h1, .homePage, .navCotainer .navLink, .container, .container a, .activeLink {
   color: aqua;
   text-shadow: 0 0 10px aqua;
 }
@@ -796,7 +825,7 @@
   justify-content: center;
 }
 
-.header .headerContainer .navContainer, .navCotainer {
+.navContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -808,7 +837,7 @@
   flex-direction: column;
 }
 
-.header .headerContainer h1, .homePage, .navCotainer .navLink, .container, .container a, .activeLink {
+.headerContainer h1, .homePage, .navCotainer .navLink, .container, .container a, .activeLink {
   color: aqua;
   text-shadow: 0 0 10px aqua;
 }
@@ -825,7 +854,7 @@
   justify-content: center;
 }
 
-.header .headerContainer .navContainer, .navCotainer {
+.navContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -833,20 +862,30 @@
 }
 
 .mainCardsHeader {
-  margin: 100px 0 20px 0;
+  margin: 80px 0 20px 0;
   font-size: 40px;
 }
 
 .mainCards {
   display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 50% 50%;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px 20px;
+  justify-content: center;
   justify-items: center;
-  margin: 20px 0;
+  margin: 20px 0 0 0;
 }
-.mainCards .mainCardContainer {
+@media (max-width: 636px) {
+  .mainCards .mainCardContainer {
+    width: 80%;
+    height: 100%;
+  }
+}
+
+.mainCardContainer {
+  display: flex;
+  flex-direction: column;
   width: 80%;
-  margin: 10px;
   background: black;
   border-radius: 10px;
   padding: 20px;
@@ -856,7 +895,7 @@
   text-overflow: ellipsis;
   transition: 0.5s;
 }
-.mainCards .mainCardContainer .mainCardTitle {
+.mainCardContainer .mainCardTitle {
   display: flex;
   justify-content: space-between;
   margin: 0;
@@ -864,27 +903,21 @@
   width: 100%;
   height: max-content;
 }
-.mainCards .mainCardContainer .mainCardDescription {
+.mainCardContainer .mainCardDescription {
   margin: 0;
   padding: 20px 0;
   font-size: 26px;
   text-align: start;
 }
-.mainCards .mainCardContainer .cardIcon {
+.mainCardContainer .cardIcon {
   height: 30px;
   width: 30px;
   margin: 0 20px;
   align-self: center;
   filter: drop-shadow(0 0 3px aqua);
 }
-.mainCards .mainCardContainer:hover, .mainCards .mainCardContainer:focus {
+.mainCardContainer:hover, .mainCardContainer:focus {
   scale: 1.05;
-}
-@media (max-width: 636px) {
-  .mainCards .mainCardContainer {
-    width: 80%;
-    height: 100%;
-  }
 }
 
 @media (max-width: 636px) {
@@ -895,7 +928,7 @@
   }
 }
 .reminderContainer {
-  margin: 100px 20px 0 20px;
+  margin: 100px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -934,7 +967,8 @@
 }
 .reminderContainer .reminderCards {
   display: grid;
-  grid-template-columns: 33% 33% 33%;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
   justify-content: center;
   margin: 50px 20px 20px 20px;
 }
@@ -943,7 +977,6 @@
   border-radius: 10px;
   border: solid 1px aqua;
   box-shadow: 0 0 10px aqua;
-  margin: 10px;
   padding: 20px;
 }
 .reminderContainer .reminderTitle {
@@ -1155,7 +1188,7 @@
     text-shadow: 0 0 10px aqua;
   }
 }
-.header .headerContainer h1, .homePage, .navCotainer .navLink, .container, .container a, .activeLink {
+.headerContainer h1, .homePage, .navCotainer .navLink, .container, .container a, .activeLink {
   color: aqua;
   text-shadow: 0 0 10px aqua;
 }
@@ -1172,7 +1205,7 @@
   justify-content: center;
 }
 
-.header .headerContainer .navContainer, .navCotainer {
+.navContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -1230,7 +1263,7 @@
   text-shadow: 0 0 5px rgb(111, 0, 255);
 }
 
-.header .headerContainer h1, .homePage, .navCotainer .navLink, .container, .container a, .activeLink {
+.headerContainer h1, .homePage, .navCotainer .navLink, .container, .container a, .activeLink {
   color: aqua;
   text-shadow: 0 0 10px aqua;
 }
@@ -1247,7 +1280,7 @@
   justify-content: center;
 }
 
-.header .headerContainer .navContainer, .navCotainer {
+.navContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -1572,7 +1605,7 @@
   }
 }
 .mainTitleContainer {
-  margin: 0 0 20px 0;
+  margin: 40px 0 20px 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1600,10 +1633,10 @@
   .mainTitleContainer svg {
     width: 60px;
     height: 60px;
-    margin: 0;
+    margin: 0 0 10px 0;
   }
 }
-.header .headerContainer h1, .homePage, .navCotainer .navLink, .container, .container a, .activeLink {
+.headerContainer h1, .homePage, .navCotainer .navLink, .container, .container a, .activeLink {
   color: aqua;
   text-shadow: 0 0 10px aqua;
 }
@@ -1620,7 +1653,7 @@
   justify-content: center;
 }
 
-.header .headerContainer .navContainer, .navCotainer {
+.navContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -1881,12 +1914,22 @@
   background-color: black;
 }
 
+.disabled {
+  background-color: rgb(31, 30, 30);
+  border: solid 1px red;
+  box-shadow: 0 0 5px red;
+  cursor: not-allowed;
+}
+.disabled .thumb {
+  background-color: red;
+}
+
 @media (max-width: 344px) {
   .toggleBtn {
     margin: 0 10px;
   }
 }
-.header .headerContainer h1, .homePage, .navCotainer .navLink, .container, .container a, .activeLink {
+.headerContainer h1, .homePage, .navCotainer .navLink, .container, .container a, .activeLink {
   color: aqua;
   text-shadow: 0 0 10px aqua;
 }
@@ -1903,7 +1946,7 @@
   justify-content: center;
 }
 
-.header .headerContainer .navContainer, .navCotainer {
+.navContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -2044,7 +2087,7 @@
     justify-content: center;
   }
 }
-.header .headerContainer h1, .homePage, .navCotainer .navLink, .container, .container a, .activeLink {
+.headerContainer h1, .homePage, .navCotainer .navLink, .container, .container a, .activeLink {
   color: aqua;
   text-shadow: 0 0 10px aqua;
 }
@@ -2061,7 +2104,7 @@
   justify-content: center;
 }
 
-.header .headerContainer .navContainer, .navCotainer {
+.navContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -2118,6 +2161,7 @@
   max-height: 50%;
   max-width: 50%;
   animation: rotate infinite linear 3s;
+  color: aqua;
 }
 @keyframes rotate {
   0% {
@@ -2133,6 +2177,298 @@
     rotate: z 360deg;
     scale: 1;
     filter: drop-shadow(0 0 0 aqua);
+  }
+}
+
+.countsContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 70px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.555);
+  border: solid 1px aqua;
+  border-right: 0;
+  border-left: 0;
+  box-shadow: 0 0 10px aqua;
+}
+
+.countsOfValueContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 30px;
+}
+
+.countsOfToken {
+  display: block;
+  font-size: clamp(20px, 3vw, 40px);
+  white-space: pre-line;
+  text-align: center;
+  margin: 0;
+}
+
+.counts {
+  font-size: clamp(30px, 3vw, 50px);
+  text-align: center;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.headerContainer h1, .homePage, .navCotainer .navLink, .container, .container a, .activeLink {
+  color: aqua;
+  text-shadow: 0 0 10px aqua;
+}
+
+.layout, .aboutPage, .homePage, .liquidityPage, .container, .walletsPage {
+  width: 100%;
+  height: 100%;
+}
+
+.container, .disclaimerPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.navContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.revokePermissionsPage {
+  padding: 20px;
+  min-height: 100vh;
+  margin: 0 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px aqua;
+  background: black;
+}
+
+.revokeContainer label {
+  text-shadow: 0 0 5px aqua;
+  color: aqua;
+  font-size: clamp(22px, 3vw, 34px);
+  width: fit-content;
+}
+.revokeContainer label::after {
+  content: attr(data-title);
+  padding: 2px;
+  display: block;
+  position: relative;
+  top: 0;
+  right: 0;
+  text-align: start;
+  font-size: clamp(14px, 2vw, 24px);
+  color: rgb(2, 131, 131);
+  text-shadow: none;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -ms-border-radius: 2px;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.revokeButtonContainer {
+  margin: 40px 0 20px 0;
+  font-family: IcebergRegular;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.revokeButtonContainer button {
+  font-family: IcebergRegular;
+  font-size: clamp(20px, 3vw, 30px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 80px;
+  background-color: black;
+  border: solid 1px aqua;
+  border-radius: 10px;
+  color: aqua;
+  box-shadow: 0 0 10px aqua;
+  transition: 0.2s ease-in-out;
+}
+.revokeButtonContainer button:disabled {
+  border: solid 1px red;
+  color: red;
+  box-shadow: 0 0 10px red;
+}
+.revokeButtonContainer button:disabled:hover {
+  border: solid 1px grey;
+  color: grey;
+  box-shadow: 0 0 15px grey;
+  text-shadow: 0 0 10px grey;
+}
+.revokeButtonContainer button:hover {
+  border: solid 1px rgb(0, 255, 200);
+  color: rgb(0, 255, 200);
+  box-shadow: 0 0 15px rgb(0, 255, 200);
+  text-shadow: 0 0 10px rgb(0, 255, 200);
+}
+
+.revokeFormContainer {
+  margin-top: 50px;
+}
+
+.revokeForm {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr 0.1fr;
+}
+
+.buttonFindToken {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 10px 10px 0;
+  border: 0;
+  background: aqua;
+  color: aqua;
+  transition: 0.2s ease-in-out;
+  color: black;
+}
+.buttonFindToken:hover {
+  box-shadow: 0 0 10px aqua;
+}
+.buttonFindToken svg {
+  color: black;
+}
+
+.findTokenInput {
+  border-radius: 10px 0 0 10px;
+  border-color: aqua;
+  border-right: 0;
+  background: black;
+  padding: 5px 10px;
+  color: aqua;
+  overflow: hidden;
+  appearance: none;
+}
+.findTokenInput::-webkit-outer-spin-button, .findTokenInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.findTokenInput:invalid[focused=true] {
+  border-color: red;
+  box-shadow: 0 0 5px red;
+}
+.findTokenInput:invalid[focused=true] ~ .errorMessage {
+  opacity: 1;
+  height: max-content;
+  overflow: visible;
+}
+.findTokenInput:invalid[focused=false] ~ .errorMessage {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+.findTokenInput[focused=true] {
+  border-color: red;
+  box-shadow: 0 0 5px red;
+}
+.findTokenInput[focused=true] ~ .errorMessage {
+  opacity: 1;
+  height: max-content;
+  overflow: visible;
+}
+.findTokenInput[focused=false] ~ .errorMessage {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+.findTokenInput::placeholder {
+  color: rgb(2, 131, 131);
+}
+.findTokenInput:focus {
+  border-color: aqua;
+  box-shadow: 0 0 10px aqua;
+  outline: 0;
+}
+
+.focusTransition {
+  transition: 0.2s ease-in-out;
+}
+
+.errorMessage {
+  font-size: 18px;
+  margin: 10px 0 10px 0;
+  color: red;
+  padding: 0;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: 0.2s ease-in-out;
+}
+
+.errorSpan {
+  margin: 15px 0 0 0;
+  font-size: 20px;
+  text-shadow: 0 0 5px red;
+  color: red;
+  width: fit-content;
+  border-radius: 10px;
+}
+
+.successSpan {
+  margin: 15px 0 0 0;
+  font-size: 20px;
+  text-shadow: 0 0 5px aqua;
+  color: aqua;
+  width: fit-content;
+  border-radius: 10px;
+}
+
+.permissionsContainer {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 50px 20px;
+  color: aqua;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.revokeCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  border: solid 1px aqua;
+  border-radius: 10px;
+  box-shadow: 0 0 10px aqua;
+  padding: 10px 20px;
+  height: 100%;
+}
+
+.revokeTitleContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 10px 0 0 0;
+}
+
+.revokedSpan {
+  padding: 5px;
+  color: red;
+  border: 1px solid red;
+  width: fit-content;
+  box-shadow: 0 0 5px red;
+  border-radius: 10px;
+}
+
+@media (max-width: 751px) {
+  .permissionsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 }
 
