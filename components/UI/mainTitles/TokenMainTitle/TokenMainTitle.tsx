@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import styles from '../../../styles/sass/_simpleMainTitle.module.scss';
+import styles from '../../../../styles/sass/_simpleMainTitle.module.scss';
 import { IoInformationCircle } from 'react-icons/io5';
 import TokenInfoModal from '../../modalWindows/tokenInfoModal/TokenInfoModal';
 

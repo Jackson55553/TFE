@@ -1,7 +1,7 @@
 import React from 'react';
 import { BsChevronCompactDown } from 'react-icons/bs';
 import { useInView } from 'react-intersection-observer';
-import styles from '../../../styles/sass/_roadmap.module.scss';
+import styles from '../../../../styles/sass/_roadmap.module.scss';
 const RoadmapArrow = () => {
     const { ref, inView } = useInView({
         threshold: 0.5,

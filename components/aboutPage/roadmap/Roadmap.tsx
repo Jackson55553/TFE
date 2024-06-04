@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import styles from '../../styles/sass/_roadmap.module.scss';
+import styles from '../../../styles/sass/_roadmap.module.scss';
 import { stages } from './stages/stagesContent';
 import RoadmapCard from './roadmapCard/RoadmapCard';
 import RoadmapArrow from './roadmapArrow/RoadmapArrow';

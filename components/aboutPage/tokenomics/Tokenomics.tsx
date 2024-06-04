@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../../styles/sass/_tokenomics.module.scss';
+import styles from '../../../styles/sass/_tokenomics.module.scss';
 import { mainTitle, tokenomicsContent } from '../../../texts/tokenomicsContent';
 const Tokenomics = () => {
     return (

@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import styles from '../../../styles/sass/_roadmapCard.module.scss';
+import styles from '../../../../styles/sass/_roadmapCard.module.scss';
 import { useInView } from 'react-intersection-observer';
 import { Stage } from '../../../../types/Stage';
 import { AiOutlineCheckCircle } from 'react-icons/ai';

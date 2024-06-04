@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
-import styles from '../../styles/sass/_countsOfService.module.scss';
+import styles from '../../../styles/sass/_countsOfService.module.scss';
 import { getCountOfTokens, getCountOfUsers } from '../../../scripts/API/DB/getFromDatabase';
 
 const CountsOfService = () => {

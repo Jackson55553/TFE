@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../../../styles/sass/_tokenInfoModal.module.scss';
+import styles from '../../../../styles/sass/_tokenInfoModal.module.scss';
 
 const TokenInfoModal = ({ closeModal, modalIsOpen }: { closeModal: () => void; modalIsOpen: boolean }) => {
     const onWrapperClick = (event) => {

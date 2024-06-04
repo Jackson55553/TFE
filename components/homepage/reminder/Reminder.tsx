@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../../styles/sass/_reminder.module.scss';
+import styles from '../../../styles/sass/_reminder.module.scss';
 import { MdOutlinePrivacyTip } from 'react-icons/md';
 import ReminderCards from '../reminderCard/ReminderCards';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../../styles/sass/_reminder.module.scss';
+import styles from '../../../styles/sass/_reminder.module.scss';
 import { reminderCards } from '../../../texts/reminderCardsContent';
 
 const ReminderCards = () => {
