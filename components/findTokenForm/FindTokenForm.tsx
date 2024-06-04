@@ -3,8 +3,10 @@ import React, { useState } from 'react';
 import styles from '../../styles/sass/_revokePermission.module.scss';
 import { FaSearch } from 'react-icons/fa';
 import { isTokenAddress } from '../../scripts/solanaAPI/validateTokenAddress';
+import { useConnection } from '@solana/wallet-adapter-react';
+import LoadingCircle from '../UI/loadingCircle/LoadingCircle';
 const FindTokenForm = () => {
-    const {connection} = useConnection();
+    const { connection } = useConnection();
     const [loading, setLoading] = useState(false);
     const [focused, setFocused] = useState(false);
     const [inputTimeout, setInputTimeout] = useState<NodeJS.Timeout>();
@@ -16,7 +18,8 @@ const FindTokenForm = () => {
         }
         e.preventDefault();
         setTokenAddress(e.target.value);
-        const timeoutID = setTimeout(() => isTokenAddress(), 500);
+        const timeoutID = setTimeout(() => isTokenAddress(connection, setLoading, e.target.value), 500);
+        console.log(timeoutID);
         setInputTimeout(timeoutID);
     };
 
@@ -44,6 +47,7 @@ const FindTokenForm = () => {
                 </button>
                 <span className={styles.errorMessage}>{'Token address incorrected'}</span>
             </form>
+            {loading ? <LoadingCircle /> : ''}
         </div>
     );
 };
