@@ -16,7 +16,7 @@ const TokenInfoModal = ({ closeModal, modalIsOpen }: { closeModal: () => void; m
                     </p>
                     <h2>How to use Token Creator</h2>
                     <ul>
-                        <li>Connect your Solana wallet. (Phantom)</li>
+                        <li>Connect your Solana wallet.</li>
                         <li>Write the name you want for your Token.(max. 20 symbols)</li>
                         <li>Write the symbol (max 8 characters).</li>
                         <li>Put the Supply of your Token. (max. 149999999999999)</li>
@@ -34,6 +34,7 @@ const TokenInfoModal = ({ closeModal, modalIsOpen }: { closeModal: () => void; m
                         <li>Click on create, accept the transaction and wait until your token is ready.</li>
                     </ul>
                     <h2>Cost of creating the Token</h2>
+                    {/* TODO: WRITE FULL PRICE FOR TOKEN CREATION */}
                     <p>The cost of creating the Token is 0.09 SOL.</p>
                     <h2>Creation process</h2>
                     <p>

@@ -27,7 +27,10 @@ const RevokeCards = ({
     }, [toggleUpdate, toggleFreeze, toggleMint]);
 
     useEffect(() => {
-        if (authorities.freeze === false && authorities.mint === false && authorities.update === false) {
+        if (
+            (authorities.freeze === false && authorities.mint === false && authorities.update === false) ||
+            !Object.keys(authorities).length
+        ) {
             setToggleUpdate(false);
             setToggleFreeze(false);
             setToggleMint(false);

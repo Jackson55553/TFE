@@ -1,33 +1,50 @@
 import * as web3 from '@solana/web3.js';
-import * as token from '@solana/spl-token';
-import {
-    createCreateMetadataAccountV3Instruction,
-    createUpdateMetadataAccountV2Instruction,
-} from '@metaplex-foundation/mpl-token-metadata';
-import { RequiredValues } from '../../types/RequiredValues';
-import { getPaymentInstruction } from './getPaymentInstruction';
+import { createUpdateMetadataAccountV2Instruction, Metadata } from '@metaplex-foundation/mpl-token-metadata';
 import { getAuthorityInstructions } from './getAuthorityInstruction';
 import { Authorities } from '../../types/Authorities';
-
-const programId = token.TOKEN_PROGRAM_ID;
-const TOKEN_METADATA_PROGRAM_ID = new web3.PublicKey('metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s');
+import { Metaplex } from '@metaplex-foundation/js';
 
 export const getRevokeTransaction = async (
+    tokenAddress: string,
     publicKey: web3.PublicKey,
     connection: web3.Connection,
     authorities: Authorities,
 ) => {
+    const mint = new web3.PublicKey(tokenAddress);
+    const metaplex = Metaplex.make(connection);
+    //metadata address
+    const metadataPda = metaplex.nfts().pdas().metadata({ mint: mint });
+    const metadataData = await Metadata.fromAccountAddress(connection, metadataPda);
+    const dataOnChain = {
+        name: metadataData.data.name,
+        symbol: metadataData.data.symbol,
+        uri: metadataData.data.uri,
+        sellerFeeBasisPoints: metadataData.data.sellerFeeBasisPoints,
+        creators: metadataData.data.creators,
+        collection: metadataData.collection,
+        uses: metadataData.uses,
+    };
     const isMutable = !authorities.update;
-
     const transaction = new web3.Transaction();
+    if (authorities.update) {
+        const updateIx = createUpdateMetadataAccountV2Instruction(
+            { metadata: metadataPda, updateAuthority: publicKey },
+            {
+                updateMetadataAccountArgsV2: {
+                    data: dataOnChain,
+                    isMutable: isMutable,
+                    primarySaleHappened: false,
+                    updateAuthority: publicKey,
+                },
+            },
+        );
+        transaction.add(updateIx);
+    }
 
-    const authorityIxs = getAuthorityInstructions(publicKey, mintKeypair.publicKey, authorities);
+    const authorityIxs = getAuthorityInstructions(publicKey, mint, authorities);
     if (authorityIxs.length) {
         transaction.add(...authorityIxs);
     }
-
-    transaction.add(getPaymentInstruction(publicKey, isdefaultCreator));
-
     const {
         context: { slot: minContextSlot },
         value: { blockhash, lastValidBlockHeight },
@@ -37,12 +54,9 @@ export const getRevokeTransaction = async (
     transaction.minNonceContextSlot = minContextSlot;
     transaction.lastValidBlockHeight = lastValidBlockHeight;
     transaction.feePayer = publicKey;
-    transaction.partialSign(...[mintKeypair, accountKeypair]);
 
     return {
         transaction,
-        mintKeypair,
-        accountKeypair,
         minContextSlot,
         blockhash,
         lastValidBlockHeight,

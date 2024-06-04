@@ -1,10 +1,10 @@
 'use client';
 import React, { useState } from 'react';
-import styles from '../../styles/sass/_simpleMainTitle.module.scss';
+import styles from '../../../styles/sass/_simpleMainTitle.module.scss';
 import { IoInformationCircle } from 'react-icons/io5';
-import TokenInfoModal from '../modalWindows/tokenInfoModal/TokenInfoModal';
+import RevokeInfoModal from '../../modalWindows/revokeInfoModal/RevokeInfoModal';
 
-const SimpleMainTitle = ({ title, isModal }: { title: string; isModal?: boolean }) => {
+const RevokeMainTitle = ({ title, isModal }: { title: string; isModal?: boolean }) => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
     const openModal = () => {
@@ -19,9 +19,9 @@ const SimpleMainTitle = ({ title, isModal }: { title: string; isModal?: boolean 
         <h2 className={styles.mainTitleContainer}>
             {title}
             {isModal && <IoInformationCircle onClick={openModal} />}
-            {isModal && <TokenInfoModal closeModal={closeModal} modalIsOpen={modalIsOpen} />}
+            {isModal && <RevokeInfoModal closeModal={closeModal} modalIsOpen={modalIsOpen} />}
         </h2>
     );
 };
 
-export default SimpleMainTitle;
+export default RevokeMainTitle;

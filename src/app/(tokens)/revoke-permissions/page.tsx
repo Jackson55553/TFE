@@ -1,33 +1,52 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import styles from '../../../../styles/sass/_revokePermission.module.scss';
-import SimpleMainTitle from '../../../../components/simpleMainTitle/SimpleMainTitle';
 import FindTokenForm from '../../../../components/findTokenForm/FindTokenForm';
 import { Authorities } from '../../../../types/Authorities';
 import RevokeCards from '../../../../components/revokeCards/RevokeCards';
 import RevokeButton from '../../../../components/revokeButton/RevokeButton';
+import RevokeMainTitle from '../../../../components/mainTitles/RevokeMainTitle/RevokeMainTitle';
 
 export default function RevokePermissionsPage() {
     const [authorities, setAuthorities] = useState({} as Authorities);
     const [choosenAuthorities, setChoosenAuthorities] = useState({} as Authorities);
     const [tokenAddress, setTokenAddress] = useState('');
 
-    useEffect(() => {
-        // console.log(authorities);
-        // console.log(choosenAuthorities);
-    }, [authorities, choosenAuthorities]);
+    // useEffect(() => {
+    //     console.log('authorities');
+    //     console.log(authorities);
+    //     console.log('choosenAuthorities');
+    //     console.log(choosenAuthorities);
+    //     console.log('tokenAddress');
+    //     console.log(tokenAddress);
+    // }, [authorities, choosenAuthorities, tokenAddress]);
+
+    const setDefaultValues = () => {
+        setAuthorities({} as Authorities);
+        setChoosenAuthorities({} as Authorities);
+        setTokenAddress('');
+    };
 
     return (
         <div className={styles.revokePermissionsPage}>
             <div className={styles.revokeContainer}>
-                <SimpleMainTitle title={'Revoke permissions'} isModal={false} />
-                <FindTokenForm setAuthorities={setAuthorities} setTokenAddress={setTokenAddress} tokenAddress={tokenAddress}/>
+                <RevokeMainTitle title={'Revoke permissions'} isModal={true} />
+                <FindTokenForm
+                    setAuthorities={setAuthorities}
+                    setTokenAddress={setTokenAddress}
+                    tokenAddress={tokenAddress}
+                />
                 <RevokeCards
                     authorities={authorities}
                     choosenAuthorities={choosenAuthorities}
                     setChoosenAuthorities={setChoosenAuthorities}
                 />
-                <RevokeButton authorities={authorities} choosenAuthorities={choosenAuthorities} tokenAddress={tokenAddress}/>
+                <RevokeButton
+                    authorities={authorities}
+                    choosenAuthorities={choosenAuthorities}
+                    tokenAddress={tokenAddress}
+                    setDefaultValues={setDefaultValues}
+                />
             </div>
         </div>
     );

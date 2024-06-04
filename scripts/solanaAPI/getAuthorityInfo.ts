@@ -12,6 +12,7 @@ export const getAuthorityInfo = async (
     publicKey: web3.PublicKey | null,
 ) => {
     const res = {} as Authorities;
+    //TODO: check is users token
     try {
         if (!publicKey) {
             throw new Error('Connect wallet');
