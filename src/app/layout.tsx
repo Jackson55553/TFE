@@ -1,8 +1,8 @@
 import styles from '../../styles/sass/_global.module.scss';
-import { Wallet } from '../../components/wallet/Wallet';
+import { Wallet } from '../../components/layoutsComponents/wallet/Wallet';
 import React from 'react';
-import Footer from '../../components/footer/Footer';
-import Header from '../../components/header/Header';
+import Footer from '../../components/layoutsComponents/footer/Footer';
+import Header from '../../components/layoutsComponents/header/Header';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {

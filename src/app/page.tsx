@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from '../../styles/sass/_home.module.scss';
 import MainCards from '../../components/mainCards/MainCards';
-import WelcomeHome from '../../components/welcomeHome/WelcomeHome';
-import Reminder from '../../components/reminder/Reminder';
-import DisclaimerLink from '../../components/disclaimerLink/DisclaimerLink';
-import CountsOfService from '../../components/countsOfService/CountsOfService';
+import WelcomeHome from '../../components/homepage/welcomeHome/WelcomeHome';
+import Reminder from '../../components/homepage/reminder/Reminder';
+import DisclaimerLink from '../../components/UI/disclaimerLink/DisclaimerLink';
+import CountsOfService from '../../components/homepage/countsOfService/CountsOfService';
 
 export default function HomePage() {
     return (

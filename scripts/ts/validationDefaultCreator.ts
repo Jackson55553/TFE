@@ -1,4 +1,4 @@
-import { defaultCreatorValues } from '../../components/createForm/defaultValues/defaultValues';
+import { defaultCreatorValues } from '../../components/createPage/createForm/defaultValues/defaultValues';
 import { Creator } from '../../types/Creator';
 
 export const validateDefaultCreator = (creator: Creator) => {

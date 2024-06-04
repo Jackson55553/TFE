@@ -1,8 +1,8 @@
 import React from 'react';
-import Roadmap from '../../../components/roadmap/Roadmap';
+import Roadmap from '../../../components/aboutPage/roadmap/Roadmap';
 import styles from '../../../styles/sass/_about.module.scss';
-import Tokenomics from '../../../components/tokenomics/Tokenomics';
-import AboutText from '../../../components/aboutText/AboutText';
+import Tokenomics from '../../../components/aboutPage/tokenomics/Tokenomics';
+import AboutText from '../../../components/aboutPage/aboutText/AboutText';
 
 const AboutPage = () => {
     return (

@@ -6,7 +6,7 @@ import {
     defaultAuthoritiesValues,
     defaultTags,
     defaultImageForUri,
-} from '../../components/createForm/defaultValues/defaultValues';
+} from '../../components/createPage/createForm/defaultValues/defaultValues';
 import { Authorities } from '../../types/Authorities';
 import { Creator } from '../../types/Creator';
 import { Extensions } from '../../types/Extensions';
