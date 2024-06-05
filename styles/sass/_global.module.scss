@@ -9,85 +9,85 @@
     &:root {
         --toastify-toast-background: black;
         --toastify-color-dark: black;
-        --toastify-color-progress-dark: aqua;
-        --toastify-color-error: red;
+        --toastify-color-progress-dark: $primary-color;
+        --toastify-color-error: $color-error;
         --toastify-text-color-error: black;
         --toastify-text-color-success: black;
-        --toastify-color-info: aqua;
-        --toastify-color-success: rgb(7, 255, 152);
+        --toastify-color-info: $primary-color;
+        --toastify-color-success: $color-success;
         --toastify-font-family: $primary-font;
     }
 }
 .errorToast {
-    border: solid 1px rgb(255, 0, 0);
-    box-shadow: 0 0 10px rgb(255, 0, 0);
+    border: solid 1px $color-error;
+    box-shadow: 0 0 10px $color-error;
     & a {
-        color: rgb(255, 0, 0);
+        color: $color-error;
         transition: 0.2s ease-in-out;
         &:hover {
-            text-shadow: 0 0 5px rgb(255, 0, 0);
+            text-shadow: 0 0 5px $color-error;
         }
     }
     & svg {
-        color: red;
+        color: $color-error;
     }
 }
 .successToast {
-    border: solid 1px rgb(7, 255, 152);
-    box-shadow: 0 0 10px rgb(7, 255, 152);
+    border: solid 1px $color-success;
+    box-shadow: 0 0 10px $color-success;
     & a {
-        color: rgb(7, 255, 152);
+        color: $color-success;
         transition: 0.2s ease-in-out;
         &:hover {
-            text-shadow: 0 0 5px rgb(7, 255, 152);
+            text-shadow: 0 0 5px $color-success;
         }
     }
     & svg {
-        color: rgb(7, 255, 152);
+        color: $color-success;
     }
 }
 .infoToast {
-    border: solid 1px rgb(0, 255, 255);
-    box-shadow: 0 0 10px rgb(0, 255, 255);
+    border: solid 1px $primary-color;
+    box-shadow: 0 0 10px $primary-color;
     & a {
-        color: rgb(0, 255, 255);
+        color: $primary-color;
         transition: 0.2s ease-in-out;
         &:hover {
-            text-shadow: 0 0 5px rgb(0, 255, 255);
+            text-shadow: 0 0 5px $primary-color;
         }
     }
     & svg {
-        color: rgb(0, 255, 255);
+        color: $primary-color;
     }
 }
 .warningToast {
-    border: solid 1px #f1c40f;
-    box-shadow: 0 0 10px #f1c40f;
+    border: solid 1px $color-warn;
+    box-shadow: 0 0 10px $color-warn;
     & a {
-        color: #f1c40f;
+        color: $color-warn;
         transition: 0.2s ease-in-out;
         &:hover {
-            text-shadow: 0 0 5px #f1c40f;
+            text-shadow: 0 0 5px $color-warn;
         }
     }
     & svg {
-        color: #f1c40f;
+        color: $color-warn;
     }
 }
 .bodyErrorToast {
-    color: rgb(255, 0, 0);
+    color: $color-error;
     font-size: 20px;
 }
 .bodySuccessToast {
-    color: rgb(7, 255, 152);
+    color: $color-success;
     font-size: 20px;
 }
 .bodyInfoToast {
-    color: rgb(0, 255, 255);
+    color: $primary-color;
     font-size: 20px;
 }
 .bodyWarningToast {
-    color: #f1c40f;
+    color: $color-warn;
     font-size: 20px;
 }
 .root {

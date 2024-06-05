@@ -5,7 +5,7 @@ import MintMainTitle from '../../../../components/UI/mainTitles/MintMainTitle/Mi
 import { useWallet } from '@solana/wallet-adapter-react';
 import LoadingCircle from '../../../../components/UI/loadingCircle/LoadingCircle';
 import MintForm from '../../../../components/mintPage/mintForm/MintForm';
-import 'react-toastify/dist/ReactToastify.css';
+// import 'react-toastify/dist/ReactToastify.css';
 import ValidetContent from '../../../../components/mintPage/validetContent/ValidetContent';
 
 export default function TokenMintPage() {
@@ -23,14 +23,17 @@ export default function TokenMintPage() {
                     setLoading={setLoading}
                     tokenAddress={tokenAddress}
                     setTokenAddress={setTokenAddress}
-                    valide={valide}
                     setValide={setValide}
                     mintAmount={mintAmount}
                     setMintAmount={setMintAmount}
                 />
                 {loading ? <LoadingCircle style={{ height: '50px', width: '50px' }} /> : ''}
             </div>
-            {valide ? <ValidetContent mintAmount={mintAmount} setMintAmount={setMintAmount} /> : ''}
+            {valide ? (
+                <ValidetContent mintAmount={mintAmount} setMintAmount={setMintAmount} tokenAddress={tokenAddress} />
+            ) : (
+                ''
+            )}
         </div>
     );
 }

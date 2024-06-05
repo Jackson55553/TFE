@@ -1,0 +1,96 @@
+@import '_variables';
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid $color-warn;
+    color: $color-warn;
+    border-radius: 10px;
+    box-shadow: 0 0 10px $color-warn;
+    min-height: 150px;
+    position: relative;
+}
+.cardContainer {
+    display: grid;
+    grid-template-columns: 0.1fr 1fr 0.05fr;
+}
+.cardMessage {
+    margin: 0 50px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(20px, 3vw, 26px);
+    text-shadow: 0 0 5px $color-warn;
+}
+.cardIcon {
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    & svg {
+        height: 50px;
+        width: 50px;
+        filter: drop-shadow(0 0 5px $color-warn);
+    }
+}
+.cardIconClose {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    color: $color-warn;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+        & svg {
+            color: red;
+            filter: drop-shadow(0 0 5px red);
+        }
+    }
+    & svg {
+        height: 30px;
+        width: 30px;
+        cursor: pointer;
+        transition: 0.2s ease-in-out;
+        filter: drop-shadow(0 0 5px $color-warn);
+    }
+}
+.hidden {
+    opacity: 0;
+    overflow: hidden;
+    animation: hide 0.3s;
+    animation-fill-mode: forwards;
+}
+
+@media (max-width: 470px) {
+    .cardContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .cardIcon {
+        margin-bottom: 10px;
+    }
+}
+
+@keyframes hide {
+    0% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 0;
+    }
+    100% {
+        overflow: hidden;
+        visibility: hidden;
+        display: none;
+    }
+}

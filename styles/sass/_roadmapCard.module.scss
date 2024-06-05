@@ -1,3 +1,5 @@
+@import '_variables';
+
 .roadmapCardContainer {
     min-width: 75%;
     display: flex;
@@ -6,18 +8,18 @@
     align-items: center;
     background: black;
     margin: 30px;
-    border: 2px solid aqua;
+    border: 2px solid $primary-color;
     border-radius: 20px;
     font-size: 24px;
     white-space: pre-wrap;
     padding-bottom: 30px;
-    box-shadow: 0 0 10px aqua;
+    box-shadow: 0 0 10px $primary-color;
 
     & p {
         display: flex;
         justify-content: center;
         align-items: center;
-        color: aqua;
+        color: $primary-color;
         text-shadow: 0 0 10px rgb(56, 255, 255);
         font-family: 'IcebergRegular';
         margin: 20px;
@@ -33,7 +35,7 @@
     margin: 0 20px;
     height: 40px;
     width: 40px;
-    filter: drop-shadow(0 0 5px aqua);
+    filter: drop-shadow(0 0 5px $primary-color);
 }
 
 @keyframes cardIn {

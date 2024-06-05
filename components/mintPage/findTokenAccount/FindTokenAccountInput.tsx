@@ -11,13 +11,11 @@ const FindTokenAccountInput = ({
     setTokenAddress,
     tokenAddress,
     setValide,
-    valide,
 }: {
     setLoading: React.Dispatch<React.SetStateAction<boolean>>;
     setTokenAddress: React.Dispatch<React.SetStateAction<string>>;
     setValide: React.Dispatch<React.SetStateAction<boolean>>;
     tokenAddress: string;
-    valide: boolean;
 }) => {
     const { connection } = useConnection();
     const { publicKey } = useWallet();
@@ -51,31 +49,6 @@ const FindTokenAccountInput = ({
         }
     };
 
-    const onclick = async (e) => {
-        e.preventDefault();
-        setLoading(true);
-        if (!publicKey) {
-            showError('Connect wallet');
-            return;
-        }
-        if (!valide) {
-            showError('Address incorrect');
-            return;
-        }
-        // const authorityInfo: Authorities = await getAuthorityInfo(connection, setLoading, tokenAddress, e, publicKey);
-
-        // if (!authorityInfo) {
-        //     showError('Address incorrect');
-        //     return;
-        // }
-        // if (!authorityInfo.freeze && !authorityInfo.mint && !authorityInfo.update) {
-        //     showError('All already revoked');
-        //     return;
-        // }
-        // setAuthorities(authorityInfo);
-        setLoading(false);
-    };
-
     return (
         <>
             <input
@@ -90,9 +63,6 @@ const FindTokenAccountInput = ({
                 value={tokenAddress}
                 onChange={onchage}
             />
-            <button className={styles.buttonFindToken} onClick={onclick}>
-                <FaSearch className={styles.searchIcon} />
-            </button>
         </>
     );
 };

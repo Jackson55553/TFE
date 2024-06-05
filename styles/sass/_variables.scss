@@ -1,5 +1,9 @@
 $primary-font: IcebergRegular;
 $primary-color: aqua;
+$color-warn: #f1c40f;
+$color-error: rgb(255, 0, 0);
+$color-success: rgb(7, 255, 152);
+$color-black: black;
 %primary-color-text {
     color: aqua;
     text-shadow: 0 0 10px aqua;

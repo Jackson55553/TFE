@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { errorToast } from '../../../scripts/ts/myToasts';
 import styles from '../../../styles/sass/_mintForm.module.scss';
-;
-
 const MintAmountInput = ({
     mintAmount,
     setMintAmount,
@@ -27,12 +25,12 @@ const MintAmountInput = ({
     };
 
     const handleFocused = (e) => {
-        console.log('focused');
         if (!e.target.value) {
             setFocused(true);
         }
         if (e.target.value <= 0 || e.target.value > 184467440737095 || !Number.isInteger(Number(e.target.value))) {
             setMintAmount(1);
+            e.target.attributes.focused.nodeValue = false;
         }
     };
     return (

@@ -1,3 +1,5 @@
+@import '_variables';
+
 .buttonFindToken {
     display: flex;
     align-items: center;
@@ -100,9 +102,8 @@
 }
 
 .findTokenInput {
-    border-radius: 10px 0 0 10px;
+    border-radius: 10px;
     border-color: aqua;
-    border-right: 0;
     background: black;
     padding: 5px 10px;
     color: aqua;
@@ -161,7 +162,7 @@
 .mintForm {
     margin-top: 10px;
     display: grid;
-    grid-template-columns: 1fr 0.1fr;
+    grid-template-columns: 1fr;
 }
 .errorMessage {
     font-size: 18px;

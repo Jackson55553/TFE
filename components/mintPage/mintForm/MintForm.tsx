@@ -9,13 +9,11 @@ const MintForm = ({
     setTokenAddress,
     tokenAddress,
     setValide,
-    valide,
 }: {
     setLoading: React.Dispatch<React.SetStateAction<boolean>>;
     setTokenAddress: React.Dispatch<React.SetStateAction<string>>;
     setValide: React.Dispatch<React.SetStateAction<boolean>>;
     tokenAddress: string;
-    valide: boolean;
     setMintAmount: React.Dispatch<React.SetStateAction<number>>;
     mintAmount: number;
 }) => {
@@ -28,7 +26,6 @@ const MintForm = ({
                     setLoading={setLoading}
                     tokenAddress={tokenAddress}
                     setTokenAddress={setTokenAddress}
-                    valide={valide}
                     setValide={setValide}
                 />
                 <span className={styles.errorMessage}>

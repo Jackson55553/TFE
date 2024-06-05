@@ -18,7 +18,6 @@ export const isTokenAccountAddress = async (
         }
         const mint = new web3.PublicKey(address);
         const gettedMint = await token.getMint(connection, mint);
-        console.log(gettedMint);
         if (!gettedMint.mintAuthority || gettedMint.mintAuthority?.toBase58() !== publicKey.toBase58()) {
             errorToast('Not approved for mint');
             throw new Error('Not approved for mint');

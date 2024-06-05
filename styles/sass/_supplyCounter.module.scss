@@ -1,0 +1,29 @@
+@import '_variables';
+.supplyCounterContainer {
+    display: flex;
+    flex-direction: row;
+    color: $primary-color;
+    justify-content: space-between;
+}
+.supplyCounter {
+    margin: 0 10px 0 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: $primary-color;
+    text-shadow: 0 0 5px $primary-color;
+}
+.supplyCounterTitle {
+    margin: 0 10px 0 0;
+}
+.supplyCounterAmount {
+    margin: 0;
+}
+@media (max-width: 650px) {
+    .supplyCounterContainer {
+        flex-direction: column;
+    }
+    .supplyCounter {
+        margin: 10px 0;
+    }
+}
