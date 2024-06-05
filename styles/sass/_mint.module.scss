@@ -63,12 +63,12 @@
         color: $primary-color;
         box-shadow: 0 0 10px $primary-color;
         transition: 0.2s ease-in-out;
-        
-
+        cursor: pointer;
         &:disabled {
             border: solid 1px red;
             color: red;
             box-shadow: 0 0 10px red;
+            cursor: not-allowed;
             &:hover {
                 border: solid 1px grey;
                 color: grey;
