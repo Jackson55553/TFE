@@ -9,15 +9,15 @@
     }
 
     .miniEllipsOne {
-        filter: drop-shadow(0 0 2px aqua);
+        filter: drop-shadow(0 0 2px $primary-color);
         animation: 2s flying ease-in-out infinite;
     }
     .miniEllipsTwo {
-        filter: drop-shadow(0 0 2px aqua);
+        filter: drop-shadow(0 0 2px $primary-color);
         animation: 2.2s flying ease-in-out infinite;
     }
     .miniEllipsThree {
-        filter: drop-shadow(0 0 2px aqua);
+        filter: drop-shadow(0 0 2px $primary-color);
         animation: 2.4s flying ease-in-out infinite;
     }
 }
@@ -29,7 +29,7 @@
     }
 
     30% {
-        fill: aqua;
+        fill: $primary-color;
     }
 
     90% {
@@ -44,12 +44,12 @@
 
 @keyframes pulse {
     0% {
-        filter: drop-shadow(0 0 4px aqua);
+        filter: drop-shadow(0 0 4px $primary-color);
     }
     50% {
-        filter: drop-shadow(0 0 10px aqua);
+        filter: drop-shadow(0 0 10px $primary-color);
     }
     100% {
-        filter: drop-shadow(0 0 4px aqua);
+        filter: drop-shadow(0 0 4px $primary-color);
     }
 }

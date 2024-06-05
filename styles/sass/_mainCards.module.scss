@@ -27,8 +27,8 @@
     background: black;
     border-radius: 10px;
     padding: 20px;
-    border: solid aqua 1px;
-    box-shadow: 0 0 10px aqua;
+    border: solid $primary-color 1px;
+    box-shadow: 0 0 10px $primary-color;
     overflow: hidden;
     text-overflow: ellipsis;
     transition: 0.5s;
@@ -53,7 +53,7 @@
         width: 30px;
         margin: 0 20px;
         align-self: center;
-        filter: drop-shadow(0 0 3px aqua);
+        filter: drop-shadow(0 0 3px $primary-color);
     }
 
     &:hover,

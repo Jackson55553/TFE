@@ -4,14 +4,14 @@
     min-height: 100vh;
     margin: 0 10px;
     border-radius: 10px;
-    box-shadow: 0 0 10px aqua;
+    box-shadow: 0 0 10px $primary-color;
     background: black;
     user-select: none;
 }
 .revokeContainer {
     & label {
-        text-shadow: 0 0 5px aqua;
-        color: aqua;
+        text-shadow: 0 0 5px $primary-color;
+        color: $primary-color;
         font-size: clamp(22px, 3vw, 34px);
         width: fit-content;
 
@@ -51,10 +51,10 @@
         width: 150px;
         height: 80px;
         background-color: black;
-        border: solid 1px aqua;
+        border: solid 1px $primary-color;
         border-radius: 10px;
-        color: aqua;
-        box-shadow: 0 0 10px aqua;
+        color: $primary-color;
+        box-shadow: 0 0 10px $primary-color;
         transition: 0.2s ease-in-out;
 
         &:disabled {
@@ -91,12 +91,12 @@
     justify-content: center;
     border-radius: 0 10px 10px 0;
     border: 0;
-    background: aqua;
-    color: aqua;
+    background: $primary-color;
+    color: $primary-color;
     transition: 0.2s ease-in-out;
     color: black;
     &:hover {
-        box-shadow: 0 0 10px aqua;
+        box-shadow: 0 0 10px $primary-color;
     }
     & svg {
         color: black;
@@ -105,11 +105,11 @@
 
 .findTokenInput {
     border-radius: 10px 0 0 10px;
-    border-color: aqua;
+    border-color: $primary-color;
     border-right: 0;
     background: black;
     padding: 5px 10px;
-    color: aqua;
+    color: $primary-color;
     overflow: hidden;
     appearance: none;
 
@@ -154,8 +154,8 @@
     }
 
     &:focus {
-        border-color: aqua;
-        box-shadow: 0 0 10px aqua;
+        border-color: $primary-color;
+        box-shadow: 0 0 10px $primary-color;
         outline: 0;
     }
 }
@@ -183,8 +183,8 @@
 .successSpan {
     margin: 15px 0 0 0;
     font-size: 20px;
-    text-shadow: 0 0 5px aqua;
-    color: aqua;
+    text-shadow: 0 0 5px $primary-color;
+    color: $primary-color;
     width: fit-content;
     border-radius: 10px;
 }

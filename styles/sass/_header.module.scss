@@ -36,22 +36,22 @@
     align-items: center;
     & button {
         background: black;
-        box-shadow: 0 0 10px aqua;
-        border: solid 1px aqua;
-        color: aqua;
+        box-shadow: 0 0 10px $primary-color;
+        border: solid 1px $primary-color;
+        color: $primary-color;
         transition: 0.3s ease-in-out;
         width: max-content;
         &:hover {
-            box-shadow: 0 0 20px aqua;
+            box-shadow: 0 0 20px $primary-color;
             background: black;
         }
     }
     & ul {
         background: black;
-        border: solid 1px aqua;
-        box-shadow: 0 0 5px aqua;
+        border: solid 1px $primary-color;
+        box-shadow: 0 0 5px $primary-color;
         & li {
-            color: aqua;
+            color: $primary-color;
         }
     }
 }
@@ -104,12 +104,12 @@
 
 @keyframes pulse {
     0% {
-        filter: drop-shadow(0 0 4px aqua);
+        filter: drop-shadow(0 0 4px $primary-color);
     }
     50% {
-        filter: drop-shadow(0 0 10px aqua);
+        filter: drop-shadow(0 0 10px $primary-color);
     }
     100% {
-        filter: drop-shadow(0 0 4px aqua);
+        filter: drop-shadow(0 0 4px $primary-color);
     }
 }

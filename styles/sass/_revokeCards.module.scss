@@ -4,7 +4,7 @@
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     gap: 50px 20px;
-    color: aqua;
+    color: $primary-color;
     align-items: center;
     margin-top: 30px;
     margin-bottom: 10px;
@@ -13,9 +13,9 @@
     display: flex;
     flex-direction: column;
     justify-content: start;
-    border: solid 1px aqua;
+    border: solid 1px $primary-color;
     border-radius: 10px;
-    box-shadow: 0 0 10px aqua;
+    box-shadow: 0 0 10px $primary-color;
     padding: 10px 20px;
     height: 100%;
 }

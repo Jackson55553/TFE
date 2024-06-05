@@ -36,9 +36,9 @@
     padding: 40px 20px 90px 20px;
     background: black;
     border-radius: 20px;
-    border: 1px solid aqua;
-    box-shadow: 0 0 10px aqua;
-    text-shadow: 0 0 3px aqua;
+    border: 1px solid $primary-color;
+    box-shadow: 0 0 10px $primary-color;
+    text-shadow: 0 0 3px $primary-color;
     z-index: 999;
     & h2 {
         text-align: start;
@@ -64,11 +64,11 @@
         height: 60px;
         font-family: 'IcebergRegular';
         font-size: 24px;
-        color: aqua;
+        color: $primary-color;
         background: black;
         border-radius: 10px;
-        border-color: aqua;
-        box-shadow: 0 0 5px aqua;
+        border-color: $primary-color;
+        box-shadow: 0 0 5px $primary-color;
         cursor: pointer;
         transition: 0.2s;
         &:hover {

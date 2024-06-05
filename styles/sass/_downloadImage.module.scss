@@ -3,7 +3,7 @@
     font-family: $primary-font;
     margin: 20px 0;
     & svg {
-        color: aqua;
+        color: $primary-color;
         height: 10%;
         width: 10%;
     }
@@ -11,11 +11,11 @@
 .buttonDownload {
     font-family: $primary-font;
     padding: 10px;
-    color: aqua;
+    color: $primary-color;
     background: black;
     border-radius: 10px;
-    border-color: aqua;
-    box-shadow: 0 0 5px aqua;
+    border-color: $primary-color;
+    box-shadow: 0 0 5px $primary-color;
     width: 40%;
     font-size: clamp(20px, 2vw, 22px);
     margin-bottom: 20px;
@@ -35,9 +35,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 2px dashed aqua;
+    border: 2px dashed $primary-color;
     border-radius: 10px;
-    color: aqua;
+    color: $primary-color;
     margin: 15px 0;
     font-size: clamp(12px, 3vw, 22px);
 }
@@ -45,11 +45,11 @@
     position: absolute;
     top: 20px;
     right: 20px;
-    color: aqua;
+    color: $primary-color;
     background: black;
     border-radius: 10px;
-    border-color: aqua;
-    box-shadow: 0 0 5px aqua;
+    border-color: $primary-color;
+    box-shadow: 0 0 5px $primary-color;
     cursor: pointer;
     transition: 0.2s;
     &:hover {

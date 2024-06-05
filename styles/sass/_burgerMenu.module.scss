@@ -8,7 +8,7 @@
     display: none;
     .icon {
         color: $primary-color;
-        filter: drop-shadow(0 0 2px aqua);
+        filter: drop-shadow(0 0 2px $primary-color);
         cursor: pointer;
         transition: 0.3s ease-in-out;
 

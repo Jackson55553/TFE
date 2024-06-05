@@ -3,11 +3,11 @@
 .defaultBtn {
     font-family: 'IcebergRegular';
     font-size: 24px;
-    color: aqua;
+    color: $primary-color;
     background: black;
     border-radius: 10px;
-    border-color: aqua;
-    box-shadow: 0 0 5px aqua;
+    border-color: $primary-color;
+    box-shadow: 0 0 5px $primary-color;
     cursor: pointer;
     transition: 0.2s;
 
