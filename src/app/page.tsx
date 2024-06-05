@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../../styles/sass/_home.module.scss';
-import MainCards from '../../components/mainCards/MainCards';
+import MainCards from '../../components/homepage/mainCards/MainCards';
 import WelcomeHome from '../../components/homepage/welcomeHome/WelcomeHome';
 import Reminder from '../../components/homepage/reminder/Reminder';
 import DisclaimerLink from '../../components/UI/disclaimerLink/DisclaimerLink';

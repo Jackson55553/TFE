@@ -73,11 +73,17 @@ const CreateForm = () => {
                     if (e.message === 'User rejected the request.') {
                         errorToast('User rejected the request.');
                         deleteFromServer(uriMetadata);
+                        return false;
                     } else {
                         errorToast('Transaction failed');
                         deleteFromServer(uriMetadata);
+                        return false;
                     }
                 });
+            if (!signature) {
+                setLoadingBtn(false);
+                return;
+            }
             connection
                 .confirmTransaction(
                     {

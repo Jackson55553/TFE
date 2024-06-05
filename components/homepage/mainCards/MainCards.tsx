@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
-import styles from '../../styles/sass/_mainCards.module.scss';
-import { mainCardsContent, header } from '../../texts/mainCardsContent';
+import styles from '../../../styles/sass/_mainCards.module.scss';
+import { mainCardsContent, header } from '../../../texts/mainCardsContent';
 import { FaShieldAlt } from 'react-icons/fa';
 import { IoIosPricetags } from 'react-icons/io';
 import { LuAppWindow } from 'react-icons/lu';
