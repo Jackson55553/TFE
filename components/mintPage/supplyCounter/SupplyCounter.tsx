@@ -24,11 +24,11 @@ const SupplyCounter = ({ mintAmount, tokenAddress }: { mintAmount: number; token
     return (
         <div className={styles.supplyCounterContainer}>
             <div className={styles.supplyCounter}>
-                <p className={styles.supplyCounterTitle}>{'Current circulating total: '}</p>
+                <p className={styles.supplyCounterTitle}>{'Current supply: '}</p>
                 <p className={styles.supplyCounterAmount}>{circulatingSupply}</p>
             </div>
             <div className={styles.supplyCounter}>
-                <p className={styles.supplyCounterTitle}>{'Estimated post-minting circulating total: '}</p>
+                <p className={styles.supplyCounterTitle}>{'Estimated post-minting supply: '}</p>
                 <p className={styles.supplyCounterAmount}>{postMintingSupply}</p>
             </div>
         </div>

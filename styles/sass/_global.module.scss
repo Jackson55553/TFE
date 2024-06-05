@@ -1,6 +1,5 @@
 @import '_variables';
 .html {
-    // @extend%full-hw; //page size only
     min-height: 100%;
     font-family: $primary-font;
     margin: 0;
@@ -10,9 +9,9 @@
         --toastify-toast-background: black;
         --toastify-color-dark: black;
         --toastify-color-progress-dark: $primary-color;
-        --toastify-color-error: $color-error;
-        --toastify-text-color-error: black;
-        --toastify-text-color-success: black;
+        --toastify-color-error: red;
+        --toastify-text-color-error: red;
+        --toastify-text-color-success: $color-success;
         --toastify-color-info: $primary-color;
         --toastify-color-success: $color-success;
         --toastify-font-family: $primary-font;

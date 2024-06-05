@@ -5,12 +5,13 @@ import MintMainTitle from '../../../../components/UI/mainTitles/MintMainTitle/Mi
 import { useWallet } from '@solana/wallet-adapter-react';
 import LoadingCircle from '../../../../components/UI/loadingCircle/LoadingCircle';
 import MintForm from '../../../../components/mintPage/mintForm/MintForm';
-// import 'react-toastify/dist/ReactToastify.css';
-import ValidetContent from '../../../../components/mintPage/validetContent/ValidetContent';
+import 'react-toastify/dist/ReactToastify.css';
+import ValidContent from '../../../../components/mintPage/validContent/ValidContent';
 
 export default function TokenMintPage() {
     const { publicKey } = useWallet();
     const [loading, setLoading] = useState(false);
+    const [loadingTx, setLoadingTx] = useState(false);
     const [tokenAddress, setTokenAddress] = useState('');
     const [valide, setValide] = useState(false);
     const [mintAmount, setMintAmount] = useState(1);
@@ -28,12 +29,18 @@ export default function TokenMintPage() {
                     setMintAmount={setMintAmount}
                 />
                 {loading ? <LoadingCircle style={{ height: '50px', width: '50px' }} /> : ''}
+                {valide ? (
+                    <ValidContent
+                        mintAmount={mintAmount}
+                        setMintAmount={setMintAmount}
+                        tokenAddress={tokenAddress}
+                        loadingTx={loadingTx}
+                        setLoadingTx={setLoadingTx}
+                    />
+                ) : (
+                    ''
+                )}
             </div>
-            {valide ? (
-                <ValidetContent mintAmount={mintAmount} setMintAmount={setMintAmount} tokenAddress={tokenAddress} />
-            ) : (
-                ''
-            )}
         </div>
     );
 }
