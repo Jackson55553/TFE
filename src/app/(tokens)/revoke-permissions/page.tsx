@@ -11,6 +11,7 @@ export default function RevokePermissionsPage() {
     const [authorities, setAuthorities] = useState({} as Authorities);
     const [choosenAuthorities, setChoosenAuthorities] = useState({} as Authorities);
     const [tokenAddress, setTokenAddress] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const setDefaultValues = () => {
         setAuthorities({} as Authorities);
@@ -26,6 +27,8 @@ export default function RevokePermissionsPage() {
                     setAuthorities={setAuthorities}
                     setTokenAddress={setTokenAddress}
                     tokenAddress={tokenAddress}
+                    loading={loading}
+                    setLoading={setLoading}
                 />
                 <RevokeCards
                     authorities={authorities}
@@ -37,6 +40,7 @@ export default function RevokePermissionsPage() {
                     choosenAuthorities={choosenAuthorities}
                     tokenAddress={tokenAddress}
                     setDefaultValues={setDefaultValues}
+                    loading={loading}
                 />
             </div>
         </div>

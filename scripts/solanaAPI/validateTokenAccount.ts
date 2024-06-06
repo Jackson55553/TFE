@@ -10,6 +10,7 @@ export const isTokenAccountAddress = async (
     e,
     publicKey: web3.PublicKey | null,
     connection: web3.Connection,
+    setTokenAccount: React.Dispatch<React.SetStateAction<string>>,
 ) => {
     setLoading(true);
     try {
@@ -17,15 +18,25 @@ export const isTokenAccountAddress = async (
             throw new Error('Connect wallet');
         }
         const mint = new web3.PublicKey(address);
-        const gettedMint = await token.getMint(connection, mint);
-        if (!gettedMint.mintAuthority || gettedMint.mintAuthority?.toBase58() !== publicKey.toBase58()) {
-            errorToast('Not approved for mint');
-            throw new Error('Not approved for mint');
+        if (!mint) {
+            throw new Error('Not found token mint');
         }
-        setLoading(false);
+        await connection
+            .getTokenAccountsByOwner(publicKey, { mint: mint })
+            .then((data) => {
+                if (!data.value.length) {
+                    throw new Error('Not found token account');
+                }
+                setTokenAccount(data.value[0].pubkey.toString());
+            })
+            .catch((e) => {
+                setTokenAccount('');
+                throw new Error('Not found token account');
+            });
         e.target.attributes.focused.nodeValue = 'false';
         return true;
     } catch (error: Error) {
+        errorToast(error.message);
         setLoading(false);
         e.target.attributes.focused.nodeValue = 'true';
         return false;

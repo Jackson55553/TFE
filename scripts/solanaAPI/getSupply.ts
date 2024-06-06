@@ -1,8 +1,5 @@
 import * as web3 from '@solana/web3.js';
 import * as token from '@solana/spl-token';
-import { Metaplex } from '@metaplex-foundation/js';
-import { Metadata } from '@metaplex-foundation/mpl-token-metadata';
-import { errorToast } from '../ts/myToasts';
 
 export const getSupply = async (connection: web3.Connection, address: string, publicKey: web3.PublicKey | null) => {
     try {

@@ -30,14 +30,14 @@ const FindTokenInput = ({
         setLoading(false);
     };
 
-    const onchage = (e) => {
+    const onchage = async (e) => {
         if (inputTimeout) {
             clearTimeout(inputTimeout);
         }
         e.preventDefault();
         setTokenAddress(e.target.value);
-        const timeoutID = setTimeout(() => {
-            const validate = isTokenAddress(setLoading, e.target.value, e, publicKey);
+        const timeoutID = setTimeout(async () => {
+            const validate = await isTokenAddress(setLoading, e.target.value, e, publicKey, connection);
             setValide(validate);
             if (!validate) {
                 setAuthorities({} as Authorities);
@@ -98,4 +98,4 @@ const FindTokenInput = ({
     );
 };
 
-export default FindTokenInput;
+export default React.memo(FindTokenInput);

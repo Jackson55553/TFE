@@ -14,7 +14,13 @@ export const getRevokeTransaction = async (
     const metaplex = Metaplex.make(connection);
     //metadata address
     const metadataPda = metaplex.nfts().pdas().metadata({ mint: mint });
-    const metadataData = await Metadata.fromAccountAddress(connection, metadataPda);
+    const metadataData = await Metadata.fromAccountAddress(connection, metadataPda)
+        .then((data) => {
+            return data;
+        })
+        .catch((e) => {
+            throw new Error(e.message);
+        });
     const dataOnChain = {
         name: metadataData.data.name,
         symbol: metadataData.data.symbol,

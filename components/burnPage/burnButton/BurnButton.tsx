@@ -1,28 +1,33 @@
 import React, { useCallback, useState } from 'react';
-import styles from '../../../styles/sass/_revokePermission.module.scss';
-import { Authorities } from '../../../types/Authorities';
-import LoadingCircle from '../../UI/loadingCircle/LoadingCircle';
+import styles from '../../../styles/sass/_mint.module.scss';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
-import { getRevokeTransaction } from '../../../scripts/solanaAPI/revokeTransaction';
+import LoadingCircle from '../../UI/loadingCircle/LoadingCircle';
 import { errorToast, successToastNoAuto } from '../../../scripts/ts/myToasts';
+import { getMintTransaction } from '../../../scripts/solanaAPI/getMintTransaction';
 import ToastLink from '../../UI/Links/ToastLink';
+import { getBurnTransaction } from '../../../scripts/solanaAPI/getBurnTransaction';
 
-const RevokeButton = ({
-    authorities,
-    choosenAuthorities,
+const BurnButton = ({
     tokenAddress,
-    setDefaultValues,
+    tokenAccount,
+    burnAmount,
+    loadingTx,
     loading,
+    setLoadingTx,
+    setDefault,
+    tokenBalance,
 }: {
-    authorities: Authorities;
-    choosenAuthorities: Authorities;
     tokenAddress: string;
-    setDefaultValues: () => void;
+    tokenAccount: string;
+    burnAmount: number;
+    loadingTx: boolean;
     loading: boolean;
+    tokenBalance: number;
+    setLoadingTx: React.Dispatch<React.SetStateAction<boolean>>;
+    setDefault: () => void;
 }) => {
     const { connection } = useConnection();
     const { publicKey, sendTransaction } = useWallet();
-    const [loadingTx, setLoadingTx] = useState(false);
 
     const sendTx = useCallback(async () => {
         if (!publicKey) {
@@ -30,13 +35,20 @@ const RevokeButton = ({
             setLoadingTx(false);
             return;
         }
-        const transaction = await getRevokeTransaction(tokenAddress, publicKey, connection, choosenAuthorities).catch(
-            (e) => {
-                errorToast('Transaction failed');
-                return false;
-            },
-        );
-        if (!transaction) {
+        if (!tokenAccount) {
+            errorToast('Token account not found');
+            setLoadingTx(false);
+            return;
+        }
+        const transaction = await getBurnTransaction(tokenAddress, tokenAccount, publicKey, connection, burnAmount)
+            .then((data) => {
+                return data;
+            })
+            .catch((e) => {
+                console.log(e);
+            });
+        if (!transaction?.transaction) {
+            errorToast('Transaction failed');
             return;
         }
         const signature = await sendTransaction(transaction.transaction, connection, {
@@ -61,14 +73,14 @@ const RevokeButton = ({
             )
             .then(() => {
                 successToastNoAuto(<ToastLink signature={signature} />);
-                setDefaultValues();
                 setLoadingTx(false);
+                setDefault();
             })
             .catch((e) => {
-                // errorToast(e.message);
+                errorToast(e.message);
                 setLoadingTx(false);
             });
-    }, [connection, publicKey, sendTransaction, choosenAuthorities, tokenAddress]);
+    }, [connection, publicKey, sendTransaction, tokenAddress, burnAmount]);
 
     const onclick = async (e) => {
         e.preventDefault();
@@ -77,28 +89,31 @@ const RevokeButton = ({
     };
 
     return (
-        <div className={styles.revokeButtonContainer}>
+        <div className={styles.mintButtonContainer}>
             <button
+                className={styles.mintButton}
                 onClick={onclick}
-                className={`${styles.revokeButton} `}
                 disabled={
-                    (!authorities.freeze && !authorities.mint && !authorities.update) ||
-                    (!choosenAuthorities.freeze && !choosenAuthorities.mint && !choosenAuthorities.update) ||
+                    loading ||
                     loadingTx ||
-                    loading
+                    burnAmount <= 0 ||
+                    burnAmount > tokenBalance ||
+                    !burnAmount ||
+                    !publicKey ||
+                    !Number.isInteger(Number(burnAmount))
                 }
             >
-                {!loadingTx ? 'Revoke' : <LoadingCircle />}
+                {!loadingTx ? 'Burn' : <LoadingCircle />}
             </button>
-            {!authorities.freeze && !authorities.mint && !authorities.update ? (
-                <span className={styles.errorSpan}>{'Find token'}</span>
-            ) : !choosenAuthorities.freeze && !choosenAuthorities.mint && !choosenAuthorities.update ? (
-                <span className={styles.errorSpan}>{'Choose something'}</span>
+            {!publicKey ? (
+                <span className={styles.errorSpan}>{'Connect wallet'}</span>
             ) : (
-                <span className={styles.successSpan}>{'Cost is free'}</span>
+                <span className={styles.successSpan}>
+                    {'The lowest service fee on the entire network is 0.04 SOL.'}
+                </span>
             )}
         </div>
     );
 };
 
-export default React.memo(RevokeButton);
+export default BurnButton;

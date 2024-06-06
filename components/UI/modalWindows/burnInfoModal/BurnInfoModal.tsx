@@ -14,9 +14,10 @@ const BurnInfoModal = ({ closeModal, modalIsOpen }: { closeModal: () => void; mo
                     <h2>How to use Burn Token</h2>
                     <ul>
                         <li>Connect your Solana wallet.</li>
-                        <li>Write the address of your token.</li>
-                        <li>Click the search button for find your associated account.</li>
-                        <li>Write amount to burn.</li>
+                        <li>Write the address of your token. ( Mint address )</li>
+                        <li>
+                            Write amount to burn. ( Amount must be grether than 0 and less than your token balance )
+                        </li>
                         <li>Click the burn button, accept the transaction and wait until your token will burn.</li>
                     </ul>
                     <h2>Cost of burn the permissions</h2>

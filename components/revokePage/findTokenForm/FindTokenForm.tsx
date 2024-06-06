@@ -11,13 +11,15 @@ const FindTokenForm = ({
     setAuthorities,
     setTokenAddress,
     tokenAddress,
+    loading,
+    setLoading,
 }: {
     setAuthorities: React.Dispatch<React.SetStateAction<Authorities>>;
     setTokenAddress: React.Dispatch<React.SetStateAction<string>>;
     tokenAddress: string;
+    setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+    loading: boolean;
 }) => {
-    const [loading, setLoading] = useState(false);
-
     const { publicKey } = useWallet();
     return (
         <div className={styles.revokeFormContainer}>
@@ -38,4 +40,4 @@ const FindTokenForm = ({
     );
 };
 
-export default FindTokenForm;
+export default React.memo(FindTokenForm);

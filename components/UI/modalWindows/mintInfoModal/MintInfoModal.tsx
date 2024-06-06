@@ -14,9 +14,8 @@ const MintInfoModal = ({ closeModal, modalIsOpen }: { closeModal: () => void; mo
                     <h2>How to use Mint Token</h2>
                     <ul>
                         <li>Connect your Solana wallet.</li>
-                        <li>Write the address of your token.</li>
-                        <li>Click the search button for find your associated account.</li>
-                        <li>Write amount to mint.</li>
+                        <li>Write the address of your token. ( Mint address )</li>
+                        <li>Write amount to mint. ( Amount must be grether than 0 and less than 184467440737095 )</li>
                         <li>Click the mint button, accept the transaction and wait until your token will mint.</li>
                     </ul>
                     <h2>Cost of mint the permissions</h2>

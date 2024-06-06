@@ -6,7 +6,7 @@ import { infoCardMint } from '../../../texts/cardTexts/cardTexts';
 import MintButton from '../mintButton/MintButton';
 import styles from '../../../styles/sass/_mint.module.scss';
 
-const ValidContent = ({
+const ValidMintContent = ({
     mintAmount,
     setMintAmount,
     tokenAddress,
@@ -40,4 +40,4 @@ const ValidContent = ({
     );
 };
 
-export default ValidContent;
+export default ValidMintContent;
