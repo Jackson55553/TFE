@@ -47,4 +47,4 @@ const PermissionsMain = ({
     );
 };
 
-export default PermissionsMain;
+export default React.memo(PermissionsMain);

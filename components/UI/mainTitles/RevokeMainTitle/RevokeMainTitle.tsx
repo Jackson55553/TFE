@@ -24,4 +24,4 @@ const RevokeMainTitle = ({ title, isModal }: { title: string; isModal?: boolean 
     );
 };
 
-export default RevokeMainTitle;
+export default React.memo(RevokeMainTitle);

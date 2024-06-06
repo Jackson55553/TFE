@@ -35,4 +35,4 @@ const RevokeInfoModal = ({ closeModal, modalIsOpen }: { closeModal: () => void; 
     );
 };
 
-export default RevokeInfoModal;
+export default React.memo(RevokeInfoModal);

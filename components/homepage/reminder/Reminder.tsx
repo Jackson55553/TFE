@@ -26,4 +26,4 @@ const Reminder = () => {
     );
 };
 
-export default Reminder;
+export default React.memo(Reminder);

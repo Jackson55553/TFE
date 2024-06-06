@@ -24,5 +24,5 @@ const MintMainTitle = ({ title, isModal }: { title: string; isModal?: boolean })
     );
 };
 
-export default MintMainTitle;
+export default React.memo(MintMainTitle);
 // MintMainTitle

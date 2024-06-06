@@ -15,4 +15,4 @@ const ReminderCards = () => {
     );
 };
 
-export default ReminderCards;
+export default React.memo(ReminderCards);

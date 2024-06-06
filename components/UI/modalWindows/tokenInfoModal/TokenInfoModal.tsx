@@ -48,4 +48,4 @@ const TokenInfoModal = ({ closeModal, modalIsOpen }: { closeModal: () => void; m
     );
 };
 
-export default TokenInfoModal;
+export default React.memo(TokenInfoModal);

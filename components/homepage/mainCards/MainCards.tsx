@@ -40,4 +40,4 @@ const MainCards = () => {
         </>
     );
 };
-export default MainCards;
+export default React.memo(MainCards);

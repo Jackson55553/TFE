@@ -33,5 +33,5 @@ const MintInfoModal = ({ closeModal, modalIsOpen }: { closeModal: () => void; mo
     );
 };
 
-export default MintInfoModal;
+export default React.memo(MintInfoModal);
 // MintInfoModal

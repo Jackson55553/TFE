@@ -13,4 +13,4 @@ const WelcomeHome = () => {
     );
 };
 
-export default WelcomeHome;
+export default React.memo(WelcomeHome);

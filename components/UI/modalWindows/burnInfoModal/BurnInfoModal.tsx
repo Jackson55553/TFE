@@ -33,5 +33,5 @@ const BurnInfoModal = ({ closeModal, modalIsOpen }: { closeModal: () => void; mo
     );
 };
 
-export default BurnInfoModal;
+export default React.memo(BurnInfoModal);
 // BurnInfoModal

@@ -25,4 +25,4 @@ const InfoCard = ({ message }: { message: string }) => {
     );
 };
 
-export default InfoCard;
+export default React.memo(InfoCard);

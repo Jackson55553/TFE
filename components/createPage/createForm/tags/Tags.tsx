@@ -18,4 +18,4 @@ const Tags = ({ tags, setTags }: { tags: string[]; setTags: React.Dispatch<React
     );
 };
 
-export default Tags;
+export default React.memo(Tags);

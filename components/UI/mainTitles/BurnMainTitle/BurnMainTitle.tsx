@@ -24,5 +24,5 @@ const BurnMainTitle = ({ title, isModal }: { title: string; isModal?: boolean })
     );
 };
 
-export default BurnMainTitle;
+export default React.memo(BurnMainTitle);
 // BurnMainTitle

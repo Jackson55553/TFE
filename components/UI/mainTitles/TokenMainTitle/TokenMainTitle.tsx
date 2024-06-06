@@ -24,4 +24,4 @@ const TokenMainTitle = ({ title, isModal }: { title: string; isModal?: boolean }
     );
 };
 
-export default TokenMainTitle;
+export default React.memo(TokenMainTitle);
