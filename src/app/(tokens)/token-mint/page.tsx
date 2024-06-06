@@ -16,6 +16,12 @@ export default function TokenMintPage() {
     const [valide, setValide] = useState(false);
     const [mintAmount, setMintAmount] = useState(1);
 
+    const setDefault = () => {
+        setTokenAddress('');
+        setValide(false);
+        setMintAmount(1);
+    };
+
     return (
         <div className={styles.mintPage}>
             <div className={styles.mintContainer}>
@@ -36,6 +42,8 @@ export default function TokenMintPage() {
                         tokenAddress={tokenAddress}
                         loadingTx={loadingTx}
                         setLoadingTx={setLoadingTx}
+                        loading={loading}
+                        setDefault={setDefault}
                     />
                 ) : (
                     ''

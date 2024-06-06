@@ -3,18 +3,23 @@ import styles from '../../../styles/sass/_mint.module.scss';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import LoadingCircle from '../../UI/loadingCircle/LoadingCircle';
 import { errorToast, successToastNoAuto } from '../../../scripts/ts/myToasts';
-import { Span } from 'next/dist/trace';
+import { getMintTransaction } from '../../../scripts/solanaAPI/getMintTransaction';
+import ToastLink from '../../UI/Links/ToastLink';
 
 const MintButton = ({
     tokenAddress,
     mintAmount,
     setLoadingTx,
     loadingTx,
+    loading,
+    setDefault,
 }: {
     tokenAddress: string;
     mintAmount: number;
     setLoadingTx: React.Dispatch<React.SetStateAction<boolean>>;
     loadingTx: boolean;
+    loading: boolean;
+    setDefault: () => void;
 }) => {
     const { connection } = useConnection();
     const { publicKey, sendTransaction } = useWallet();
@@ -25,42 +30,52 @@ const MintButton = ({
             setLoadingTx(false);
             return;
         }
-        // const transaction = await getMintTransaction(tokenAddress, publicKey, connection, amount);
-        // const signature = await sendTransaction(transaction.transaction, connection, {
-        //     minContextSlot: transaction.minContextSlot,
-        // }).catch((e) => {
-        //     if (e.message === 'User rejected the request.') {
-        //         errorToast('User rejected the request.');
-        //         setLoadingTx(false);
-        //     } else {
-        //         errorToast('Transaction failed');
-        //         setLoadingTx(false);
-        //     }
-        // });
-        // connection
-        //     .confirmTransaction(
-        //         {
-        //             blockhash: transaction.blockhash,
-        //             lastValidBlockHeight: transaction.lastValidBlockHeight,
-        //             signature: signature,
-        //         },
-        //         'finalized',
-        //     )
-        //     .then(() => {
-        //         successToastNoAuto(<ToastLink signature={signature} />);
-        //         setDefaultValues();
-        //         setLoadingTx(false);
-        //     })
-        //     .catch((e) => {
-        //         // errorToast(e.message);
-        //         setLoadingTx(false);
-        //     });
+        const transaction = await getMintTransaction(tokenAddress, publicKey, connection, mintAmount)
+            .then((data) => {
+                return data;
+            })
+            .catch((e) => {
+                console.log(e);
+            });
+        if (!transaction?.transaction) {
+            errorToast('Transaction failed');
+            return;
+        }
+        const signature = await sendTransaction(transaction.transaction, connection, {
+            minContextSlot: transaction.minContextSlot,
+        }).catch((e) => {
+            if (e.message === 'User rejected the request.') {
+                errorToast('User rejected the request.');
+                setLoadingTx(false);
+            } else {
+                errorToast('Transaction failed');
+                setLoadingTx(false);
+            }
+        });
+        connection
+            .confirmTransaction(
+                {
+                    blockhash: transaction.blockhash,
+                    lastValidBlockHeight: transaction.lastValidBlockHeight,
+                    signature: signature,
+                },
+                'finalized',
+            )
+            .then(() => {
+                successToastNoAuto(<ToastLink signature={signature} />);
+                setLoadingTx(false);
+                setDefault();
+            })
+            .catch((e) => {
+                errorToast(e.message);
+                setLoadingTx(false);
+            });
     }, [connection, publicKey, sendTransaction, tokenAddress, mintAmount]);
 
     const onclick = async (e) => {
         e.preventDefault();
         setLoadingTx(true);
-        // sendTx();
+        sendTx();
     };
 
     return (
@@ -68,7 +83,9 @@ const MintButton = ({
             <button
                 className={styles.mintButton}
                 onClick={onclick}
-                disabled={loadingTx || mintAmount <= 0 || mintAmount > 184467440737095 || !mintAmount || !publicKey}
+                disabled={
+                    loading || loadingTx || mintAmount <= 0 || mintAmount > 184467440737095 || !mintAmount || !publicKey
+                }
             >
                 {!loadingTx ? 'Mint' : <LoadingCircle />}
             </button>

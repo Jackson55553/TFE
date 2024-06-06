@@ -18,6 +18,7 @@ const MintForm = ({
     mintAmount: number;
 }) => {
     const { publicKey } = useWallet();
+    console.log('rerender');
     return (
         <>
             <label data-title={'Example: So11111111111111111111111111111111111111112'}>{'Token address'}</label>

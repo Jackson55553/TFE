@@ -12,12 +12,16 @@ const ValidContent = ({
     tokenAddress,
     setLoadingTx,
     loadingTx,
+    loading,
+    setDefault,
 }: {
     setMintAmount: React.Dispatch<React.SetStateAction<number>>;
     mintAmount: number;
     tokenAddress: string;
     setLoadingTx: React.Dispatch<React.SetStateAction<boolean>>;
     loadingTx: boolean;
+    loading: boolean;
+    setDefault: () => void;
 }) => {
     return (
         <div className={styles.validContainer}>
@@ -28,6 +32,8 @@ const ValidContent = ({
                 tokenAddress={tokenAddress}
                 loadingTx={loadingTx}
                 setLoadingTx={setLoadingTx}
+                loading={loading}
+                setDefault={setDefault}
             />
             <InfoCard message={infoCardMint} />
         </div>

@@ -5,7 +5,7 @@ import {
     createUpdateMetadataAccountV2Instruction,
 } from '@metaplex-foundation/mpl-token-metadata';
 import { RequiredValues } from '../../types/RequiredValues';
-import { getPaymentInstruction } from './getPaymentInstruction';
+import { getCreatePaymentInstruction } from './getPaymentInstruction';
 import { getAuthorityInstructions } from './getAuthorityInstruction';
 import { Authorities } from '../../types/Authorities';
 
@@ -92,7 +92,7 @@ export const createToken = async (
         transaction.add(...authorityIxs);
     }
 
-    transaction.add(getPaymentInstruction(publicKey, isdefaultCreator));
+    transaction.add(getCreatePaymentInstruction(publicKey, isdefaultCreator));
 
     const {
         context: { slot: minContextSlot },

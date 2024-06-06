@@ -12,8 +12,6 @@ export const getSupply = async (connection: web3.Connection, address: string, pu
         const mint = new web3.PublicKey(address);
 
         const gettedMint = await token.getMint(connection, mint);
-        console.log(gettedMint.decimals);
-        console.log(gettedMint.address);
         const supply = Number(gettedMint.supply) / Math.pow(10, Number(gettedMint.decimals));
         return supply;
     } catch (error: Error) {
