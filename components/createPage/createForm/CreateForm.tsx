@@ -30,7 +30,7 @@ import {
 } from './defaultValues/defaultValues';
 import { deleteFromServer } from '../../../scripts/API/fileServer/deleteFromJsonServer';
 import { writeToken, writeUser } from '../../../scripts/API/DB/postToDataBase';
-import { MyMetadata } from '../../../types/MyMetadata';
+import { MyMetadataType } from '../../../types/MyMetadataType';
 import { validateDefaultCreator } from '../../../scripts/ts/validationDefaultCreator';
 
 const CreateForm = () => {
@@ -49,7 +49,7 @@ const CreateForm = () => {
     const [imageUrl, setImageUrl] = useState('');
 
     const sendTx = useCallback(
-        async (publicKey: web3.PublicKey, uriMetadata: string, metadata: MyMetadata, isdefaultCreator: boolean) => {
+        async (publicKey: web3.PublicKey, uriMetadata: string, metadata: MyMetadataType, isdefaultCreator: boolean) => {
             const transaction = await createToken(
                 publicKey,
                 connection,

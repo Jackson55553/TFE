@@ -2,10 +2,10 @@
 import React from 'react';
 import styles from '../../../../styles/sass/_roadmapCard.module.scss';
 import { useInView } from 'react-intersection-observer';
-import { Stage } from '../../../../types/Stage';
+import { StageType } from '../../../../types/StageType';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 
-const RoadmapCard = ({ stage }: { stage: Stage }) => {
+const RoadmapCard = ({ stage }: { stage: StageType }) => {
     const { ref, inView } = useInView({
         threshold: 0.9,
         triggerOnce: true,

@@ -1,13 +1,13 @@
 import { Url } from 'url';
-import { Extensions } from '../types/Extensions';
-import { Creator } from '../types/Creator';
+import { ExtensionsType } from '../types/ExtensionsType';
+import { CreatorType } from '../types/CreatorType';
 
 export interface MyMetadata {
     name: string;
     symbol: string;
     image: Url | string;
     description: string;
-    extensions?: Extensions;
+    extensions?: ExtensionsType;
     tags?: string[];
-    creator?: Creator;
+    creator?: CreatorType;
 }

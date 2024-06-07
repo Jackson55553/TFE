@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import styles from '../../../../../styles/sass/_downloadImage.module.scss';
 import { getFilePreview } from '../../../../../scripts/ts/getFilePreview';
 import defaultPreview from '../../../../../svg/preview.svg';
-import { ImageForUri } from '../../../../../types/ImageForUri';
+import { ImageForUriType } from '../../../../../types/ImageForUriType';
 import LoadingCircle from '../../../../UI/loadingCircle/LoadingCircle';
 
 const ButtonDownload = ({
@@ -16,7 +16,7 @@ const ButtonDownload = ({
     setImageFile: React.Dispatch<React.SetStateAction<File>>;
     setImagePreview: React.Dispatch<any>;
     setUsedImageFile: React.Dispatch<React.SetStateAction<boolean>>;
-    setImageForUri: React.Dispatch<React.SetStateAction<ImageForUri>>;
+    setImageForUri: React.Dispatch<React.SetStateAction<ImageForUriType>>;
 }) => {
     const [loading, setLoading] = useState(false);
     const inputRef = useRef({});

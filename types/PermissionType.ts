@@ -1,4 +1,4 @@
-export type Permission = {
+export type PermissionType = {
     title: string;
     description: string;
 };

@@ -5,7 +5,7 @@ import LoadingCircle from '../../UI/loadingCircle/LoadingCircle';
 import FindTokenInput from './findTokenInput/FindTokenInput';
 import { useWallet } from '@solana/wallet-adapter-react';
 import 'react-toastify/dist/ReactToastify.css';
-import { Authorities } from '../../../types/Authorities';
+import { AuthoritiesType } from '../../../types/AuthoritiesType';
 
 const FindTokenForm = ({
     setAuthorities,
@@ -14,7 +14,7 @@ const FindTokenForm = ({
     loading,
     setLoading,
 }: {
-    setAuthorities: React.Dispatch<React.SetStateAction<Authorities>>;
+    setAuthorities: React.Dispatch<React.SetStateAction<AuthoritiesType>>;
     setTokenAddress: React.Dispatch<React.SetStateAction<string>>;
     tokenAddress: string;
     setLoading: React.Dispatch<React.SetStateAction<boolean>>;

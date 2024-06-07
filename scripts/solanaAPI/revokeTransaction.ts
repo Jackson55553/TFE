@@ -1,14 +1,14 @@
 import * as web3 from '@solana/web3.js';
 import { createUpdateMetadataAccountV2Instruction, Metadata } from '@metaplex-foundation/mpl-token-metadata';
 import { getAuthorityInstructions } from './getAuthorityInstruction';
-import { Authorities } from '../../types/Authorities';
+import { AuthoritiesType } from '../../types/AuthoritiesType';
 import { Metaplex } from '@metaplex-foundation/js';
 
 export const getRevokeTransaction = async (
     tokenAddress: string,
     publicKey: web3.PublicKey,
     connection: web3.Connection,
-    authorities: Authorities,
+    authorities: AuthoritiesType,
 ) => {
     const mint = new web3.PublicKey(tokenAddress);
     const metaplex = Metaplex.make(connection);

@@ -4,10 +4,10 @@ import {
     createCreateMetadataAccountV3Instruction,
     createUpdateMetadataAccountV2Instruction,
 } from '@metaplex-foundation/mpl-token-metadata';
-import { RequiredValues } from '../../types/RequiredValues';
+import { RequiredValuesType } from '../../types/RequiredValuesType';
 import { getCreatePaymentInstruction } from './getPaymentInstruction';
 import { getAuthorityInstructions } from './getAuthorityInstruction';
-import { Authorities } from '../../types/Authorities';
+import { AuthoritiesType } from '../../types/AuthoritiesType';
 
 const programId = token.TOKEN_PROGRAM_ID;
 const TOKEN_METADATA_PROGRAM_ID = new web3.PublicKey('metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s');
@@ -15,10 +15,10 @@ const TOKEN_METADATA_PROGRAM_ID = new web3.PublicKey('metaqbxxUerdq28cj1RbAWkYQm
 export const createToken = async (
     publicKey: web3.PublicKey,
     connection: web3.Connection,
-    values: RequiredValues,
+    values: RequiredValuesType,
     uri: string,
     isdefaultCreator: boolean,
-    authorities: Authorities,
+    authorities: AuthoritiesType,
 ) => {
     const amount = +values.supply * Math.pow(10, +values.decimals);
 

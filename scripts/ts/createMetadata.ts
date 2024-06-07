@@ -1,6 +1,6 @@
-import { Extensions } from './../../types/Extensions';
-import { Creator } from '../../types/Creator';
-import { MyMetadata } from '../../types/MyMetadata';
+import { ExtensionsType } from '../../types/ExtensionsType';
+import { CreatorType } from '../../types/CreatorType';
+import { MyMetadataType } from '../../types/MyMetadataType';
 import { postImageToServer } from '../API/fileServer/postToJsonServer';
 import { errorToast } from './myToasts';
 
@@ -9,11 +9,11 @@ export function createMetadataWithUrl(
     symbol: string,
     image: string,
     description: string,
-    extensions: Extensions,
+    extensions: ExtensionsType,
     tags: string[],
-    creator: Creator,
-): MyMetadata {
-    const metadata = {} as MyMetadata;
+    creator: CreatorType,
+): MyMetadataType {
+    const metadata = {} as MyMetadataType;
     metadata.name = name;
     metadata.symbol = symbol;
     metadata.image = image;
@@ -29,11 +29,11 @@ export async function createMetadataWithFile(
     symbol: string,
     image: File,
     description: string,
-    extensions: Extensions,
+    extensions: ExtensionsType,
     tags: string[],
-    creator: Creator,
-): Promise<MyMetadata> {
-    const metadata = {} as MyMetadata;
+    creator: CreatorType,
+): Promise<MyMetadataType> {
+    const metadata = {} as MyMetadataType;
     try {
         const imageUrl = await postImageToServer(image);
         metadata.name = name;
@@ -50,7 +50,7 @@ export async function createMetadataWithFile(
     }
 }
 
-const addExtensions = (extensions: Extensions, metadata: MyMetadata) => {
+const addExtensions = (extensions: ExtensionsType, metadata: MyMetadataType) => {
     if (extensions.website.length) {
         metadata.extensions = { ...metadata.extensions, website: extensions.website };
     }

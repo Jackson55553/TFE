@@ -4,7 +4,7 @@ import defaultPreview from '../../../../svg/preview.svg';
 import InputImageUrl from './inputImageUrl/InputImageUrl';
 import DrugAndDrop from './drugAndDrop/DrugAndDrop';
 import ButtonDownload from './buttonDownload/ButtonDownload';
-import { ImageForUri } from '../../../../types/ImageForUri';
+import { ImageForUriType } from '../../../../types/ImageForUriType';
 
 const DownloadImage = ({
     imageForUri,
@@ -12,8 +12,8 @@ const DownloadImage = ({
     setImageUrl,
     imageUrl,
 }: {
-    imageForUri: ImageForUri;
-    setImageForUri: React.Dispatch<React.SetStateAction<ImageForUri>>;
+    imageForUri: ImageForUriType;
+    setImageForUri: React.Dispatch<React.SetStateAction<ImageForUriType>>;
     setImageUrl: React.Dispatch<React.SetStateAction<string>>;
     imageUrl: string;
 }) => {

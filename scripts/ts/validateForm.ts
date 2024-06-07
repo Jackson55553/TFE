@@ -1,7 +1,7 @@
-import { ImageForUri } from '../../types/ImageForUri';
-import { RequiredValues } from '../../types/RequiredValues';
+import { ImageForUriType } from '../../types/ImageForUriType';
+import { RequiredValuesType } from '../../types/RequiredValuesType';
 
-export function validateForm(valuesRequired: RequiredValues, imageForUri: ImageForUri) {
+export function validateForm(valuesRequired: RequiredValuesType, imageForUri: ImageForUriType) {
     const result = { isValid: true, message: '' };
     validateInputs(valuesRequired, result);
     validateImage(imageForUri, result);
@@ -14,7 +14,7 @@ export function validateForm(valuesRequired: RequiredValues, imageForUri: ImageF
     }
 }
 
-function validateInputs(valuesRequired: RequiredValues, result: { isValid: boolean; message: string }) {
+function validateInputs(valuesRequired: RequiredValuesType, result: { isValid: boolean; message: string }) {
     Object.keys(valuesRequired).forEach((value) => {
         if (!result.isValid) {
             return;
@@ -42,7 +42,7 @@ function validateInputs(valuesRequired: RequiredValues, result: { isValid: boole
     });
 }
 
-function validateImage(imageForUri: ImageForUri, result: { isValid: boolean; message: string }) {
+function validateImage(imageForUri: ImageForUriType, result: { isValid: boolean; message: string }) {
     if (!result.isValid) {
         return;
     }

@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import styles from '../../../../styles/sass/_permissions.module.scss';
 import { permissions } from './permissionCard/permissionsContent/permissionsContent';
 import PermissionCard from './permissionCard/PermissionCard';
-import { Authorities } from '../../../../types/Authorities';
+import { AuthoritiesType } from '../../../../types/AuthoritiesType';
 
 const PermissionsMain = ({
     authorities,
     setAuthorities,
 }: {
-    setAuthorities: React.Dispatch<React.SetStateAction<Authorities>>;
-    authorities: Authorities;
+    setAuthorities: React.Dispatch<React.SetStateAction<AuthoritiesType>>;
+    authorities: AuthoritiesType;
 }) => {
     const [toggleUpdate, setToggleUpdate] = useState(false);
     const [toggleFreeze, setToggleFreeze] = useState(false);

@@ -3,7 +3,7 @@ import * as token from '@solana/spl-token';
 import { Metaplex } from '@metaplex-foundation/js';
 import { Metadata } from '@metaplex-foundation/mpl-token-metadata';
 import { errorToast } from '../ts/myToasts';
-import { Authorities } from '../../types/Authorities';
+import { AuthoritiesType } from '../../types/AuthoritiesType';
 export const getAuthorityInfo = async (
     connection: web3.Connection,
     setLoading: React.Dispatch<React.SetStateAction<boolean>>,
@@ -11,7 +11,7 @@ export const getAuthorityInfo = async (
     e,
     publicKey: web3.PublicKey | null,
 ) => {
-    const res = {} as Authorities;
+    const res = {} as AuthoritiesType;
     //TODO: check is users token
     try {
         if (!publicKey) {

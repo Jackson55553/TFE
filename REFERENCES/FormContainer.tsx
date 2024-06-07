@@ -3,9 +3,9 @@ import styles from '../styles/formContainer.module.css';
 import { createMintAndAccountTokenTransaction } from './createMintAndAccountToken';
 import { WalletNotConnectedError } from '@solana/wallet-adapter-base';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
-import { SignProps } from '../types/SignProps';
+import { SignPropsType } from '../types/SignPropsType';
 
-const FormContainer = ({ setLoaded, setSign }: SignProps) => {
+const FormContainer = ({ setLoaded, setSign }: SignPropsType) => {
     const [name, setName] = useState('');
     const [symbol, setSymbol] = useState('');
     const [decimals, setDecimals] = useState('');

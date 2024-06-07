@@ -5,7 +5,7 @@ import { isTokenAddress } from '../../../../scripts/solanaAPI/validateTokenAddre
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { getAuthorityInfo } from '../../../../scripts/solanaAPI/getAuthorityInfo';
 import { errorToast } from '../../../../scripts/ts/myToasts';
-import { Authorities } from '../../../../types/Authorities';
+import { AuthoritiesType } from '../../../../types/AuthoritiesType';
 
 const FindTokenInput = ({
     setLoading,
@@ -14,7 +14,7 @@ const FindTokenInput = ({
     tokenAddress,
 }: {
     setLoading: React.Dispatch<React.SetStateAction<boolean>>;
-    setAuthorities: React.Dispatch<React.SetStateAction<Authorities>>;
+    setAuthorities: React.Dispatch<React.SetStateAction<AuthoritiesType>>;
     setTokenAddress: React.Dispatch<React.SetStateAction<string>>;
     tokenAddress: string;
 }) => {
@@ -26,7 +26,7 @@ const FindTokenInput = ({
 
     const showError = (message: string) => {
         errorToast(message);
-        setAuthorities({} as Authorities);
+        setAuthorities({} as AuthoritiesType);
         setLoading(false);
     };
 
@@ -40,7 +40,7 @@ const FindTokenInput = ({
             const validate = await isTokenAddress(setLoading, e.target.value, e, publicKey, connection);
             setValide(validate);
             if (!validate) {
-                setAuthorities({} as Authorities);
+                setAuthorities({} as AuthoritiesType);
             }
         }, 500);
         setInputTimeout(timeoutID);
@@ -63,7 +63,13 @@ const FindTokenInput = ({
             showError('Address incorrect');
             return;
         }
-        const authorityInfo: Authorities = await getAuthorityInfo(connection, setLoading, tokenAddress, e, publicKey);
+        const authorityInfo: AuthoritiesType = await getAuthorityInfo(
+            connection,
+            setLoading,
+            tokenAddress,
+            e,
+            publicKey,
+        );
 
         if (!authorityInfo) {
             showError('Address incorrect');

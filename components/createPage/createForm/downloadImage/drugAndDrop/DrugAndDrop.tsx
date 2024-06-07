@@ -4,7 +4,7 @@ import styles from '../../../../../styles/sass/_downloadImage.module.scss';
 import { allowsFile, getFilePreview } from '../../../../../scripts/ts/getFilePreview';
 import defaultPreview from '../../../../../svg/preview.svg';
 import { IoClose } from 'react-icons/io5';
-import { ImageForUri } from '../../../../../types/ImageForUri';
+import { ImageForUriType } from '../../../../../types/ImageForUriType';
 
 const DrugAndDrop = ({
     setImageFile,
@@ -18,7 +18,7 @@ const DrugAndDrop = ({
     setImagePreview: React.Dispatch<any>;
     imagePreview: any;
     setUsedImageFile: React.Dispatch<React.SetStateAction<boolean>>;
-    setImageForUri: React.Dispatch<React.SetStateAction<ImageForUri>>;
+    setImageForUri: React.Dispatch<React.SetStateAction<ImageForUriType>>;
     usedImageUrl: boolean;
 }) => {
     const [drag, setDrag] = useState(false);

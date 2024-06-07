@@ -7,20 +7,20 @@ import {
     defaultTags,
     defaultImageForUri,
 } from '../../components/createPage/createForm/defaultValues/defaultValues';
-import { Authorities } from '../../types/Authorities';
-import { Creator } from '../../types/Creator';
-import { Extensions } from '../../types/Extensions';
-import { ImageForUri } from '../../types/ImageForUri';
-import { RequiredValues } from '../../types/RequiredValues';
+import { AuthoritiesType } from '../../types/AuthoritiesType';
+import { CreatorType } from '../../types/CreatorType';
+import { ExtensionsType } from '../../types/ExtensionsType';
+import { ImageForUriType } from '../../types/ImageForUriType';
+import { RequiredValuesType } from '../../types/RequiredValuesType';
 
 export const setDefault = (
-    setValuesRequired: React.Dispatch<React.SetStateAction<RequiredValues>>,
-    setValuesExtensions: React.Dispatch<React.SetStateAction<Extensions>>,
-    setValuesCreator: React.Dispatch<React.SetStateAction<Creator>>,
+    setValuesRequired: React.Dispatch<React.SetStateAction<RequiredValuesType>>,
+    setValuesExtensions: React.Dispatch<React.SetStateAction<ExtensionsType>>,
+    setValuesCreator: React.Dispatch<React.SetStateAction<CreatorType>>,
     setDescription: React.Dispatch<React.SetStateAction<string>>,
-    setAuthorities: React.Dispatch<React.SetStateAction<Authorities>>,
+    setAuthorities: React.Dispatch<React.SetStateAction<AuthoritiesType>>,
     setTags: React.Dispatch<React.SetStateAction<string[]>>,
-    setImageForUri: React.Dispatch<React.SetStateAction<ImageForUri>>,
+    setImageForUri: React.Dispatch<React.SetStateAction<ImageForUriType>>,
     setImageUrl: React.Dispatch<React.SetStateAction<string>>,
 ) => {
     setValuesRequired(defaultRequiredValues);

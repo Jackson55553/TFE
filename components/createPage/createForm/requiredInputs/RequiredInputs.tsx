@@ -3,14 +3,14 @@ import styles from '../../../../styles/sass/_createForm.module.scss';
 import MyInput from '../myInput/MyInput';
 import { MyInputType } from '../../../../types/MyInputType';
 import { inputsRequired } from '../inputs/inputs';
-import { RequiredValues } from '../../../../types/RequiredValues';
+import { RequiredValuesType } from '../../../../types/RequiredValuesType';
 
 const RequiredInputs = ({
     valuesRequired,
     setValuesRequired,
 }: {
-    valuesRequired: RequiredValues;
-    setValuesRequired: React.Dispatch<React.SetStateAction<RequiredValues>>;
+    valuesRequired: RequiredValuesType;
+    setValuesRequired: React.Dispatch<React.SetStateAction<RequiredValuesType>>;
 }) => {
     const onChange = (e) => {
         setValuesRequired({ ...valuesRequired, [e.target.name]: e.target.value });

@@ -1,6 +1,6 @@
-import { Stage } from '../../../../types/Stage';
+import { StageType } from '../../../../types/StageType';
 
-export const stages: Stage[] = [
+export const stages: StageType[] = [
     {
         id: 1,
         description: 'Website development\n\nAdding a function to work with SPL tokens\n\nCreation of social networks',

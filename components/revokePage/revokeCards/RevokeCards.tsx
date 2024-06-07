@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from '../../../styles/sass/_revokeCards.module.scss';
-import { Authorities } from '../../../types/Authorities';
+import { AuthoritiesType } from '../../../types/AuthoritiesType';
 import { permissions } from '../../createPage/createForm/permissionsMain/permissionCard/permissionsContent/permissionsContent';
 import RevokeCard from './revokeCard/RevokeCard';
 const RevokeCards = ({
@@ -8,9 +8,9 @@ const RevokeCards = ({
     choosenAuthorities,
     setChoosenAuthorities,
 }: {
-    authorities: Authorities;
-    choosenAuthorities: Authorities;
-    setChoosenAuthorities: React.Dispatch<React.SetStateAction<Authorities>>;
+    authorities: AuthoritiesType;
+    choosenAuthorities: AuthoritiesType;
+    setChoosenAuthorities: React.Dispatch<React.SetStateAction<AuthoritiesType>>;
 }) => {
     const [toggleUpdate, setToggleUpdate] = useState(authorities.update);
     const [toggleFreeze, setToggleFreeze] = useState(authorities.freeze);

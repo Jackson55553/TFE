@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import styles from '../../../styles/sass/_revokePermission.module.scss';
-import { Authorities } from '../../../types/Authorities';
+import { AuthoritiesType } from '../../../types/AuthoritiesType';
 import LoadingCircle from '../../UI/loadingCircle/LoadingCircle';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { getRevokeTransaction } from '../../../scripts/solanaAPI/revokeTransaction';
@@ -14,8 +14,8 @@ const RevokeButton = ({
     setDefaultValues,
     loading,
 }: {
-    authorities: Authorities;
-    choosenAuthorities: Authorities;
+    authorities: AuthoritiesType;
+    choosenAuthorities: AuthoritiesType;
     tokenAddress: string;
     setDefaultValues: () => void;
     loading: boolean;

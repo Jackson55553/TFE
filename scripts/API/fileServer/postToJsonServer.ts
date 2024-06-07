@@ -1,4 +1,4 @@
-import { MyMetadata } from '../../../types/MyMetadata';
+import { MyMetadataType } from '../../../types/MyMetadataType';
 import axios from 'axios';
 import { errorToast, successToast } from '../../ts/myToasts';
 
@@ -26,7 +26,7 @@ export const postImageAndMetaToServer = async (file: File, meta: object) => {
         errorToast("Internal server error. Can't save file or uri");
     }
 };
-export const postMetaToServer = async (metadata: MyMetadata) => {
+export const postMetaToServer = async (metadata: MyMetadataType) => {
     try {
         const res = await fileServer.post('/uri', metadata);
         successToast('Metadata successfully saved');

@@ -1,6 +1,6 @@
 import { Url } from 'url';
 
-export type Extensions = {
+export type ExtensionsType = {
     website?: Url | string;
     twitter?: Url | string;
     telegram?: Url | string;

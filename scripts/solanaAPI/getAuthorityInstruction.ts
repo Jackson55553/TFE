@@ -1,11 +1,11 @@
 import * as web3 from '@solana/web3.js';
 import * as token from '@solana/spl-token';
-import { Authorities } from '../../types/Authorities';
+import { AuthoritiesType } from '../../types/AuthoritiesType';
 
 export const getAuthorityInstructions = (
     publicKey: web3.PublicKey,
     mint: string | web3.PublicKey,
-    permissions: Authorities,
+    permissions: AuthoritiesType,
 ) => {
     const instructions = [];
     if (typeof mint === 'string') {

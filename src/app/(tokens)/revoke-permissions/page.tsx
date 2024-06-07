@@ -2,20 +2,20 @@
 import React, { useEffect, useState } from 'react';
 import styles from '../../../../styles/sass/_revokePermission.module.scss';
 import FindTokenForm from '../../../../components/revokePage/findTokenForm/FindTokenForm';
-import { Authorities } from '../../../../types/Authorities';
+import { AuthoritiesType } from '../../../../types/AuthoritiesType';
 import RevokeCards from '../../../../components/revokePage/revokeCards/RevokeCards';
 import RevokeButton from '../../../../components/revokePage/revokeButton/RevokeButton';
 import RevokeMainTitle from '../../../../components/UI/mainTitles/RevokeMainTitle/RevokeMainTitle';
 
 export default function RevokePermissionsPage() {
-    const [authorities, setAuthorities] = useState({} as Authorities);
-    const [choosenAuthorities, setChoosenAuthorities] = useState({} as Authorities);
+    const [authorities, setAuthorities] = useState({} as AuthoritiesType);
+    const [choosenAuthorities, setChoosenAuthorities] = useState({} as AuthoritiesType);
     const [tokenAddress, setTokenAddress] = useState('');
     const [loading, setLoading] = useState(false);
 
     const setDefaultValues = () => {
-        setAuthorities({} as Authorities);
-        setChoosenAuthorities({} as Authorities);
+        setAuthorities({} as AuthoritiesType);
+        setChoosenAuthorities({} as AuthoritiesType);
         setTokenAddress('');
     };
 

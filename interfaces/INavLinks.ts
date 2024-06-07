@@ -1,8 +1,8 @@
-import { Sublink } from '../types/Sublinks';
+import { SublinkType } from '../types/SublinksType';
 
 export interface INavLink {
     name: string;
-    sublinks?: Sublink[];
+    sublinks?: SublinkType[];
     href: string;
     isActive: boolean;
     isArrow?: boolean;

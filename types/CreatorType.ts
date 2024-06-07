@@ -1,6 +1,6 @@
 import { Url } from 'url';
 
-export type Creator = {
+export type CreatorType = {
     name: string;
     site: Url | string;
 };

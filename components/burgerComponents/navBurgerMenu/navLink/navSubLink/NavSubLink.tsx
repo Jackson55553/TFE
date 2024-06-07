@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '../../../../../styles/sass/_navBurgerMenu.module.scss';
 import Link from 'next/link';
-import { Sublink } from '../../../../../types/Sublinks';
+import { SublinkType } from '../../../../../types/SublinksType';
 import { usePathname } from 'next/navigation';
 
 const NavSubLinks = ({
@@ -9,7 +9,7 @@ const NavSubLinks = ({
     openClose,
     subIsOpen,
 }: {
-    sublinks: Sublink[];
+    sublinks: SublinkType[];
     openClose: () => void;
     subIsOpen: boolean;
 }) => {

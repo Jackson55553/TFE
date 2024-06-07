@@ -4,7 +4,7 @@ import { imageInput } from '../../inputs/inputs';
 import axios from 'axios';
 import { allowsFile } from '../../../../../scripts/ts/getFilePreview';
 import defaultPreview from '../../../../../svg/preview.svg';
-import { ImageForUri } from '../../../../../types/ImageForUri';
+import { ImageForUriType } from '../../../../../types/ImageForUriType';
 import LoadingCircle from '../../../../UI/loadingCircle/LoadingCircle';
 
 const InputImageUrl = ({
@@ -16,7 +16,7 @@ const InputImageUrl = ({
 }: {
     setImagePreview: React.Dispatch<any>;
     setUsedImageUrl: React.Dispatch<React.SetStateAction<boolean>>;
-    setImageForUri: React.Dispatch<React.SetStateAction<ImageForUri>>;
+    setImageForUri: React.Dispatch<React.SetStateAction<ImageForUriType>>;
     setImageUrl: React.Dispatch<React.SetStateAction<string>>;
     imageUrl: string;
 }) => {

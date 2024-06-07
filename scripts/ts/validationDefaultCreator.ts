@@ -1,7 +1,7 @@
 import { defaultCreatorValues } from '../../components/createPage/createForm/defaultValues/defaultValues';
-import { Creator } from '../../types/Creator';
+import { CreatorType } from '../../types/CreatorType';
 
-export const validateDefaultCreator = (creator: Creator) => {
+export const validateDefaultCreator = (creator: CreatorType) => {
     if (defaultCreatorValues.name === creator.name && defaultCreatorValues.site === creator.site) {
         return true;
     } else {
