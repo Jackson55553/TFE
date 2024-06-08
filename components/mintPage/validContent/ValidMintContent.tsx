@@ -5,6 +5,7 @@ import InfoCard from '../../UI/infoCard/InfoCard';
 import { infoCardMint } from '../../../texts/cardTexts/cardTexts';
 import MintButton from '../mintButton/MintButton';
 import styles from '../../../styles/sass/_mint.module.scss';
+import TokenInfoCards from '../../UI/tokenInfoCards/TokenInfoCards';
 
 const ValidMintContent = ({
     mintAmount,
@@ -27,6 +28,7 @@ const ValidMintContent = ({
         <div className={styles.validContainer}>
             <MintAmountInput mintAmount={mintAmount} setMintAmount={setMintAmount} />
             <SupplyCounter mintAmount={mintAmount} tokenAddress={tokenAddress} />
+            <TokenInfoCards tokenAddress={tokenAddress} />
             <MintButton
                 mintAmount={mintAmount}
                 tokenAddress={tokenAddress}

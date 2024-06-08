@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from '../../../../styles/sass/_createForm.module.scss';
-import { CreatorType } from '../../../../types/CreatorType';
+import { Creator, CreatorType } from '../../../../types/CreatorType';
 import ToggleBtn from '../../../UI/toggleBtn/ToggleBtn';
 import { inputsCreator } from '../inputs/inputs';
 import { MyInputType } from '../../../../types/MyInputType';
@@ -25,7 +25,7 @@ const CreatorInputs = ({
         }
     };
 
-    const onChange = (e) => {
+    const onChange: React.ChangeEventHandler<HTMLInputElement> | undefined = (e) => {
         setValuesCreator({ ...valuesCreator, [e.target.name]: e.target.value });
     };
     return (
@@ -37,7 +37,12 @@ const CreatorInputs = ({
             {toggledCreator ? (
                 <div className={styles.extensionsContainer}>
                     {inputsCreator.map((input: MyInputType) => (
-                        <MyInput key={input.id} input={input} value={valuesCreator[input.name]} onChange={onChange} />
+                        <MyInput
+                            key={input.id}
+                            input={input}
+                            value={valuesCreator[input.name as keyof typeof Creator]}
+                            onChange={onChange}
+                        />
                     ))}
                 </div>
             ) : (

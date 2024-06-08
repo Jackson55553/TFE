@@ -8,7 +8,6 @@ export const getAuthorityInfo = async (
     connection: web3.Connection,
     setLoading: React.Dispatch<React.SetStateAction<boolean>>,
     address: string,
-    e,
     publicKey: web3.PublicKey | null,
 ) => {
     const res = {} as AuthoritiesType;

@@ -8,7 +8,7 @@ const DescriprionTextArea = ({
     description: string;
     setDescription: React.Dispatch<React.SetStateAction<string>>;
 }) => {
-    const onChange = (e) => {
+    const onChange: React.ChangeEventHandler<HTMLTextAreaElement> | undefined = (e) => {
         setDescription(e.target.value);
     };
     return (

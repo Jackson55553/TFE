@@ -52,24 +52,29 @@ const MintButton = ({
                 setLoadingTx(false);
             }
         });
-        connection
-            .confirmTransaction(
-                {
-                    blockhash: transaction.blockhash,
-                    lastValidBlockHeight: transaction.lastValidBlockHeight,
-                    signature: signature,
-                },
-                'finalized',
-            )
-            .then(() => {
-                successToastNoAuto(<ToastLink signature={signature} />);
-                setLoadingTx(false);
-                setDefault();
-            })
-            .catch((e) => {
-                errorToast(e.message);
-                setLoadingTx(false);
-            });
+        if (typeof signature === 'string') {
+            connection
+                .confirmTransaction(
+                    {
+                        blockhash: transaction.blockhash,
+                        lastValidBlockHeight: transaction.lastValidBlockHeight,
+                        signature: signature,
+                    },
+                    'finalized',
+                )
+                .then(() => {
+                    successToastNoAuto(<ToastLink signature={signature} />);
+                    setLoadingTx(false);
+                    setDefault();
+                })
+                .catch((e) => {
+                    errorToast(e.message);
+                    setLoadingTx(false);
+                });
+        } else {
+            errorToast('Transaction failed');
+            setLoadingTx(false);
+        }
     }, [connection, publicKey, sendTransaction, tokenAddress, mintAmount]);
 
     const onclick = async (e) => {

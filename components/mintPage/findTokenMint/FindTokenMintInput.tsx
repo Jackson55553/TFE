@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styles from '../../../styles/sass/_mintForm.module.scss';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
-import { errorToast } from '../../../scripts/ts/myToasts';
 import { isTokenMintAddress } from '../../../scripts/solanaAPI/validateTokenAddress';
 
 const FindTokenMintInput = ({
@@ -20,12 +19,7 @@ const FindTokenMintInput = ({
     const [focused, setFocused] = useState(false);
     const [inputTimeout, setInputTimeout] = useState<NodeJS.Timeout>();
 
-    const showError = (message: string) => {
-        errorToast(message);
-        setLoading(false);
-    };
-
-    const onchage = (e) => {
+    const onchage: React.ChangeEventHandler<HTMLInputElement> | undefined = (e) => {
         if (inputTimeout) {
             clearTimeout(inputTimeout);
         }

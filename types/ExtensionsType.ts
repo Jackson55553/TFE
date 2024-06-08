@@ -6,3 +6,9 @@ export type ExtensionsType = {
     telegram?: Url | string;
     discord?: Url | string;
 };
+export enum Extensions {
+    website = 'website',
+    twitter = 'twitter',
+    telegram = 'telegram',
+    discord = 'discord',
+}

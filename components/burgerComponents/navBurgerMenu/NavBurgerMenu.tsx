@@ -1,7 +1,6 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 import styles from '../../../styles/sass/_navBurgerMenu.module.scss';
-import { usePathname } from 'next/navigation';
 import NavLinkBurger from './navLink/NavLinkBurger';
 import { navLinks } from '../../../texts/navLinksContent';
 

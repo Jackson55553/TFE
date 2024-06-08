@@ -23,7 +23,7 @@ const InputImageUrl = ({
     const [loading, setLoading] = useState(false);
     const [inputTimeout, setInputTimeout] = useState<NodeJS.Timeout>();
 
-    const onChange = (e) => {
+    const onChange: React.ChangeEventHandler<HTMLInputElement> | undefined = (e) => {
         if (inputTimeout) {
             clearTimeout(inputTimeout);
         }

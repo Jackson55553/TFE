@@ -2,9 +2,17 @@ import React, { useState } from 'react';
 import styles from '../../../../styles/sass/_createForm.module.scss';
 import { MyInputType } from '../../../../types/MyInputType';
 
-const MyInput = ({ input, value, onChange }: { input: MyInputType; value: string; onChange: (e: any) => void }) => {
+const MyInput = ({
+    input,
+    value,
+    onChange,
+}: {
+    input: MyInputType;
+    value: string;
+    onChange: React.ChangeEventHandler<HTMLInputElement> | undefined;
+}) => {
     const [focused, setFocused] = useState(false);
-    const handleFocused = (e) => {
+    const handleFocused: React.FocusEventHandler<HTMLInputElement> | undefined = (e) => {
         if (e.target.id === 'inputImage' && !e.target.value) {
             setFocused(true);
         }

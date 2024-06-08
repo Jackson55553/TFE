@@ -21,7 +21,7 @@ const ButtonDownload = ({
     const [loading, setLoading] = useState(false);
     const inputRef = useRef({});
 
-    const fileInputHandler = async (e) => {
+    const fileInputHandler: React.ChangeEventHandler<HTMLInputElement> | undefined = async (e: any) => {
         e.preventDefault();
         const file = e.target.files[0];
         if (file) {

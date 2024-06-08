@@ -4,7 +4,6 @@ import styles from '../../../styles/sass/_revokePermission.module.scss';
 import LoadingCircle from '../../UI/loadingCircle/LoadingCircle';
 import FindTokenInput from './findTokenInput/FindTokenInput';
 import { useWallet } from '@solana/wallet-adapter-react';
-import 'react-toastify/dist/ReactToastify.css';
 import { AuthoritiesType } from '../../../types/AuthoritiesType';
 
 const FindTokenForm = ({

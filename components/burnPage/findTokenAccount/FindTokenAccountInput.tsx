@@ -25,12 +25,7 @@ const FindTokenAccountInput = ({
     const [focused, setFocused] = useState(false);
     const [inputTimeout, setInputTimeout] = useState<NodeJS.Timeout>();
 
-    const showError = (message: string) => {
-        errorToast(message);
-        setLoading(false);
-    };
-
-    const onchage = (e) => {
+    const onchage: React.ChangeEventHandler<HTMLInputElement> | undefined = (e) => {
         if (inputTimeout) {
             clearTimeout(inputTimeout);
         }
@@ -75,7 +70,7 @@ const FindTokenAccountInput = ({
         setInputTimeout(timeoutID);
     };
 
-    const handleFocused = (e) => {
+    const handleFocused: React.FocusEventHandler<HTMLInputElement> | undefined = (e) => {
         if (!e.target.value) {
             setFocused(true);
         }

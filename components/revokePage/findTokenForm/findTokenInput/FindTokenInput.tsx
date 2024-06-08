@@ -63,13 +63,7 @@ const FindTokenInput = ({
             showError('Address incorrect');
             return;
         }
-        const authorityInfo: AuthoritiesType = await getAuthorityInfo(
-            connection,
-            setLoading,
-            tokenAddress,
-            e,
-            publicKey,
-        );
+        const authorityInfo: AuthoritiesType = await getAuthorityInfo(connection, setLoading, tokenAddress, publicKey);
 
         if (!authorityInfo) {
             showError('Address incorrect');

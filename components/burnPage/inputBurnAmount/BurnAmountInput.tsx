@@ -16,7 +16,7 @@ const BurnAmountInput = ({
         return setBurnAmount(1);
     }, []);
 
-    const onchage = (e) => {
+    const onchage: React.ChangeEventHandler<HTMLInputElement> | undefined = (e: any) => {
         e.preventDefault();
         setBurnAmount(e.target.value);
         if (e.target.value > tokenBalance) {
@@ -27,7 +27,7 @@ const BurnAmountInput = ({
         }
     };
 
-    const handleFocused = (e) => {
+    const handleFocused: React.FocusEventHandler<HTMLInputElement> | undefined = (e: any) => {
         if (!e.target.value) {
             setFocused(true);
         }

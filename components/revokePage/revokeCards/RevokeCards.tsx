@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from '../../../styles/sass/_revokeCards.module.scss';
-import { AuthoritiesType } from '../../../types/AuthoritiesType';
+import { Authorities, AuthoritiesType } from '../../../types/AuthoritiesType';
 import { permissions } from '../../createPage/createForm/permissionsMain/permissionCard/permissionsContent/permissionsContent';
 import RevokeCard from './revokeCard/RevokeCard';
 const RevokeCards = ({
@@ -38,8 +38,8 @@ const RevokeCards = ({
     }, [authorities]);
 
     permissions.forEach((permission) => {
-        permission.toggled = toggles[permission.id].toggled;
-        permission.setToggled = toggles[permission.id].setToggled;
+        permission.toggled = toggles[permission.id as keyof typeof Authorities].toggled;
+        permission.setToggled = toggles[permission.id as keyof typeof Authorities].setToggled;
     });
 
     return (
@@ -48,7 +48,7 @@ const RevokeCards = ({
                 <RevokeCard
                     key={`card${permission.title}`}
                     permission={permission}
-                    disabled={!authorities[permission.id]}
+                    disabled={!authorities[permission.id as keyof typeof Authorities]}
                 />
             ))}
         </div>

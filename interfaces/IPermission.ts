@@ -7,3 +7,9 @@ export interface IPermission {
     toggled?: boolean;
     setToggled?: Dispatch<SetStateAction<boolean>>;
 }
+
+export enum Permission {
+    update = 'update',
+    freeze = 'freeze',
+    mint = 'mint',
+}

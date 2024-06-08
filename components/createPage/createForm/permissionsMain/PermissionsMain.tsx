@@ -3,6 +3,7 @@ import styles from '../../../../styles/sass/_permissions.module.scss';
 import { permissions } from './permissionCard/permissionsContent/permissionsContent';
 import PermissionCard from './permissionCard/PermissionCard';
 import { AuthoritiesType } from '../../../../types/AuthoritiesType';
+import { Permission } from '../../../../interfaces/IPermission';
 
 const PermissionsMain = ({
     authorities,
@@ -34,8 +35,8 @@ const PermissionsMain = ({
     }, [authorities]);
 
     permissions.forEach((permission) => {
-        permission.toggled = toggles[permission.id].toggled;
-        permission.setToggled = toggles[permission.id].setToggled;
+        permission.toggled = toggles[permission.id as keyof typeof Permission].toggled;
+        permission.setToggled = toggles[permission.id as keyof typeof Permission].setToggled;
     });
 
     return (

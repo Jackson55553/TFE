@@ -30,13 +30,9 @@ const RevokeButton = ({
             setLoadingTx(false);
             return;
         }
-        const transaction = await getRevokeTransaction(tokenAddress, publicKey, connection, choosenAuthorities).catch(
-            (e) => {
-                errorToast('Transaction failed');
-                return false;
-            },
-        );
+        const transaction = await getRevokeTransaction(tokenAddress, publicKey, connection, choosenAuthorities);
         if (!transaction) {
+            errorToast('Transaction failed');
             return;
         }
         const signature = await sendTransaction(transaction.transaction, connection, {
@@ -50,27 +46,32 @@ const RevokeButton = ({
                 setLoadingTx(false);
             }
         });
-        connection
-            .confirmTransaction(
-                {
-                    blockhash: transaction.blockhash,
-                    lastValidBlockHeight: transaction.lastValidBlockHeight,
-                    signature: signature,
-                },
-                'finalized',
-            )
-            .then(() => {
-                successToastNoAuto(<ToastLink signature={signature} />);
-                setDefaultValues();
-                setLoadingTx(false);
-            })
-            .catch((e) => {
-                // errorToast(e.message);
-                setLoadingTx(false);
-            });
+
+        if (typeof signature === 'string') {
+            connection
+                .confirmTransaction(
+                    {
+                        blockhash: transaction.blockhash,
+                        lastValidBlockHeight: transaction.lastValidBlockHeight,
+                        signature: signature,
+                    },
+                    'finalized',
+                )
+                .then(() => {
+                    successToastNoAuto(<ToastLink signature={signature} />);
+                    setDefaultValues();
+                    setLoadingTx(false);
+                })
+                .catch((e) => {
+                    setLoadingTx(false);
+                });
+        } else {
+            errorToast('Transaction failed');
+            setLoadingTx(false);
+        }
     }, [connection, publicKey, sendTransaction, choosenAuthorities, tokenAddress]);
 
-    const onclick = async (e) => {
+    const onclick: React.MouseEventHandler<HTMLButtonElement> | undefined = async (e) => {
         e.preventDefault();
         setLoadingTx(true);
         sendTx();

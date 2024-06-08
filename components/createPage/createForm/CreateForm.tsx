@@ -11,7 +11,6 @@ import Tags from './tags/Tags';
 import { validateForm } from '../../../scripts/ts/validateForm';
 import ButtonCreate from './buttonCreate/ButtonCreate';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
-import 'react-toastify/dist/ReactToastify.css';
 import { errorToast, successToastNoAuto, warningToast } from '../../../scripts/ts/myToasts';
 import { createMetadataWithFile, createMetadataWithUrl } from '../../../scripts/ts/createMetadata';
 import { postMetaToServer } from '../../../scripts/API/fileServer/postToJsonServer';
@@ -84,6 +83,11 @@ const CreateForm = () => {
                 setLoadingBtn(false);
                 return;
             }
+            if (typeof signature !== 'string') {
+                setLoadingBtn(false);
+                deleteFromServer(uriMetadata);
+                return;
+            }
             connection
                 .confirmTransaction(
                     {
@@ -125,7 +129,7 @@ const CreateForm = () => {
         [connection, publicKey, sendTransaction, valuesRequired, authorities],
     );
 
-    const handleSubmit = async (e) => {
+    const handleSubmit: React.FormEventHandler<HTMLFormElement> | undefined = async (e) => {
         e.preventDefault();
         setLoadingBtn(true);
         if (!publicKey) {

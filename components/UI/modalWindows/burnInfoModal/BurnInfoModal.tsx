@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 import styles from '../../../../styles/sass/_tokenInfoModal.module.scss';
 
 const BurnInfoModal = ({ closeModal, modalIsOpen }: { closeModal: () => void; modalIsOpen: boolean }) => {
-    const onWrapperClick = (event) => {
+    const onWrapperClick: React.MouseEventHandler<HTMLDivElement> = (event: any) => {
         if (event.target.classList.contains(`${styles.modalWrapper}`)) closeModal();
     };
     return (

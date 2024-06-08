@@ -1,0 +1,64 @@
+@import '_variables';
+.cardsContainer {
+    margin: 40px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px 20px;
+}
+.infoCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: 1px solid $primary-color;
+    min-height: 100px;
+    color: aqua;
+    border-radius: 10px;
+    box-shadow: 0 0 10px $primary-color;
+    text-shadow: 0 0 10px $primary-color;
+}
+.infoCardTitle {
+    font-size: 26px;
+}
+.infoCardValue {
+    margin: 0;
+    margin-bottom: 26px;
+    font-size: 36px;
+    text-align: center;
+}
+.addressLink {
+    text-decoration: none;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    color: $primary-color;
+    &:hover {
+        color: purple;
+        text-shadow: 0 0 10px purple;
+    }
+}
+.loadingContainer {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@media (max-width: 930px) {
+    .cardsContainer {
+        display: flex;
+        flex-direction: column;
+    }
+    .infoCard {
+        min-height: 50px;
+    }
+    .infoCardTitle {
+        font-size: 20px;
+    }
+    .infoCardValue {
+        font-size: 16px;
+    }
+    .addressLink {
+        font-size: 16px;
+    }
+}

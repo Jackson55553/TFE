@@ -3,3 +3,8 @@ export type AuthoritiesType = {
     freeze: boolean;
     mint: boolean;
 };
+export enum Authorities {
+    update = 'update',
+    freeze = 'freeze',
+    mint = 'mint',
+}

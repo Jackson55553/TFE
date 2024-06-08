@@ -32,7 +32,7 @@ const DrugAndDrop = ({
         setDrag(false);
     };
 
-    const dropHandler = async (e) => {
+    const dropHandler: React.DragEventHandler<HTMLDivElement> | undefined = async (e: any) => {
         e.preventDefault();
         const file = [...e.dataTransfer.files][0];
         setDrag(false);
@@ -48,7 +48,7 @@ const DrugAndDrop = ({
         }
     };
 
-    const clearClick = (e) => {
+    const clearClick: React.MouseEventHandler<HTMLButtonElement> | undefined = (e) => {
         e.preventDefault();
         setUsedImageFile(false);
         setImagePreview(defaultPreview);

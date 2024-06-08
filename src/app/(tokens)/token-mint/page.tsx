@@ -4,7 +4,6 @@ import styles from '../../../../styles/sass/_mint.module.scss';
 import MintMainTitle from '../../../../components/UI/mainTitles/MintMainTitle/MintMainTitle';
 import LoadingCircle from '../../../../components/UI/loadingCircle/LoadingCircle';
 import MintForm from '../../../../components/mintPage/mintForm/MintForm';
-import 'react-toastify/dist/ReactToastify.css';
 import ValidMintContent from '../../../../components/mintPage/validContent/ValidMintContent';
 
 export default function TokenMintPage() {

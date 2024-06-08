@@ -5,7 +5,6 @@ import BurnMainTitle from '../../../../components/UI/mainTitles/BurnMainTitle/Bu
 import BurnForm from '../../../../components/burnPage/burnForm/BurnForm';
 import LoadingCircle from '../../../../components/UI/loadingCircle/LoadingCircle';
 import ValidBurnContent from '../../../../components/burnPage/validContent/ValidBurnContent';
-import 'react-toastify/dist/ReactToastify.css';
 
 export default function TokenBurnPage() {
     const [loading, setLoading] = useState(false);

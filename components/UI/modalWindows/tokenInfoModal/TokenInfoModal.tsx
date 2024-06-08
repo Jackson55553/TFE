@@ -2,7 +2,7 @@ import React from 'react';
 import styles from '../../../../styles/sass/_tokenInfoModal.module.scss';
 
 const TokenInfoModal = ({ closeModal, modalIsOpen }: { closeModal: () => void; modalIsOpen: boolean }) => {
-    const onWrapperClick = (event) => {
+    const onWrapperClick: React.MouseEventHandler<HTMLDivElement> = (event: any) => {
         if (event.target.classList.contains(`${styles.modalWrapper}`)) closeModal();
     };
     return (
@@ -28,8 +28,7 @@ const TokenInfoModal = ({ closeModal, modalIsOpen }: { closeModal: () => void; m
                         </li>
                         <li>Select tags for your token. (Optional)</li>
                         <li>
-                            {`Upload the image for your token.\n (Supported image formats: PNG/GIF/JPG and JPEG Recommended
-                            size: 1000×1000 pixels).`}
+                            {`Upload the image for your token.\n (Supported image formats: PNG/GIF/JPG and JPEG Recommended size: 1000×1000 pixels).`}
                         </li>
                         <li>Click on create, accept the transaction and wait until your token is ready.</li>
                     </ul>

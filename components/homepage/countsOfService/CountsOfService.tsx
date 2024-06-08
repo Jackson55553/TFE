@@ -4,8 +4,8 @@ import styles from '../../../styles/sass/_countsOfService.module.scss';
 import { getCountOfTokens, getCountOfUsers } from '../../../scripts/API/DB/getFromDatabase';
 
 const CountsOfService = () => {
-    const countupTokenRef = useRef(null);
-    const countupUsersRef = useRef(null);
+    const countupTokenRef = useRef(0);
+    const countupUsersRef = useRef(0);
     let countUpAnim;
     useEffect(() => {
         getCountOfTokens().then((count) => {
@@ -16,7 +16,7 @@ const CountsOfService = () => {
         });
     }, []);
 
-    async function initCountUp(ref: React.MutableRefObject<null>, endCount: number) {
+    async function initCountUp(ref: React.MutableRefObject<number>, endCount: number) {
         const countUpModule = await import('countup.js');
         countUpAnim = new countUpModule.CountUp(ref.current, endCount);
         if (!countUpAnim.error) {

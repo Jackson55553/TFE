@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { errorToast } from '../../../scripts/ts/myToasts';
 import styles from '../../../styles/sass/_mintForm.module.scss';
 const MintAmountInput = ({
     mintAmount,
@@ -10,11 +9,7 @@ const MintAmountInput = ({
 }) => {
     const [focused, setFocused] = useState(false);
 
-    const showError = (message: string) => {
-        errorToast(message);
-    };
-
-    const onchage = (e) => {
+    const onchage: React.ChangeEventHandler<HTMLInputElement> | undefined = (e: any) => {
         setMintAmount(e.target.value);
         if (e.target.value > 0 && e.target.value < 184467440737095 && Number.isInteger(Number(e.target.value))) {
             e.target.attributes.focused.nodeValue = false;
@@ -24,7 +19,7 @@ const MintAmountInput = ({
         }
     };
 
-    const handleFocused = (e) => {
+    const handleFocused: React.FocusEventHandler<HTMLInputElement> | undefined = (e: any) => {
         if (!e.target.value) {
             setFocused(true);
         }

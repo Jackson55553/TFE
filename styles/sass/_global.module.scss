@@ -11,9 +11,9 @@
         --toastify-color-progress-dark: $primary-color;
         --toastify-color-error: red;
         --toastify-text-color-error: red;
-        --toastify-text-color-success: $color-success;
-        --toastify-color-info: $primary-color;
-        --toastify-color-success: $color-success;
+        --toastify-text-color-success: rgb(7, 255, 152);
+        --toastify-color-info: aqua;
+        --toastify-color-success: rgb(7, 255, 152);
         --toastify-font-family: $primary-font;
     }
 }

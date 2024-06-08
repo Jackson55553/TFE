@@ -5,6 +5,7 @@ import styles from '../../../styles/sass/_mint.module.scss';
 import BurnAmountInput from '../inputBurnAmount/BurnAmountInput';
 import BurnSupplyCounter from '../supplyCounter/BurnSupplyCounter';
 import BurnButton from '../burnButton/BurnButton';
+import TokenInfoCards from '../../UI/tokenInfoCards/TokenInfoCards';
 
 const ValidBurnContent = ({
     burnAmount,
@@ -31,6 +32,7 @@ const ValidBurnContent = ({
         <div className={styles.validContainer}>
             <BurnAmountInput burnAmount={burnAmount} setBurnAmount={setBurnAmount} tokenBalance={tokenBalance} />
             <BurnSupplyCounter burnAmount={burnAmount} tokenAddress={tokenAddress} />
+            <TokenInfoCards tokenAddress={tokenAddress} />
             <BurnButton
                 burnAmount={burnAmount}
                 tokenAddress={tokenAddress}

@@ -51,7 +51,7 @@ export const inputsRequired: MyInputType[] = [
         label: 'Token Supply',
         className: `${styles.mainTokenInput} ${styles.focusTransition}`,
         min: 1,
-        max: 18446744073709551615,
+        max: 1844674407370955,
         step: 1,
         dataTitle: 'Example: 1000000 (max. 18446744073709551615)',
         errorMessage: 'Supply must be greater than 0 and less than 18446744073709551615',

@@ -1,5 +1,5 @@
 'use client';
-import React, { FC } from 'react';
+import React from 'react';
 import styles from '../../../styles/sass/_burgerMenu.module.scss';
 import ButtonDefault from '../../UI/defaultButton/DefaultButton';
 import { IoClose } from 'react-icons/io5';
@@ -7,7 +7,7 @@ import MainIcon from '../../../svg/mainIcon';
 import NavBurgerMenu from '../navBurgerMenu/NavBurgerMenu';
 
 const BurgerMenu = ({ isOpen, openClose }: { isOpen: boolean; openClose: () => void }) => {
-    const onWrapperClick = (e) => {
+    const onWrapperClick: React.MouseEventHandler<HTMLDivElement> = (e: any) => {
         if (e.target.classList.contains(styles.burgerMenuWrapper)) {
             openClose();
         }

@@ -1,0 +1,30 @@
+.networkButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: black;
+    color: aqua;
+    border: solid 1px aqua;
+    box-shadow: 0 0 10px aqua;
+    border-radius: 50px;
+    height: 50px;
+    width: 50px;
+    transition: 0.2s ease-in-out;
+    & p {
+        font-family: IcebergRegular;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        font-size: 36px;
+    }
+    &:hover {
+        border: solid 1px rgb(6, 61, 163);
+        box-shadow: 0 0 10px rgb(6, 61, 163);
+        cursor: pointer;
+        color: rgb(6, 61, 163);
+        text-shadow: 0 0 5px rgb(6, 61, 163);
+    }
+}

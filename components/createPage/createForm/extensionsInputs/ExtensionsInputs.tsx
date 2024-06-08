@@ -3,15 +3,15 @@ import styles from '../../../../styles/sass/_createForm.module.scss';
 import { MyInputType } from '../../../../types/MyInputType';
 import { inputsExtension } from '../inputs/inputs';
 import MyInput from '../myInput/MyInput';
-import { ExtensionsValues } from '../../../../types/ExtensionsValues';
 import ToggleBtn from '../../../UI/toggleBtn/ToggleBtn';
+import { Extensions, ExtensionsType } from '../../../../types/ExtensionsType';
 
 const ExtensionsInputs = ({
     valuesExtensions,
     setValuesExtensions,
 }: {
-    valuesExtensions: ExtensionsValues;
-    setValuesExtensions: React.Dispatch<React.SetStateAction<ExtensionsValues>>;
+    valuesExtensions: ExtensionsType;
+    setValuesExtensions: React.Dispatch<React.SetStateAction<ExtensionsType>>;
 }) => {
     const [toggledExtensions, setToggledExtensions] = useState(false);
 
@@ -25,7 +25,7 @@ const ExtensionsInputs = ({
         }
     };
 
-    const onChange = (e) => {
+    const onChange: React.ChangeEventHandler<HTMLInputElement> | undefined = (e) => {
         setValuesExtensions({ ...valuesExtensions, [e.target.name]: e.target.value });
     };
 
@@ -41,7 +41,7 @@ const ExtensionsInputs = ({
                         <MyInput
                             key={input.id}
                             input={input}
-                            value={valuesExtensions[input.name]}
+                            value={valuesExtensions[input.name as keyof typeof Extensions]}
                             onChange={onChange}
                         />
                     ))}
