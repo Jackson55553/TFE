@@ -26,7 +26,6 @@ const TagButton = ({
         if (tags.includes(e.target.innerHTML)) {
             return;
         } else {
-            console.log('added ' + e.target.innerHTML);
             setTags((prev) => [...prev, e.target.innerHTML]);
         }
     };

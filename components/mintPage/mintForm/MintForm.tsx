@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 import styles from '../../../styles/sass/_mintForm.module.scss';
 import FindTokenMintInput from '../findTokenMint/FindTokenMintInput';
 import { useWallet } from '@solana/wallet-adapter-react';

@@ -1,8 +1,5 @@
 import * as web3 from '@solana/web3.js';
 import * as token from '@solana/spl-token';
-import { Metaplex } from '@metaplex-foundation/js';
-import { Metadata } from '@metaplex-foundation/mpl-token-metadata';
-import { errorToast } from '../ts/myToasts';
 
 export const getAccountBalance = async (
     connection: web3.Connection,
@@ -19,12 +16,9 @@ export const getAccountBalance = async (
         const gettedMint = await token.getMint(connection, mint);
         const decimals = gettedMint.decimals;
 
-        console.log(accountInfo.amount);
-        console.log(Number(accountInfo.amount) / Math.pow(10, decimals));
         const tokenBalance = Number(accountInfo.amount) / Math.pow(10, decimals);
         return tokenBalance;
     } catch (error: Error) {
-        console.log(error);
         return 0;
     }
 };

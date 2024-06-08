@@ -19,6 +19,12 @@ export default function RevokePermissionsPage() {
         setTokenAddress('');
     };
 
+    useEffect(() => {
+        if (!tokenAddress) {
+            setDefaultValues();
+        }
+    }, [tokenAddress]);
+
     return (
         <div className={styles.revokePermissionsPage}>
             <div className={styles.revokeContainer}>

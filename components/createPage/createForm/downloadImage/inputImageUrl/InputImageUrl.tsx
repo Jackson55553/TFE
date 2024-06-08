@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import MyInput from '../../myInput/MyInput';
 import { imageInput } from '../../inputs/inputs';
 import axios from 'axios';

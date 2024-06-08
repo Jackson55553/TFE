@@ -39,6 +39,7 @@ export const isTokenMintAddress = async (
     setLoading(true);
     try {
         if (!publicKey) {
+            errorToast('Connect wallet');
             throw new Error('Connect wallet');
         }
         const mint = new web3.PublicKey(address);

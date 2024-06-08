@@ -58,11 +58,13 @@ const RevokeButton = ({
                     'finalized',
                 )
                 .then(() => {
-                    successToastNoAuto(<ToastLink signature={signature} />);
+                    const endpoint =
+                        connection.rpcEndpoint === process.env.NEXT_PUBLIC_DEVNET_ENDPOINT ? 'devnet' : 'mainnet-beta';
+                    successToastNoAuto(<ToastLink signature={signature} endpoint={endpoint} />);
                     setDefaultValues();
                     setLoadingTx(false);
                 })
-                .catch((e) => {
+                .catch(() => {
                     setLoadingTx(false);
                 });
         } else {

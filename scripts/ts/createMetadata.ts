@@ -14,6 +14,9 @@ export function createMetadataWithUrl(
     creator: CreatorType,
 ): MyMetadataType {
     const metadata = {} as MyMetadataType;
+    if (description.length > 255) {
+        description = description.slice(0, 250);
+    }
     metadata.name = name;
     metadata.symbol = symbol;
     metadata.image = image;
@@ -34,6 +37,9 @@ export async function createMetadataWithFile(
     creator: CreatorType,
 ): Promise<MyMetadataType> {
     const metadata = {} as MyMetadataType;
+    if (description.length > 255) {
+        description = description.slice(0, 250);
+    }
     try {
         const imageUrl = await postImageToServer(image);
         metadata.name = name;
@@ -45,30 +51,24 @@ export async function createMetadataWithFile(
         metadata.creator = creator;
         return metadata;
     } catch (error) {
-        console.log(error);
         errorToast("Internal server error. Can't save file");
     }
 }
 
 const addExtensions = (extensions: ExtensionsType, metadata: MyMetadataType) => {
-    if (extensions.website.length) {
+    if (extensions.website) {
         metadata.extensions = { ...metadata.extensions, website: extensions.website };
     }
-    if (extensions.twitter.length) {
+    if (extensions.twitter) {
         metadata.extensions = { ...metadata.extensions, twitter: extensions.twitter };
     }
-    if (extensions.telegram.length) {
+    if (extensions.telegram) {
         metadata.extensions = { ...metadata.extensions, telegram: extensions.telegram };
     }
-    if (extensions.discord.length) {
+    if (extensions.discord) {
         metadata.extensions = { ...metadata.extensions, discord: extensions.discord };
     }
-    if (
-        !extensions.discord.length &&
-        !extensions.telegram.length &&
-        !extensions.twitter.length &&
-        !extensions.website.length
-    ) {
+    if (!extensions.discord && !extensions.telegram && !extensions.twitter && !extensions.website) {
         metadata.extensions = {};
     }
 };

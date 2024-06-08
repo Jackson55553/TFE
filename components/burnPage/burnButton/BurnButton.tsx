@@ -1,9 +1,8 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 import styles from '../../../styles/sass/_mint.module.scss';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import LoadingCircle from '../../UI/loadingCircle/LoadingCircle';
 import { errorToast, successToastNoAuto } from '../../../scripts/ts/myToasts';
-import { getMintTransaction } from '../../../scripts/solanaAPI/getMintTransaction';
 import ToastLink from '../../UI/Links/ToastLink';
 import { getBurnTransaction } from '../../../scripts/solanaAPI/getBurnTransaction';
 
@@ -73,7 +72,9 @@ const BurnButton = ({
                     'finalized',
                 )
                 .then(() => {
-                    successToastNoAuto(<ToastLink signature={signature} />);
+                    const endpoint =
+                        connection.rpcEndpoint === process.env.NEXT_PUBLIC_DEVNET_ENDPOINT ? 'devnet' : 'mainnet-beta';
+                    successToastNoAuto(<ToastLink signature={signature} endpoint={endpoint} />);
                     setLoadingTx(false);
                     setDefault();
                 })

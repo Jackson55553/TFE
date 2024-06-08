@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styles from '../../../styles/sass/_revokePermission.module.scss';
 import LoadingCircle from '../../UI/loadingCircle/LoadingCircle';
 import FindTokenInput from './findTokenInput/FindTokenInput';

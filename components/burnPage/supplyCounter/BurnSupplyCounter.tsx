@@ -1,5 +1,5 @@
 'use client';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../../../styles/sass/_supplyCounter.module.scss';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { getSupply } from '../../../scripts/solanaAPI/getSupply';

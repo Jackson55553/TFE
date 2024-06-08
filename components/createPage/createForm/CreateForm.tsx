@@ -35,7 +35,6 @@ import { validateDefaultCreator } from '../../../scripts/ts/validationDefaultCre
 const CreateForm = () => {
     const { connection } = useConnection();
     const { publicKey, sendTransaction } = useWallet();
-
     const [loadingBtn, setLoadingBtn] = useState(false);
 
     const [valuesRequired, setValuesRequired] = useState(defaultRequiredValues);
@@ -98,7 +97,9 @@ const CreateForm = () => {
                     'finalized',
                 )
                 .then(() => {
-                    successToastNoAuto(<ToastLink signature={signature} />);
+                    const endpoint =
+                        connection.rpcEndpoint === process.env.NEXT_PUBLIC_DEVNET_ENDPOINT ? 'devnet' : 'mainnet-beta';
+                    successToastNoAuto(<ToastLink signature={signature} endpoint={endpoint} />);
                     setLoadingBtn(false);
                     setDefault(
                         setValuesRequired,
@@ -121,7 +122,7 @@ const CreateForm = () => {
                     );
                     writeUser(publicKey.toBase58());
                 })
-                .catch((e) => {
+                .catch(() => {
                     setLoadingBtn(false);
                     deleteFromServer(uriMetadata);
                 });

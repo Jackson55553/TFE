@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../../../../styles/sass/_revokePermission.module.scss';
 import { FaSearch } from 'react-icons/fa';
 import { isTokenAddress } from '../../../../scripts/solanaAPI/validateTokenAddress';
@@ -29,6 +29,10 @@ const FindTokenInput = ({
         setAuthorities({} as AuthoritiesType);
         setLoading(false);
     };
+
+    useEffect(() => {
+        setTokenAddress('');
+    }, [connection]);
 
     const onchage = async (e) => {
         if (inputTimeout) {

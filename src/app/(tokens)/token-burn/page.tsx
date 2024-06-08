@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styles from '../../../../styles/sass/_burn.module.scss';
 import BurnMainTitle from '../../../../components/UI/mainTitles/BurnMainTitle/BurnMainTitle';
 import BurnForm from '../../../../components/burnPage/burnForm/BurnForm';
@@ -21,11 +21,6 @@ export default function TokenBurnPage() {
         setBurnAmount(1);
         setTokenAddress('');
     };
-
-    // useEffect(() => {
-    //     console.log(tokenAccount);
-    //     console.log(valide);
-    // }, [tokenAccount, valide]);
 
     return (
         <div className={styles.burnPage}>

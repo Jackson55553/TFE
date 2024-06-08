@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 import styles from '../../../styles/sass/_mint.module.scss';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import LoadingCircle from '../../UI/loadingCircle/LoadingCircle';
@@ -23,7 +23,6 @@ const MintButton = ({
 }) => {
     const { connection } = useConnection();
     const { publicKey, sendTransaction } = useWallet();
-
     const sendTx = useCallback(async () => {
         if (!publicKey) {
             errorToast('Connect wallet');
@@ -63,7 +62,9 @@ const MintButton = ({
                     'finalized',
                 )
                 .then(() => {
-                    successToastNoAuto(<ToastLink signature={signature} />);
+                    const endpoint =
+                        connection.rpcEndpoint === process.env.NEXT_PUBLIC_DEVNET_ENDPOINT ? 'devnet' : 'mainnet-beta';
+                    successToastNoAuto(<ToastLink signature={signature} endpoint={endpoint} />);
                     setLoadingTx(false);
                     setDefault();
                 })
