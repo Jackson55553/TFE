@@ -19,6 +19,11 @@ const nextConfig = {
         // !! WARN !!
         ignoreBuildErrors: true,
     },
+    experimental: {
+        serverActions: {
+            bodySizeLimit: '7mb',
+        },
+    },
     // hideSourceMaps: process.env.NEXT_PUBLIC_VERCEL_ENV === "production",
     //   productionBrowserSourceMaps: false,
 };

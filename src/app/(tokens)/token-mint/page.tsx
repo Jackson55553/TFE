@@ -30,7 +30,7 @@ export default function TokenMintPage() {
                     setValide={setValide}
                 />
                 {loading ? <LoadingCircle style={{ height: '50px', width: '50px' }} /> : ''}
-                {valide ? (
+                {valide && tokenAddress ? (
                     <ValidMintContent
                         mintAmount={mintAmount}
                         setMintAmount={setMintAmount}

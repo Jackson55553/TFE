@@ -10,9 +10,9 @@ export const metadata: Metadata = {
         template: '%s | Token For Ever',
         default: 'Token For Ever', // a default is required when creating a template
     },
-    description: 'Service for generating and managing tokens',
+    description: 'Service for generating and managing tokens. No code and easy!',
 };
-
+console.log(metadata);
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html className={styles.html} lang="en">

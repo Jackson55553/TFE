@@ -35,7 +35,7 @@ export default function TokenBurnPage() {
                     setTokenBalance={setTokenBalance}
                 />
                 {loading ? <LoadingCircle style={{ height: '50px', width: '50px' }} /> : ''}
-                {valide && tokenAccount.length ? (
+                {valide && tokenAccount && tokenAddress ? (
                     <ValidBurnContent
                         burnAmount={burnAmount}
                         tokenAddress={tokenAddress}

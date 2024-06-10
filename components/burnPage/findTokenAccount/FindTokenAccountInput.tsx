@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../../../styles/sass/_mintForm.module.scss';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { errorToast } from '../../../scripts/ts/myToasts';
@@ -24,6 +24,11 @@ const FindTokenAccountInput = ({
     const { publicKey } = useWallet();
     const [focused, setFocused] = useState(false);
     const [inputTimeout, setInputTimeout] = useState<NodeJS.Timeout>();
+
+    useEffect(() => {
+        // setTokenAccount('');
+        setTokenAddress('');
+    }, [connection]);
 
     const onchage: React.ChangeEventHandler<HTMLInputElement> | undefined = (e) => {
         if (inputTimeout) {
