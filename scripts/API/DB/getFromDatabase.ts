@@ -6,15 +6,11 @@ export const getCountOfTokens = async () => {
     try {
         const res = await db.get('tokens');
         return res.data;
-    } catch (error) {
-        console.log(error);
-    }
+    } catch (error) {}
 };
 export const getCountOfUsers = async () => {
     try {
         const res = await db.get('users');
         return res.data;
-    } catch (error) {
-        console.log(error);
-    }
+    } catch (error) {}
 };

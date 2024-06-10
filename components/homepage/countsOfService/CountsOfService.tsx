@@ -22,7 +22,6 @@ const CountsOfService = () => {
         if (!countUpAnim.error) {
             countUpAnim.start();
         } else {
-            console.error(countUpAnim.error);
         }
     }
     return (

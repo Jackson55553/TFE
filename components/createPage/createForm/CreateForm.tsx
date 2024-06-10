@@ -33,6 +33,15 @@ import { MyMetadataType } from '../../../types/MyMetadataType';
 import { validateDefaultCreator } from '../../../scripts/ts/validationDefaultCreator';
 
 const CreateForm = () => {
+    // const getProvider = () => {
+    //     if ('phantom' in window) {
+    //         const provider = window.phantom?.solana;
+
+    //         if (provider?.isPhantom) {
+    //             return provider;
+    //         }
+    //     }
+    // };
     const { connection } = useConnection();
     const { publicKey, sendTransaction } = useWallet();
     const [loadingBtn, setLoadingBtn] = useState(false);
@@ -48,6 +57,7 @@ const CreateForm = () => {
 
     const sendTx = useCallback(
         async (publicKey: web3.PublicKey, uriMetadata: string, metadata: MyMetadataType, isdefaultCreator: boolean) => {
+            // const provider = getProvider();
             const transaction = await createToken(
                 publicKey,
                 connection,
@@ -62,6 +72,8 @@ const CreateForm = () => {
             const signature = await sendTransaction(transaction.transaction, connection, {
                 minContextSlot: transaction.minContextSlot,
             })
+                // const signature = provider
+                //     .signAndSendTransaction(transaction.transaction)
                 .then((data) => {
                     clearTimeout(timeout);
                     return data;
