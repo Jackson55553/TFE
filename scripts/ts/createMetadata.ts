@@ -14,15 +14,14 @@ export function createMetadataWithUrl(
     creator: CreatorType,
 ): MyMetadataType {
     const metadata = {} as MyMetadataType;
-    if (description.length > 255) {
-        description = description.slice(0, 250);
-    }
     metadata.name = name;
     metadata.symbol = symbol;
     metadata.image = image;
     metadata.description = description;
     addExtensions(extensions, metadata);
-    metadata.tags = tags;
+    if (tags.length) {
+        metadata.tags = tags;
+    }
     metadata.creator = creator;
     return metadata;
 }
@@ -47,7 +46,9 @@ export async function createMetadataWithFile(
         metadata.image = imageUrl;
         metadata.description = description;
         addExtensions(extensions, metadata);
-        metadata.tags = tags;
+        if (tags.length) {
+            metadata.tags = tags;
+        }
         metadata.creator = creator;
         return metadata;
     } catch (error) {
@@ -56,6 +57,9 @@ export async function createMetadataWithFile(
 }
 
 const addExtensions = (extensions: ExtensionsType, metadata: MyMetadataType) => {
+    if (!extensions.discord && !extensions.telegram && !extensions.twitter && !extensions.website) {
+        return;
+    }
     if (extensions.website) {
         metadata.extensions = { ...metadata.extensions, website: extensions.website };
     }
@@ -67,8 +71,5 @@ const addExtensions = (extensions: ExtensionsType, metadata: MyMetadataType) => 
     }
     if (extensions.discord) {
         metadata.extensions = { ...metadata.extensions, discord: extensions.discord };
-    }
-    if (!extensions.discord && !extensions.telegram && !extensions.twitter && !extensions.website) {
-        metadata.extensions = {};
     }
 };

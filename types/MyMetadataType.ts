@@ -6,7 +6,7 @@ export type MyMetadataType = {
     symbol: string;
     image: string;
     description: string;
-    extensions: ExtensionsType;
-    tags: string[];
-    creator: CreatorType;
+    extensions?: ExtensionsType;
+    tags?: string[];
+    creator?: CreatorType;
 };
