@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { errorToast } from '../../ts/myToasts';
 
-const fileServer = axios.create({ baseURL: 'http://localhost:3006' });
+const fileServer = axios.create({ baseURL: 'http://tfefiles.space' });
 export const deleteFromServer = async (uri: string) => {
     try {
         const res = await fileServer.delete('', { data: { uri: uri } });

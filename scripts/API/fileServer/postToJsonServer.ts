@@ -2,7 +2,7 @@ import { MyMetadataType } from '../../../types/MyMetadataType';
 import axios from 'axios';
 import { errorToast, successToast } from '../../ts/myToasts';
 
-const fileServer = axios.create({ baseURL: 'http://localhost:3006' });
+const fileServer = axios.create({ baseURL: 'http://tfefiles.space' });
 
 export const postImageToServer = async (file: File) => {
     const formData = new FormData();

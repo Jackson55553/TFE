@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const db = axios.create({ baseURL: 'http://localhost:5000' });
+const db = axios.create({ baseURL: 'http://tfedb.space' });
 
 export async function writeToken(
     tokenAddress: string,
