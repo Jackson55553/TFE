@@ -21,7 +21,7 @@ const CreatorInputs = ({
 
     const defaultCreator = () => {
         if (!toggledCreator) {
-            setValuesCreator({ ...valuesCreator, name: 'Token For Ever', site: 'https://tokenforever.io' });
+            setValuesCreator({ ...valuesCreator, name: 'Token For Ever', site: 'https://tokenforever.space' });
         }
     };
 
