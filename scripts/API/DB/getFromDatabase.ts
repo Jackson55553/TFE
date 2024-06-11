@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const db = axios.create({ baseURL: 'http://tfedb.space' });
+const db = axios.create({ baseURL: 'https://tfedb.space' });
 
 export const getCountOfTokens = async () => {
     try {
