@@ -12,7 +12,6 @@ export const metadata: Metadata = {
     },
     description: 'Service for generating and managing tokens. No code and easy!',
 };
-console.log(metadata);
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html className={styles.html} lang="en">
