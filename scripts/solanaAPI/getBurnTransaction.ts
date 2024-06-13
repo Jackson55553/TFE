@@ -35,7 +35,7 @@ export const getBurnTransaction = async (
     const transaction = new web3.Transaction();
     transaction.add(
         token.createBurnInstruction(tokenAcc, mint, publicKey, amount),
-        getBurnPaymentInstruction(publicKey),
+        getBurnPaymentInstruction(publicKey, connection.rpcEndpoint),
     );
     const {
         context: { slot: minContextSlot },

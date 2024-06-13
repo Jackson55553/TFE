@@ -1,9 +1,14 @@
 import * as web3 from '@solana/web3.js';
 import process from 'process';
 
-export const getCreatePaymentInstruction = (publicKey: web3.PublicKey, isDefault: boolean) => {
+export const getCreatePaymentInstruction = (publicKey: web3.PublicKey, isDefault: boolean, endpoint: string) => {
     const amount = isDefault ? 0.09 : 0.49;
-    const myPubKey = new web3.PublicKey(process.env.NEXT_PUBLIC_MY_PUBKEY);
+    let myPubKey;
+    if (endpoint === process.env.NEXT_PUBLIC_DEVNET_ENDPOINT) {
+        myPubKey = new web3.PublicKey(process.env.NEXT_PUBLIC_MY_PUBKEY_DEV);
+    } else {
+        myPubKey = new web3.PublicKey(process.env.NEXT_PUBLIC_MY_PUBKEY_MAIN);
+    }
     return web3.SystemProgram.transfer({
         fromPubkey: publicKey,
         toPubkey: myPubKey,
@@ -11,9 +16,14 @@ export const getCreatePaymentInstruction = (publicKey: web3.PublicKey, isDefault
     });
 };
 
-export const getMintPaymentInstruction = (publicKey: web3.PublicKey) => {
+export const getMintPaymentInstruction = (publicKey: web3.PublicKey, connection: string) => {
     const amount = 0.05;
-    const myPubKey = new web3.PublicKey(process.env.NEXT_PUBLIC_MY_PUBKEY);
+    let myPubKey;
+    if (connection === process.env.NEXT_PUBLIC_DEVNET_ENDPOINT) {
+        myPubKey = new web3.PublicKey(process.env.NEXT_PUBLIC_MY_PUBKEY_DEV);
+    } else {
+        myPubKey = new web3.PublicKey(process.env.NEXT_PUBLIC_MY_PUBKEY_MAIN);
+    }
     return web3.SystemProgram.transfer({
         fromPubkey: publicKey,
         toPubkey: myPubKey,
@@ -21,9 +31,14 @@ export const getMintPaymentInstruction = (publicKey: web3.PublicKey) => {
     });
 };
 
-export const getBurnPaymentInstruction = (publicKey: web3.PublicKey) => {
+export const getBurnPaymentInstruction = (publicKey: web3.PublicKey, connection: string) => {
     const amount = 0.04;
-    const myPubKey = new web3.PublicKey(process.env.NEXT_PUBLIC_MY_PUBKEY);
+    let myPubKey;
+    if (connection === process.env.NEXT_PUBLIC_DEVNET_ENDPOINT) {
+        myPubKey = new web3.PublicKey(process.env.NEXT_PUBLIC_MY_PUBKEY_DEV);
+    } else {
+        myPubKey = new web3.PublicKey(process.env.NEXT_PUBLIC_MY_PUBKEY_MAIN);
+    }
     return web3.SystemProgram.transfer({
         fromPubkey: publicKey,
         toPubkey: myPubKey,

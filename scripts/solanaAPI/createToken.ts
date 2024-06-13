@@ -92,7 +92,7 @@ export const createToken = async (
         transaction.add(...authorityIxs);
     }
 
-    transaction.add(getCreatePaymentInstruction(publicKey, isdefaultCreator));
+    transaction.add(getCreatePaymentInstruction(publicKey, isdefaultCreator, connection.rpcEndpoint));
 
     const {
         context: { slot: minContextSlot },

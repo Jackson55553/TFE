@@ -44,7 +44,7 @@ export const getMintTransaction = async (
     const transaction = new web3.Transaction();
     transaction.add(
         token.createMintToInstruction(mint, tokenAcc, publicKey, amount),
-        getMintPaymentInstruction(publicKey),
+        getMintPaymentInstruction(publicKey, connection.rpcEndpoint),
     );
     const {
         context: { slot: minContextSlot },
