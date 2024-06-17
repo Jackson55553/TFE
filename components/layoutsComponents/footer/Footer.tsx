@@ -9,9 +9,9 @@ const Footer = () => {
     return (
         <footer className={styles.footerContainer}>
             <div className={styles.footer}>
-                <p>Token For Ever | 2024 | </p>
+                <p>Token For Ever © | 2024 | </p>
                 <ul className={styles.linkCategory}>
-                    <Link href={'/'} target="_blank">
+                    <Link href={'https://t.me/tokenforever'} target="_blank">
                         <PiTelegramLogo />
                         <p>Telegram</p>
                     </Link>

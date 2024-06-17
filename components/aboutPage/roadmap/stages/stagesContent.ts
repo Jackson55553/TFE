@@ -4,7 +4,7 @@ export const stages: StageType[] = [
     {
         id: 1,
         description: 'Website development\n\nAdding a function to work with SPL tokens\n\nCreation of social networks',
-        isFinished: false,
+        isFinished: true,
     },
     {
         id: 2,
