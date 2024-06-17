@@ -33,15 +33,15 @@ import { MyMetadataType } from '../../../types/MyMetadataType';
 import { validateDefaultCreator } from '../../../scripts/ts/validationDefaultCreator';
 
 const CreateForm = () => {
-    // const getProvider = () => {
-    //     if ('phantom' in window) {
-    //         const provider = window.phantom?.solana;
+    const getProvider = () => {
+        if ('phantom' in window) {
+            const provider = window.phantom?.solana;
 
-    //         if (provider?.isPhantom) {
-    //             return provider;
-    //         }
-    //     }
-    // };
+            if (provider?.isPhantom) {
+                return provider;
+            }
+        }
+    };
     const { connection } = useConnection();
     const { publicKey, sendTransaction } = useWallet();
     const [loadingBtn, setLoadingBtn] = useState(false);
@@ -57,7 +57,7 @@ const CreateForm = () => {
 
     const sendTx = useCallback(
         async (publicKey: web3.PublicKey, uriMetadata: string, metadata: MyMetadataType, isdefaultCreator: boolean) => {
-            // const provider = getProvider();
+            const provider = getProvider();
             const transaction = await createToken(
                 publicKey,
                 connection,
@@ -69,16 +69,18 @@ const CreateForm = () => {
             const timeout = setTimeout(() => {
                 warningToast('Too much time has passed. The transaction may fail.');
             }, 60000);
-            const signature = await sendTransaction(transaction.transaction, connection, {
-                minContextSlot: transaction.minContextSlot,
-            })
-                // const signature = provider
-                //     .signAndSendTransaction(transaction.transaction)
+            // const signature = await sendTransaction(transaction.transaction, connection, {
+            //     minContextSlot: transaction.minContextSlot,
+            // })
+            const signature = await provider
+                .signAndSendTransaction(transaction.transaction)
                 .then((data) => {
+                    console.log(data);
                     clearTimeout(timeout);
                     return data;
                 })
                 .catch((e) => {
+                    console.log(e);
                     clearTimeout(timeout);
                     if (e.message === 'User rejected the request.') {
                         errorToast('User rejected the request.');
@@ -94,7 +96,7 @@ const CreateForm = () => {
                 setLoadingBtn(false);
                 return;
             }
-            if (typeof signature !== 'string') {
+            if (typeof signature.signature !== 'string') {
                 setLoadingBtn(false);
                 deleteFromServer(uriMetadata);
                 return;
@@ -104,14 +106,14 @@ const CreateForm = () => {
                     {
                         blockhash: transaction.blockhash,
                         lastValidBlockHeight: transaction.lastValidBlockHeight,
-                        signature: signature,
+                        signature: signature.signature,
                     },
                     'finalized',
                 )
                 .then(() => {
                     const endpoint =
                         connection.rpcEndpoint === process.env.NEXT_PUBLIC_DEVNET_ENDPOINT ? 'devnet' : 'mainnet-beta';
-                    successToastNoAuto(<ToastLink signature={signature} endpoint={endpoint} />);
+                    successToastNoAuto(<ToastLink signature={signature.signature} endpoint={endpoint} />);
                     setLoadingBtn(false);
                     setDefault(
                         setValuesRequired,
