@@ -11,7 +11,7 @@ const Footer = () => {
             <div className={styles.footer}>
                 <p>Token For Ever | 2024 | </p>
                 <ul className={styles.linkCategory}>
-                    <Link href={'/'} target="_blank">
+                    <Link href={'https://t.me/tokenforever'} target="_blank">
                         <PiTelegramLogo />
                         <p>Telegram</p>
                     </Link>
