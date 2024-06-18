@@ -10,7 +10,7 @@ export const metadata: Metadata = {
         template: '%s | Token For Ever',
         default: 'Token For Ever', // a default is required when creating a template
     },
-    description: 'Service for generating and managing tokens. No code and easy!',
+    description: 'Service for generating and managing tokens. No code, easy and low fees!',
 };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
