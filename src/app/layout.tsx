@@ -11,6 +11,9 @@ export const metadata: Metadata = {
         default: 'Token For Ever', // a default is required when creating a template
     },
     description: 'Service for generating and managing tokens. No code, easy and low fees!',
+    openGraph: {
+        images: './opengraph-image.png',
+      },
 };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
