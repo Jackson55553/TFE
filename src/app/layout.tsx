@@ -6,6 +6,8 @@ import Header from '../../components/layoutsComponents/header/Header';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
+    metadataBase: new URL('https://tokenforever.space'),
+    alternates: { canonical: '/' },
     title: {
         template: '%s | Token For Ever',
         default: 'Token For Ever', // a default is required when creating a template
