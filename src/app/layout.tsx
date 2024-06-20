@@ -1,3 +1,4 @@
+import Script from 'next/script';
 import styles from '../../styles/sass/_global.module.scss';
 import { Wallet } from '../../components/layoutsComponents/wallet/Wallet';
 import React from 'react';
@@ -14,18 +15,20 @@ export const metadata: Metadata = {
     },
     description: 'Service for generating and managing tokens. No code, easy and low fees!',
     openGraph: {
-        images: './opengraph-image.png',
+        images: '/opengraph-image.png',
     },
 };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html className={styles.html} lang="en">
             <body className={styles.root}>
+                
                 <Wallet>
                     <Header />
                     {children}
                     <Footer />
                 </Wallet>
+                <Script defer src="https://cloud.umami.is/script.js" data-website-id="da244111-295a-4e4e-8a89-75a741d68269"></Script>
             </body>
         </html>
     );

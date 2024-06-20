@@ -10,7 +10,7 @@ export const inputsRequired: MyInputType[] = [
         maxLength: 30,
         label: 'Token Name',
         className: `${styles.mainTokenInput} ${styles.focusTransition}`,
-        pattern: `[!-z0-9]{1,}$`,
+        pattern: "[\s\S]*{1,}$",
         dataTitle: 'Example: Solana (max. 30 characters)',
         errorMessage: 'Name should be 1-30 characters',
         required: true,

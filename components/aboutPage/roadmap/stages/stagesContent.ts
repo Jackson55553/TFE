@@ -8,7 +8,7 @@ export const stages: StageType[] = [
     },
     {
         id: 2,
-        description: 'Creation of TFE token\n\nPre-sale Airdrop on our website\n\nStrategic Marketing Companies',
+        description: 'Creation of TFE token\n\nPre-sale Airdrop\n\nStrategic Marketing Companies',
         isFinished: false,
     },
     {

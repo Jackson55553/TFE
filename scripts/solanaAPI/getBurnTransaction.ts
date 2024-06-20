@@ -1,7 +1,7 @@
 import * as web3 from '@solana/web3.js';
 import * as token from '@solana/spl-token';
 import { errorToast } from '../ts/myToasts';
-import { getBurnPaymentInstruction, getMintPaymentInstruction } from './getPaymentInstruction';
+import { getBurnPaymentInstruction } from './getPaymentInstruction';
 
 export const getBurnTransaction = async (
     tokenAddress: string,
