@@ -21,8 +21,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html className={styles.html} lang="en">
-            <body className={styles.root}>
-                
+            <body className={styles.root}> 
                 <Wallet>
                     <Header />
                     {children}
