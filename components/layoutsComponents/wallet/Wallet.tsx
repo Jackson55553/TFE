@@ -15,8 +15,8 @@ import NetworkChangeButton from '../../UI/networkChangeButton/NetworkChangeButto
 import { infoToast } from '../../../scripts/ts/myToasts';
 
 export const Wallet = ({ children }: { children: React.ReactNode }) => {
-    const [endpoint, setEndpoint] = useState(SolanaNetwork.dev);
-    const [network, setNetwork] = useState(WalletAdapterNetwork.Devnet);
+    const [endpoint, setEndpoint] = useState(SolanaNetwork.main);
+    const [network, setNetwork] = useState(WalletAdapterNetwork.Mainnet);
     // You can also provide a custom RPC endpoint.
     // const endpoint = useMemo(() => clusterApiUrl(network), [network]);
 

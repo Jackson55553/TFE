@@ -134,7 +134,8 @@ const CreateForm = () => {
                     );
                     writeUser(publicKey.toBase58());
                 })
-                .catch(() => {
+                .catch((e) => {
+                    console.log(e)
                     setLoadingBtn(false);
                     deleteFromServer(uriMetadata);
                 });
