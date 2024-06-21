@@ -4,6 +4,7 @@ import React from 'react';
 import Footer from '../../components/layoutsComponents/footer/Footer';
 import Header from '../../components/layoutsComponents/header/Header';
 import { Metadata } from 'next';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
     metadataBase: new URL('https://tokenforever.space'),
@@ -26,6 +27,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     {children}
                     <Footer />
                 </Wallet>
+                <Script
+                    defer
+                    src="https://cloud.umami.is/script.js"
+                    data-website-id="da244111-295a-4e4e-8a89-75a741d68269"
+                ></Script>
             </body>
         </html>
     );
