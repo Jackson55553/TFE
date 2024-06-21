@@ -14,7 +14,7 @@ export const stages: StageType[] = [
     {
         id: 3,
         description: 'Official pool on Raydium\n\nGlobal Marketing Initiatives',
-        isFinished: false,
+        isFinished: true,
     },
     {
         id: 4,
