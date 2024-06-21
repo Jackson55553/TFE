@@ -135,7 +135,7 @@ const CreateForm = () => {
                     writeUser(publicKey.toBase58());
                 })
                 .catch((e) => {
-                    errorToast('Transaction failed')
+                    errorToast('Transaction failed');
                     setLoadingBtn(false);
                     deleteFromServer(uriMetadata);
                 });
