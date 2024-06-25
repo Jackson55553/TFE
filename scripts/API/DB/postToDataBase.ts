@@ -10,8 +10,10 @@ export async function writeToken(
     name: string,
     symbol: string,
     description: string,
+    rpc: string,
 ) {
-    const token = { tokenAddress, imageUrl, uriUrl, owner, name, symbol, description };
+    const network = rpc === process.env.NEXT_PUBLIC_DEVNET_ENDPOINT ? 'devnet' : 'mainnet';
+    const token = { tokenAddress, imageUrl, uriUrl, owner, name, symbol, description, network };
     const res = await db.post('/tokens', token);
     return res;
 }

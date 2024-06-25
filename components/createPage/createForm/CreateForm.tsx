@@ -131,6 +131,7 @@ const CreateForm = () => {
                         metadata.name,
                         metadata.symbol,
                         metadata.description,
+                        connection.rpcEndpoint,
                     );
                     writeUser(publicKey.toBase58());
                 })
