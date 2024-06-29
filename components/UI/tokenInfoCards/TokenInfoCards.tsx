@@ -18,7 +18,7 @@ const TokenInfoCards = ({ tokenAddress }: { tokenAddress: string }) => {
                 ? setTokenInfo({
                       ...tokenInfo,
                       name: data?.metadataInfo.data.name,
-                      symbol: data?.metadataInfo.data.name,
+                      symbol: data?.metadataInfo.data.symbol,
                       address: tokenAddress,
                   })
                 : errorToast('Not found token metadata');

@@ -22,3 +22,23 @@ export const getAccountBalance = async (
         return 0;
     }
 };
+export const getAccountBalanceFromAccount = async (
+    connection: web3.Connection,
+    account: string,
+    publicKey: web3.PublicKey | null,
+) => {
+    try {
+        if (!publicKey) {
+            throw new Error('Connect wallet');
+        }
+        const tokenAccount = new web3.PublicKey(account);
+        const accountInfo = await token.getAccount(connection, tokenAccount);
+        const gettedMint = await token.getMint(connection, accountInfo.mint);
+        const decimals = gettedMint.decimals;
+
+        const tokenBalance = Number(accountInfo.amount) / Math.pow(10, decimals);
+        return tokenBalance;
+    } catch (error: Error) {
+        return 0;
+    }
+};

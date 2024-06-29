@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import styles from '../../../styles/sass/_mintForm.module.scss';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { errorToast } from '../../../scripts/ts/myToasts';
-import { isTokenMintAddress } from '../../../scripts/solanaAPI/validateTokenAccount';
-import { getAccountBalance } from '../../../scripts/solanaAPI/getBalance';
+import { isAccountAddress } from '../../../scripts/solanaAPI/validateTokenAccount';
+import { getAccountBalanceFromAccount } from '../../../scripts/solanaAPI/getBalance';
 
 const FindTokenAccountInput = ({
     setLoading,
     setTokenAddress,
-    tokenAddress,
+    tokenAccount,
     setValide,
     setTokenAccount,
     setTokenBalance,
@@ -16,7 +16,7 @@ const FindTokenAccountInput = ({
     setLoading: React.Dispatch<React.SetStateAction<boolean>>;
     setTokenAddress: React.Dispatch<React.SetStateAction<string>>;
     setValide: React.Dispatch<React.SetStateAction<boolean>>;
-    tokenAddress: string;
+    tokenAccount: string;
     setTokenAccount: React.Dispatch<React.SetStateAction<string>>;
     setTokenBalance: React.Dispatch<React.SetStateAction<number>>;
 }) => {
@@ -35,15 +35,15 @@ const FindTokenAccountInput = ({
             clearTimeout(inputTimeout);
         }
         e.preventDefault();
-        setTokenAddress(e.target.value);
+        setTokenAccount(e.target.value);
         const timeoutID = setTimeout(async () => {
-            const validate = await isTokenMintAddress(
+            const validate = await isAccountAddress(
                 setLoading,
                 e.target.value,
                 e,
                 publicKey,
                 connection,
-                setTokenAccount,
+                setTokenAddress,
             );
             if (!validate) {
                 setValide(validate);
@@ -51,7 +51,7 @@ const FindTokenAccountInput = ({
                 return;
             }
             if (validate) {
-                getAccountBalance(connection, e.target.value, publicKey)
+                getAccountBalanceFromAccount(connection, e.target.value, publicKey)
                     .then((balance) => {
                         if (balance) {
                             setTokenBalance(balance);
@@ -61,7 +61,6 @@ const FindTokenAccountInput = ({
                             setTokenBalance(0);
                             setValide(false);
                             setLoading(false);
-
                             throw new Error('Token balance is 0');
                         }
                     })
@@ -92,7 +91,7 @@ const FindTokenAccountInput = ({
                 onBlur={handleFocused}
                 focused={focused.toString()}
                 required
-                value={tokenAddress}
+                value={tokenAccount}
                 onChange={onchage}
             />
         </>

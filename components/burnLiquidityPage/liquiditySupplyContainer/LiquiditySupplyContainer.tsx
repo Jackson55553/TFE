@@ -3,9 +3,17 @@ import React, { useEffect, useState } from 'react';
 import styles from '../../../styles/sass/_supplyCounter.module.scss';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { getSupply } from '../../../scripts/solanaAPI/getSupply';
-import { getAccountBalanceFromMint } from '../../../scripts/solanaAPI/getAccountBalance';
+import { getAccountBalanceFromAcc } from '../../../scripts/solanaAPI/getAccountBalance';
 
-const SupplyCounter = ({ burnAmount, tokenAddress }: { burnAmount: number; tokenAddress: string }) => {
+const LiquiditySupplyContainer = ({
+    burnAmount,
+    tokenAddress,
+    tokenAccount,
+}: {
+    tokenAccount: string;
+    burnAmount: number;
+    tokenAddress: string;
+}) => {
     const { connection } = useConnection();
     const { publicKey } = useWallet();
     const [circulatingSupply, setCirulatingSupply] = useState(0);
@@ -17,7 +25,7 @@ const SupplyCounter = ({ burnAmount, tokenAddress }: { burnAmount: number; token
             setCirulatingSupply(Number(supply));
             setPostBurningSupply(Number(supply) - Number(burnAmount));
         });
-        getAccountBalanceFromMint(connection, tokenAddress, publicKey).then((balance) => setAccountBalance(balance));
+        getAccountBalanceFromAcc(connection, tokenAccount).then((balance) => setAccountBalance(balance));
     }, []);
 
     useEffect(() => {
@@ -46,4 +54,4 @@ const SupplyCounter = ({ burnAmount, tokenAddress }: { burnAmount: number; token
     );
 };
 
-export default SupplyCounter;
+export default LiquiditySupplyContainer;

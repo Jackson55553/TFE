@@ -27,9 +27,13 @@ export const navLinks: INavLink[] = [
     },
     {
         name: 'LIQUIDITY',
-        sublinks: [],
-        href: '/liquidity',
-        isActive: false,
+        sublinks: [
+            { name: 'BURN LIQUIDITY', href: '/liquidity-burn', isActive: true },
+            { name: 'REMOVE LIQUIDITY', href: '/', isActive: false },
+            { name: 'CREATE LIQUIDITY', href: '/', isActive: false },
+        ],
+        href: '/liquidity-burn',
+        isActive: true,
         isArrow: true,
     },
     { name: 'ABOUT', href: '/about', isActive: true, isArrow: false },
