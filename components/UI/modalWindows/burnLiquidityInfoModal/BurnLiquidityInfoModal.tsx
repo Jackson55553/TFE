@@ -22,7 +22,7 @@ const BurnLiquidityInfoModal = ({ closeModal, modalIsOpen }: { closeModal: () =>
                     </ul>
                     <h2>Cost of burning the liquidity</h2>
                     {/* TODO: WRITE FULL PRICE FOR TOKEN CREATION */}
-                    <p>The cost of burn the liquidity is 0.05 SOL.</p>
+                    <p>The cost of burn the liquidity is 0.04 SOL.</p>
                     <h2>Burning process</h2>
                     <p>
                         The Burning process will start and will take some seconds. After that you will receive the
