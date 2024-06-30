@@ -19,7 +19,7 @@ export const stages: StageType[] = [
     {
         id: 4,
         description: 'Adding the function of paying with TFE token\n\nAdding functionality for working with liquidity',
-        isFinished: false,
+        isFinished: true,
     },
     {
         id: 5,
