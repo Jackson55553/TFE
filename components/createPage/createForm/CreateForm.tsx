@@ -1,5 +1,5 @@
 'use client';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import styles from '../../../styles/sass/_createForm.module.scss';
 import DownloadImage from './downloadImage/DownloadImage';
 import RequiredInputs from './requiredInputs/RequiredInputs';
@@ -31,17 +31,9 @@ import { deleteFromServer } from '../../../scripts/API/fileServer/deleteFromJson
 import { writeToken, writeUser } from '../../../scripts/API/DB/postToDataBase';
 import { MyMetadataType } from '../../../types/MyMetadataType';
 import { validateDefaultCreator } from '../../../scripts/ts/validationDefaultCreator';
+import { isTfeAccount } from '../../../scripts/solanaAPI/getTfeTokenAccount';
 
 const CreateForm = () => {
-    // const getProvider = () => {
-    //     if ('phantom' in window) {
-    //         const provider = window.phantom?.solana;
-
-    //         if (provider?.isPhantom) {
-    //             return provider;
-    //         }
-    //     }
-    // };
     const { connection } = useConnection();
     const { publicKey, sendTransaction } = useWallet();
     const [loadingBtn, setLoadingBtn] = useState(false);
@@ -54,10 +46,19 @@ const CreateForm = () => {
     const [tags, setTags] = useState(defaultTags);
     const [imageForUri, setImageForUri] = useState(defaultImageForUri);
     const [imageUrl, setImageUrl] = useState('');
+    const [isTokenAccount, setIsTokenAccount] = useState(false);
+    const [isTokenPaying, setisTokenPaying] = useState(false);
+
+    useEffect(() => {
+        if (publicKey) {
+            isTfeAccount(connection, publicKey).then((isAccount) => {
+                setIsTokenAccount(isAccount);
+            });
+        }
+    }, [publicKey]);
 
     const sendTx = useCallback(
         async (publicKey: web3.PublicKey, uriMetadata: string, metadata: MyMetadataType, isdefaultCreator: boolean) => {
-            // const provider = getProvider();
             const transaction = await createToken(
                 publicKey,
                 connection,
@@ -65,6 +66,7 @@ const CreateForm = () => {
                 uriMetadata,
                 isdefaultCreator,
                 authorities,
+                isTokenPaying,
             );
             const timeout = setTimeout(() => {
                 warningToast('Too much time has passed. The transaction may fail.');
@@ -72,8 +74,6 @@ const CreateForm = () => {
             const signature = await sendTransaction(transaction.transaction, connection, {
                 minContextSlot: transaction.minContextSlot,
             })
-                // const signature = provider
-                //     .signAndSendTransaction(transaction.transaction)
                 .then((data) => {
                     clearTimeout(timeout);
                     return data;
@@ -141,7 +141,7 @@ const CreateForm = () => {
                     deleteFromServer(uriMetadata);
                 });
         },
-        [connection, publicKey, sendTransaction, valuesRequired, authorities],
+        [connection, publicKey, sendTransaction, valuesRequired, authorities, isTokenPaying],
     );
 
     const handleSubmit: React.FormEventHandler<HTMLFormElement> | undefined = async (e) => {
@@ -205,7 +205,12 @@ const CreateForm = () => {
                     imageUrl={imageUrl}
                 />
                 <PermissionsMain setAuthorities={setAuthorities} authorities={authorities} />
-                <ButtonCreate loading={loadingBtn} />
+                <ButtonCreate
+                    loading={loadingBtn}
+                    isTokenAccount={isTokenAccount}
+                    isTokenPaying={isTokenPaying}
+                    setisTokenPaying={setisTokenPaying}
+                />
             </form>
         </div>
     );

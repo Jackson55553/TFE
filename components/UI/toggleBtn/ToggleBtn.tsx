@@ -6,9 +6,9 @@ const ToggleBtn = ({
     setToggled,
     disabled,
 }: {
-    disabled?: boolean;
     toggled: boolean;
     setToggled: React.Dispatch<React.SetStateAction<boolean>>;
+    disabled?: boolean;
 }) => {
     return (
         <button

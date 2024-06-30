@@ -19,6 +19,7 @@ export const createToken = async (
     uri: string,
     isdefaultCreator: boolean,
     authorities: AuthoritiesType,
+    isTokenPaying: boolean,
 ) => {
     const amount = +values.supply * Math.pow(10, +values.decimals);
 
@@ -92,7 +93,14 @@ export const createToken = async (
         transaction.add(...authorityIxs);
     }
 
-    transaction.add(getCreatePaymentInstruction(publicKey, isdefaultCreator, connection.rpcEndpoint));
+    const paymentTX = await getCreatePaymentInstruction(
+        publicKey,
+        isdefaultCreator,
+        connection.rpcEndpoint,
+        isTokenPaying,
+        connection,
+    );
+    transaction.add(paymentTX);
 
     const {
         context: { slot: minContextSlot },
@@ -104,7 +112,6 @@ export const createToken = async (
     transaction.lastValidBlockHeight = lastValidBlockHeight;
     transaction.feePayer = publicKey;
     transaction.partialSign(...[mintKeypair, accountKeypair]);
-
     return {
         transaction,
         mintKeypair,
