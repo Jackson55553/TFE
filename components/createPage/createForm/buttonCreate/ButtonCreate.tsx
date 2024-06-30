@@ -41,7 +41,10 @@ const ButtonCreate = ({
             ) : (
                 <p className={styles.walletP}>{'The lowest service fee on the entire network is 0.09 SOL'}</p>
             )}
-            {connection && connection.rpcEndpoint === process.env.NEXT_PUBLIC_MAINNET_ENDPOINT && isTokenAccount ? (
+            {connection &&
+            connection.rpcEndpoint === process.env.NEXT_PUBLIC_MAINNET_ENDPOINT &&
+            isTokenAccount &&
+            publicKey ? (
                 <div className={styles.changePayingContainer}>
                     <p>{'Pay Sol'}</p>
                     <ToggleBtn toggled={isTokenPaying} setToggled={setisTokenPaying} />
