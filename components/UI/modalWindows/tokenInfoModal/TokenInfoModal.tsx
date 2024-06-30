@@ -24,7 +24,7 @@ const TokenInfoModal = ({ closeModal, modalIsOpen }: { closeModal: () => void; m
                         <li>Provide links to external resources. (Optional)</li>
                         <li>
                             {` You can specify your creator information (default: Token For Ever)\n`}
-                            {`Additional fees (0.4 SOL). (Optional)`}
+                            {`Additional fees (0.4 SOL and ~0.2 SOL if pay with TFE token). (Optional)`}
                         </li>
                         <li>Select tags for your token. (Optional)</li>
                         <li>
@@ -34,7 +34,7 @@ const TokenInfoModal = ({ closeModal, modalIsOpen }: { closeModal: () => void; m
                     </ul>
                     <h2>Cost of creating the Token</h2>
                     {/* TODO: WRITE FULL PRICE FOR TOKEN CREATION */}
-                    <p>The cost of creating the Token is 0.09 SOL.</p>
+                    <p>The cost of creating the Token is 0.09 SOL and ~0.04 SOL if pay with TFE token.</p>
                     <h2>Creation process</h2>
                     <p>
                         The creation process will start and will take some seconds. After that you will receive the
