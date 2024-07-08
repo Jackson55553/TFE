@@ -8,11 +8,13 @@ import { getTfePrice } from '../../../../scripts/solanaAPI/getTfePrice';
 
 const ButtonCreate = ({
     loading,
+    setLoadingBtn,
     isTokenAccount,
     isTokenPaying,
     setisTokenPaying,
 }: {
     loading: boolean;
+    setLoadingBtn: React.Dispatch<React.SetStateAction<boolean>>;
     isTokenAccount: boolean;
     isTokenPaying: boolean;
     setisTokenPaying: React.Dispatch<React.SetStateAction<boolean>>;
@@ -23,7 +25,11 @@ const ButtonCreate = ({
 
     useEffect(() => {
         if (isTokenPaying) {
-            getTfePrice(0.04).then((price) => setTfePrice(price));
+            setLoadingBtn(true);
+            getTfePrice(0.04).then((price) => {
+                setLoadingBtn(false);
+                setTfePrice(price);
+            });
         }
     }, [isTokenPaying]);
 

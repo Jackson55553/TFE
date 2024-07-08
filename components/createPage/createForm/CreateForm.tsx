@@ -207,6 +207,7 @@ const CreateForm = () => {
                 <PermissionsMain setAuthorities={setAuthorities} authorities={authorities} />
                 <ButtonCreate
                     loading={loadingBtn}
+                    setLoadingBtn={setLoadingBtn}
                     isTokenAccount={isTokenAccount}
                     isTokenPaying={isTokenPaying}
                     setisTokenPaying={setisTokenPaying}
